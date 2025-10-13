@@ -1,0 +1,35 @@
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../assets/logo.png';
+import './Navbar.css';
+
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* Logo */}
+        <div className="navbar-logo">
+          <img src={logo} alt="KuaKhao" className="logo-image" />
+        </div>
+
+        {/* Navigation Links */}
+        <div className="navbar-links">
+          <a href="#" className="nav-link">Home</a>
+          <a href="#" className="nav-link">Explore</a>
+          <a href="#" className="nav-link">Deals</a>
+          <a href="#" className="nav-link">Favorites</a>
+        </div>
+
+
+        {/* Right Icons */}
+        <div className="navbar-icons">
+          <FontAwesomeIcon icon={faBell} className="navbar-icon" />
+          <FontAwesomeIcon icon={faUser} className="navbar-icon" />
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

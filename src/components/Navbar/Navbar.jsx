@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBell, faUser } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png';
@@ -15,10 +16,12 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="navbar-links">
-          <a href="#" className="nav-link">Home</a>
-          <a href="#" className="nav-link">Explore</a>
-          <a href="#" className="nav-link">Deals</a>
-          <a href="#" className="nav-link">Favorites</a>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/explore" className="nav-link">Explore</Link>
+          <Link to="/ai-picks" className="nav-link">AI Picks</Link>
+          <a href="#" className="nav-link">Kitchen</a>
+          <a href="#" className="nav-link">Reservation</a>
+
         </div>
 
 

@@ -5,6 +5,9 @@ import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
 import AIPicks from './pages/AIPicks'
+import KitchenDetail from './pages/KitchenDetail'
+import Reservation from './pages/Reservation'
+
 import RestaurantDetail from './pages/RestaurantDetail'
 import './App.css'
 
@@ -17,6 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/ai-picks" element={<AIPicks />} />
+          <Route path="/kitchen" element={<KitchenDetail />} />
+          <Route path="/reservation" element={<Reservation />} />
           <Route path="/restaurant/:id" element={<RestaurantDetail />} />
         </Routes>
         <Footer />

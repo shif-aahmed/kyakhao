@@ -1,0 +1,363 @@
+.featured-kitchens-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.featured-kitchen-carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carousel-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 400px;
+  min-height: 400px;
+}
+
+.carousel-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 400px;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow-left {
+  left: 15px;
+}
+
+.nav-arrow-right {
+  right: 15px;
+}
+
+.carousel-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+.kitchen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff6b35;
+  margin-bottom: 20px;
+}
+
+.kitchen-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.kitchen-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.location-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 16px;
+}
+
+.location-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #666;
+  stroke-width: 1.2;
+  fill: none;
+}
+
+.location-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.view-kitchen-btn {
+  background: white;
+  color: #ff6b35;
+  border: 2px solid #ff6b35;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.view-kitchen-btn:hover {
+  background: #ff6b35;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #ff6b35;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .featured-kitchens-section {
+    padding: 60px 0;
+  }
+  
+  .featured-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .carousel-card {
+    flex-direction: column;
+    height: 500px;
+    min-height: 500px;
+    position: relative;
+  }
+  
+  .carousel-image {
+    height: 250px;
+    min-height: 250px;
+    position: relative;
+  }
+  
+  .carousel-content {
+    padding: 30px 20px;
+    position: relative;
+  }
+  
+  .kitchen-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .kitchen-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .kitchen-location {
+    margin-bottom: 25px;
+  }
+  
+  .nav-arrow {
+    width: 35px;
+    height: 35px;
+    z-index: 10;
+  }
+  
+  .nav-arrow-left {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-arrow-right {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-indicators {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-kitchens-section {
+    padding: 40px 0;
+  }
+  
+  .featured-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .carousel-image {
+    height: 200px;
+    min-height: 200px;
+  }
+  
+  .carousel-content {
+    padding: 20px 15px;
+  }
+  
+  .kitchen-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  .kitchen-description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .kitchen-location {
+    margin-bottom: 20px;
+  }
+  
+  .view-kitchen-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .nav-arrow {
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+  }
+  
+  .nav-arrow-left {
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-arrow-right {
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-indicators {
+    margin-top: 20px;
+    gap: 8px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .featured-kitchens-section {
+    padding: 30px 0;
+  }
+  
+  .featured-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-image {
+    height: 180px;
+    min-height: 180px;
+  }
+  
+  .carousel-content {
+    padding: 15px 12px;
+  }
+  
+  .kitchen-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .kitchen-description {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  
+  .kitchen-location {
+    margin-bottom: 15px;
+  }
+  
+  .view-kitchen-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .nav-arrow {
+    width: 28px;
+    height: 28px;
+    z-index: 10;
+  }
+  
+  .nav-arrow-left {
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-arrow-right {
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

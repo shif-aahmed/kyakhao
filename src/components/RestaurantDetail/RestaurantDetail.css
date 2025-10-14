@@ -1,0 +1,750 @@
+/* Restaurant Detail Page Styles */
+.restaurant-detail-page {
+  min-height: 100vh;
+  background: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.restaurant-detail-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.restaurant-detail-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant-detail-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.restaurant-detail-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+}
+
+.restaurant-detail-hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+  color: white;
+}
+
+.restaurant-detail-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: auto;
+  margin-top: 0;
+}
+
+.restaurant-detail-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 107, 53, 0.9);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-action-btn:hover {
+  background: rgba(255, 107, 53, 1);
+  transform: scale(1.05);
+}
+
+.restaurant-detail-header {
+  max-width: 800px;
+  margin-bottom: 5rem;
+}
+
+.restaurant-detail-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2D5A27;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.restaurant-detail-claimed-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2D5A27;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.restaurant-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-rating-stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.restaurant-detail-star {
+  color: #FF6B35;
+  font-size: 1.2rem;
+}
+
+.restaurant-detail-star.filled {
+  color: #FF6B35;
+}
+
+.restaurant-detail-rating-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.restaurant-detail-rating-reviews {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.restaurant-detail-ranking {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-cuisine {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-price {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.restaurant-detail-action-buttons-bottom {
+  display: flex;
+  gap: 1rem;
+}
+
+.restaurant-detail-action-btn-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4CAF50;
+  background: transparent;
+  color: #4CAF50;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-action-btn-bottom:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-action-btn-bottom.save.saved {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Main Content */
+.restaurant-detail-main-content {
+  padding: 2rem 0;
+}
+
+.restaurant-detail-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-detail-header-info {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.restaurant-detail-header-info .restaurant-detail-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2D5A27;
+  margin: 0;
+}
+
+.restaurant-detail-header-info .restaurant-detail-claimed-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.restaurant-detail-header-info .restaurant-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-rating-stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-star {
+  color: #FF6B35;
+  font-size: 1.2rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-star.filled {
+  color: #FF6B35;
+}
+
+.restaurant-detail-header-info .restaurant-detail-rating-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.restaurant-detail-header-info .restaurant-detail-rating-reviews {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.restaurant-detail-header-info .restaurant-detail-ranking {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-cuisine {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-price {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-action-buttons-bottom {
+  display: flex;
+  gap: 1rem;
+}
+
+.restaurant-detail-header-info .restaurant-detail-action-btn-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4CAF50;
+  background: transparent;
+  color: #4CAF50;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-header-info .restaurant-detail-action-btn-bottom:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-header-info .restaurant-detail-action-btn-bottom.save.saved {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-top: 0;
+}
+
+/* Left Column */
+.restaurant-detail-left-column {
+  background: white;
+}
+
+.restaurant-detail-nav-tabs {
+  display: flex;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 2rem;
+}
+
+.restaurant-detail-nav-tab {
+  padding: 1rem 2rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-nav-tab.active {
+  color: #2D5A27;
+  border-bottom-color: #4CAF50;
+}
+
+.restaurant-detail-nav-tab:hover {
+  color: #2D5A27;
+}
+
+.restaurant-detail-tab-content {
+  min-height: 500px;
+}
+
+.restaurant-detail-content-section {
+  margin-bottom: 2.5rem;
+}
+
+.restaurant-detail-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2D5A27;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-see-all-link,
+.restaurant-detail-suggest-edit {
+  color: #4CAF50;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.restaurant-detail-see-all-link:hover,
+.restaurant-detail-suggest-edit:hover {
+  color: #2D5A27;
+}
+
+/* At a glance */
+.restaurant-detail-glance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.restaurant-detail-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.restaurant-detail-info-item svg {
+  color: #666;
+  width: 16px;
+}
+
+.restaurant-detail-improve-link {
+  color: #4CAF50;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.restaurant-detail-improve-link:hover {
+  color: #2D5A27;
+}
+
+/* About */
+.restaurant-detail-about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.restaurant-detail-award-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border: none;
+  padding: 0;
+}
+
+.award-icon {
+  width: 40px;
+  height: 40px;
+  background: #FFD700;
+  border: 2px solid #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2D5A27;
+}
+
+.award-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.award-title {
+  font-weight: 700;
+  color: #2D5A27;
+  font-size: 1rem;
+}
+
+.award-year {
+  font-weight: 600;
+  color: #2D5A27;
+  font-size: 0.9rem;
+}
+
+/* Features */
+.restaurant-detail-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.restaurant-detail-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.restaurant-detail-feature-item svg {
+  color: #4CAF50;
+  width: 16px;
+}
+
+/* Location */
+.restaurant-detail-location-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.restaurant-detail-map-container {
+  height: 150px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid #e9ecef;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-map-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #e9ecef;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restaurant-detail-map-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+.restaurant-detail-address-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.restaurant-detail-address-info svg {
+  color: #666;
+  width: 16px;
+}
+
+.restaurant-detail-arrow-icon {
+  margin-left: auto;
+  color: #4CAF50;
+}
+
+/* Questionnaire */
+.restaurant-detail-questionnaire {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.restaurant-detail-questionnaire p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-radio-options {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.restaurant-detail-radio-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+}
+
+.restaurant-detail-radio-options input[type="radio"] {
+  accent-color: #4CAF50;
+}
+
+/* Right Column */
+.restaurant-detail-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.restaurant-detail-action-buttons-right {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.restaurant-detail-action-btn-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4CAF50;
+  background: transparent;
+  color: #4CAF50;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-action-btn-right:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-action-btn-right.save.saved {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-save-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 2rem;
+}
+
+.restaurant-detail-save-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #4CAF50;
+  background: transparent;
+  color: #4CAF50;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurant-detail-save-button:hover,
+.restaurant-detail-save-button.saved {
+  background: #4CAF50;
+  color: white;
+}
+
+.restaurant-detail-hours-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-top: 0;
+}
+
+.restaurant-detail-hours-section .restaurant-detail-section-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-detail-hours-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.restaurant-detail-current-status {
+  color: #4CAF50;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.restaurant-detail-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.restaurant-detail-hours-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.restaurant-detail-day {
+  font-weight: 600;
+}
+
+.restaurant-detail-hours {
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .restaurant-name {
+    font-size: 2rem;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .action-buttons-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav-tabs {
+    overflow-x: auto;
+  }
+  
+  .nav-tab {
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+  }
+  
+  .restaurant-detail-radio-options {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-name {
+    font-size: 1.5rem;
+  }
+  
+  .hero-section {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .action-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .action-btn-bottom {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

@@ -11,8 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './HeroBanner.css';
 
-const HeroBanner = () => {
-  const [activeCategory, setActiveCategory] = useState('Search All');
+const HeroBanner = ({ activeTab, setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
@@ -49,8 +48,8 @@ const HeroBanner = () => {
             {categories.map((category) => (
               <button
                 key={category.name}
-                className={`nav-category ${activeCategory === category.name ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category.name)}
+                className={`nav-category ${activeTab === category.name ? 'active' : ''}`}
+                onClick={() => setActiveTab(category.name)}
               >
                 <FontAwesomeIcon icon={category.icon} className="category-icon" />
                 <span className="category-name">{category.name}</span>

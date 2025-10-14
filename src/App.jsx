@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
 import AIPicks from './pages/AIPicks'
+import RestaurantDetail from './pages/RestaurantDetail'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/ai-picks" element={<AIPicks />} />
+          <Route path="/restaurant/:id" element={<RestaurantDetail />} />
         </Routes>
         <Footer />
       </div>

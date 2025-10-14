@@ -257,8 +257,10 @@ const FoodGrid = ({ filters = null }) => {
 
     return foodItems.filter(item => {
       // Price filter
-      if (item.price < filters.price[0] || item.price > filters.price[1]) {
-        return false;
+      if (filters.price && filters.price.length >= 2) {
+        if (item.price < filters.price[0] || item.price > filters.price[1]) {
+          return false;
+        }
       }
 
       // Spice level filter

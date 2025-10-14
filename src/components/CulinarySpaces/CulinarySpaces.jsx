@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import './CulinarySpaces.css'
 
 const CulinarySpaces = () => {
-  const [selectedCuisine, setSelectedCuisine] = useState('Italian')
+  const [selectedCuisine, setSelectedCuisine] = useState('All')
 
   const cuisines = [
-    'Italian', 'Japanese', 'Mexican', 'French', 'Indian', 
+    'All', 'Italian', 'Japanese', 'Mexican', 'French', 'Indian', 
     'Mediterranean', 'Thai', 'Vegan', 'Chinese', 'Korean'
   ]
 
@@ -97,9 +97,9 @@ const CulinarySpaces = () => {
   ]
 
   // Filter spaces based on selected cuisine
-  const filteredSpaces = culinarySpaces.filter(space => 
-    space.cuisine === selectedCuisine
-  )
+  const filteredSpaces = selectedCuisine === 'All' 
+    ? culinarySpaces 
+    : culinarySpaces.filter(space => space.cuisine === selectedCuisine)
 
   return (
     <div className="culinary-spaces-section">

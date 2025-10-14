@@ -153,6 +153,14 @@
   fill: none;
 }
 
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   .culinary-spaces-section {
     padding: 60px 0;

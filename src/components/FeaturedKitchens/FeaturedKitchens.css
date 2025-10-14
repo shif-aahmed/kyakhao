@@ -29,6 +29,7 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
+  height: 400px;
   min-height: 400px;
 }
 
@@ -36,6 +37,8 @@
   flex: 1;
   position: relative;
   overflow: hidden;
+  height: 100%;
+  min-height: 400px;
 }
 
 .carousel-image img {
@@ -82,6 +85,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  height: 100%;
+  min-height: 400px;
 }
 
 .kitchen-title {
@@ -180,12 +185,14 @@
   
   .carousel-card {
     flex-direction: column;
-    min-height: auto;
+    height: 500px;
+    min-height: 500px;
     position: relative;
   }
   
   .carousel-image {
     height: 250px;
+    min-height: 250px;
     position: relative;
   }
   
@@ -243,6 +250,7 @@
   
   .carousel-image {
     height: 200px;
+    min-height: 200px;
   }
   
   .carousel-content {
@@ -309,6 +317,7 @@
   
   .carousel-image {
     height: 180px;
+    min-height: 180px;
   }
   
   .carousel-content {

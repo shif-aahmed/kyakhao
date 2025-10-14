@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Explore from './pages/Explore'
 import AIPicks from './pages/AIPicks'
 import KitchenDetail from './pages/KitchenDetail'
+import Reservation from './pages/Reservation'
 
 import './App.css'
 
@@ -19,7 +20,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/ai-picks" element={<AIPicks />} />
           <Route path="/kitchen" element={<KitchenDetail />} />
-
+          <Route path="/reservation" element={<Reservation />} />
         </Routes>
         <Footer />
       </div>

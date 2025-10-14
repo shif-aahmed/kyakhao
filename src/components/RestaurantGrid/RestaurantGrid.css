@@ -1,0 +1,226 @@
+.restaurant-grid-section {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.premium-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.restaurant-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.restaurant-info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.star {
+  font-size: 1rem;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.reviews {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.time-slots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.time-slot {
+  background: #f5f5f5;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.reserve-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.reserve-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.details-btn {
+  background: none;
+  color: #ff6b35;
+  border: 1px solid #ff6b35;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #ff6b35;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .restaurant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .restaurant-grid-section {
+    padding: 60px 0;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .reserve-btn,
+  .details-btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  .restaurant-card {
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-grid-section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .restaurant-card {
+    margin: 0 5px;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .restaurant-name {
+    font-size: 1.1rem;
+  }
+  
+  .restaurant-info {
+    font-size: 0.85rem;
+  }
+  
+  .time-slots {
+    gap: 6px;
+  }
+  
+  .time-slot {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .reserve-btn,
+  .details-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

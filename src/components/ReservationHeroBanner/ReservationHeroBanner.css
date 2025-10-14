@@ -1,4 +1,4 @@
-.kitchen-detail-hero-banner {
+.reservation-hero-banner {
   height: 70vh;
   min-height: 500px;
   background-color: #f0f0f0;
@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.kitchen-detail-hero-banner::before {
+.reservation-hero-banner::before {
   content: '';
   position: absolute;
   top: 0;
@@ -25,7 +25,7 @@
   z-index: 1;
 }
 
-.kitchen-detail-hero-content {
+.reservation-hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
@@ -33,7 +33,7 @@
   padding: 0 20px;
 }
 
-.kitchen-detail-hero-title {
+.reservation-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
   color: #2d5a27;
@@ -41,66 +41,43 @@
   line-height: 1.2;
 }
 
-.kitchen-detail-hero-subtitle {
+.reservation-hero-subtitle {
   font-size: 1.3rem;
   color: #333;
   line-height: 1.6;
   margin: 0;
 }
 
-
-
 @media (max-width: 768px) {
-  .kitchen-detail-hero-banner {
+  .reservation-hero-banner {
     height: 60vh;
     min-height: 400px;
   }
   
-  .kitchen-detail-hero-title {
+  .reservation-hero-title {
     font-size: 2.2rem;
   }
   
-  .kitchen-detail-hero-subtitle {
+  .reservation-hero-subtitle {
     font-size: 1.1rem;
-  }
-  
-  .kitchen-detail-hero-content {
-    padding: 0 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .kitchen-detail-hero-banner {
+  .reservation-hero-banner {
     height: 50vh;
-    min-height: 300px;
+    min-height: 350px;
   }
   
-  .kitchen-detail-hero-title {
+  .reservation-hero-title {
     font-size: 1.8rem;
-    margin-bottom: 15px;
   }
   
-  .kitchen-detail-hero-subtitle {
+  .reservation-hero-subtitle {
     font-size: 1rem;
   }
   
-  .kitchen-detail-hero-content {
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 360px) {
-  .kitchen-detail-hero-banner {
-    height: 45vh;
-    min-height: 250px;
-  }
-  
-  .kitchen-detail-hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .kitchen-detail-hero-subtitle {
-    font-size: 0.9rem;
+  .reservation-hero-content {
+    padding: 0 15px;
   }
 }

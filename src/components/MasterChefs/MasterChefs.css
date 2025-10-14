@@ -208,6 +208,15 @@
 }
 
 @media (max-width: 768px) {
+  .master-chefs-section {
+    padding: 60px 0;
+  }
+  
+  .chefs-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
   .chefs-carousel {
     flex-direction: column;
     gap: 20px;
@@ -219,6 +228,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
   }
   
   .nav-arrow-left {
@@ -233,10 +244,7 @@
     order: unset;
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  
-  .chefs-title {
-    font-size: 2rem;
+    max-width: 400px;
   }
   
   .chef-card {
@@ -246,5 +254,196 @@
   .chef-image img {
     width: 100px;
     height: 100px;
+  }
+  
+  .chef-image::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .chef-name {
+    font-size: 1.3rem;
+  }
+  
+  .chef-specialty {
+    font-size: 0.95rem;
+  }
+  
+  .chef-quote {
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    padding: 50px 30px;
+    margin-top: 60px;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .master-chefs-section {
+    padding: 40px 0;
+  }
+  
+  .chefs-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .chefs-carousel {
+    gap: 15px;
+  }
+  
+  .nav-arrow-left,
+  .nav-arrow-right {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .nav-arrow-left {
+    left: 8px;
+  }
+  
+  .nav-arrow-right {
+    right: 8px;
+  }
+  
+  .chefs-grid {
+    gap: 15px;
+    max-width: 350px;
+  }
+  
+  .chef-card {
+    padding: 15px;
+  }
+  
+  .chef-image img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .chef-image::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .chef-name {
+    font-size: 1.1rem;
+  }
+  
+  .chef-specialty {
+    font-size: 0.9rem;
+  }
+  
+  .chef-quote {
+    font-size: 0.85rem;
+  }
+  
+  .cta-section {
+    padding: 40px 20px;
+    margin-top: 50px;
+  }
+  
+  .cta-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .master-chefs-section {
+    padding: 30px 0;
+  }
+  
+  .chefs-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  
+  .chefs-carousel {
+    gap: 10px;
+  }
+  
+  .nav-arrow-left,
+  .nav-arrow-right {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .nav-arrow-left {
+    left: 6px;
+  }
+  
+  .nav-arrow-right {
+    right: 6px;
+  }
+  
+  .chefs-grid {
+    gap: 12px;
+    max-width: 300px;
+  }
+  
+  .chef-card {
+    padding: 12px;
+  }
+  
+  .chef-image img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .chef-image::before {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .chef-name {
+    font-size: 1rem;
+  }
+  
+  .chef-specialty {
+    font-size: 0.85rem;
+  }
+  
+  .chef-quote {
+    font-size: 0.8rem;
+  }
+  
+  .cta-section {
+    padding: 30px 15px;
+    margin-top: 40px;
+  }
+  
+  .cta-title {
+    font-size: 1.6rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .cta-button {
+    padding: 8px 20px;
+    font-size: 0.85rem;
   }
 }

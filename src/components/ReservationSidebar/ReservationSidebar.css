@@ -1,0 +1,309 @@
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.reservation-sidebar {
+  background: white;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #f0f0f0;
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.restaurant-info {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.restaurant-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.restaurant-info p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.star {
+  color: #ffc107;
+}
+
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.time-btn {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.time-btn:hover {
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.time-btn.selected {
+  background: #ff6b35;
+  color: white;
+  border-color: #ff6b35;
+}
+
+.guests-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.guest-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.guest-btn:hover {
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.guest-count {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  min-width: 30px;
+  text-align: center;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+.sidebar-footer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reserve-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background: none;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+@media (max-width: 768px) {
+  .reservation-sidebar {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .sidebar-content {
+    padding: 15px;
+  }
+  
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .time-btn {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reservation-sidebar {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .sidebar-header {
+    padding: 15px;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .sidebar-content {
+    padding: 15px;
+  }
+  
+  .time-slots {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
+  .time-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .guests-selector {
+    gap: 10px;
+  }
+  
+  .guest-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .reserve-btn,
+  .cancel-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}

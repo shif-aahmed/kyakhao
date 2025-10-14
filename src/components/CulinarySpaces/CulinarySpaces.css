@@ -154,24 +154,117 @@
 }
 
 @media (max-width: 768px) {
+  .culinary-spaces-section {
+    padding: 60px 0;
+  }
+  
   .spaces-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
   .spaces-title {
     font-size: 2rem;
+    margin-bottom: 30px;
   }
   
   .cuisine-title {
     font-size: 2rem;
+    margin-bottom: 30px;
   }
   
   .cuisine-buttons {
     gap: 10px;
+    overflow-x: auto;
+    padding: 0 10px;
+    justify-content: flex-start;
   }
   
   .cuisine-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  
+  .card-image {
+    height: 150px;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .culinary-spaces-section {
+    padding: 40px 0;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .spaces-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .cuisine-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .cuisine-buttons {
+    gap: 8px;
+    padding: 0 5px;
+  }
+  
+  .cuisine-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .card-image {
+    height: 120px;
+  }
+  
+  .card-content {
+    padding: 12px;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .card-location {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .spaces-title {
+    font-size: 1.6rem;
+  }
+  
+  .cuisine-title {
+    font-size: 1.6rem;
+  }
+  
+  .cuisine-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-location {
+    font-size: 0.8rem;
   }
 }

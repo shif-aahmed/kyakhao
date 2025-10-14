@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './FoodCard.css';
 
 const FoodCard = ({ item }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/kitchen/${item.id}`);
+  };
+
   const renderStars = (rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -44,7 +51,7 @@ const FoodCard = ({ item }) => {
   };
 
   return (
-    <div className="food-card">
+    <div className="food-card" onClick={handleCardClick}>
       <div className="food-image">
         <img src={item.image} alt={item.title} />
       </div>
@@ -76,7 +83,13 @@ const FoodCard = ({ item }) => {
           <div className="price">${item.price}</div>
         </div>
         
-        <button className="add-to-cart-btn">
+        <button 
+          className="add-to-cart-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log('Add to cart clicked');
+          }}
+        >
           Add to Cart
         </button>
       </div>

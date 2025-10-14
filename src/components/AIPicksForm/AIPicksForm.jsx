@@ -66,6 +66,7 @@ const AIPicksForm = () => {
       image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=300&h=200&fit=crop",
       matchScore: 92,
       description: "Crispy tofu with fresh vegetables in a spicy sauce",
+      tags: ["Vegetarian", "Spicy", "Healthy"],
       cuisine: "Asian",
       dietary: ["Vegetarian", "Vegan", "Gluten-Free"],
       flavors: ["Spicy"],
@@ -141,6 +142,7 @@ const AIPicksForm = () => {
       image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=300&h=200&fit=crop",
       matchScore: 95,
       description: "Classic Italian pizza with fresh mozzarella and basil",
+      tags: ["Classic", "Italian", "Vegetarian"],
       cuisine: "Italian",
       dietary: ["Vegetarian"],
       flavors: ["Savory"],
@@ -156,6 +158,7 @@ const AIPicksForm = () => {
       image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=300&h=200&fit=crop",
       matchScore: 88,
       description: "Creamy pasta with pancetta and parmesan cheese",
+      tags: ["Creamy", "Italian", "Comfort Food"],
       cuisine: "Italian",
       dietary: ["Gluten-Free"],
       flavors: ["Savory"],
@@ -330,10 +333,13 @@ const AIPicksForm = () => {
       const baseScore = Math.floor(matchPercentage);
       const randomBonus = Math.floor(Math.random() * 10);
       
-      return {
+      const result = {
         ...item,
         matchScore: Math.min(100, baseScore + randomBonus)
       };
+      console.log('Item with tags:', item.name, 'Tags:', item.tags);
+      console.log('Result with tags:', result.name, 'Tags:', result.tags);
+      return result;
     });
     
     // Sort by match score (highest first)
@@ -356,6 +362,8 @@ const AIPicksForm = () => {
     const best = filteredSuggestions.reduce((prev, current) => 
       prev.matchScore > current.matchScore ? prev : current
     );
+    console.log('Best match:', best);
+    console.log('Best match tags:', best.tags);
     setBestMatch(best);
   };
 
@@ -484,7 +492,7 @@ const AIPicksForm = () => {
 
   // Step 2: AI Suggestions
   const renderStep2 = () => (
-    <div className="ai-suggestions">
+      <div className="ai-picks-suggestions">
       <div className="suggestions-container">
         <div className="suggestions-header">
           <button className="back-button" onClick={resetForm}>
@@ -503,6 +511,7 @@ const AIPicksForm = () => {
                 <img src={bestMatch.image} alt={bestMatch.name} />
                 <div className="best-match-badge">Best Match</div>
                 <div className="best-match-tags">
+                  {console.log('Rendering tags:', bestMatch.tags)}
                   {bestMatch.tags && bestMatch.tags.map((tag, index) => (
                     <span key={index} className="best-match-tag">{tag}</span>
                   ))}

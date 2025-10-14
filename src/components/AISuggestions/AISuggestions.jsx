@@ -21,7 +21,7 @@ const AISuggestions = () => {
           </div>
           
           <div className="ai-content">
-            <h2 className="ai-title">AI-Powered Suggestions for You!</h2>
+            <h2 className="ai-title">Home AI Suggestions</h2>
             <p className="ai-description">
               Let our intelligent system recommend dishes you'll love based on your preferences and order history.
             </p>

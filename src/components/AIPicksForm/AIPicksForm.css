@@ -278,7 +278,7 @@
 }
 
 /* AI Suggestions Styles */
-.ai-suggestions {
+.ai-picks-suggestions {
   padding: 2rem;
   background-color: #FDFBF8;
   min-height: 100vh;
@@ -479,6 +479,7 @@
   flex-direction: column;
   margin-left: 2rem;
   margin-top: 2rem;
+  overflow: visible;
 }
 
 .best-match-image img {
@@ -506,6 +507,12 @@
   gap: 0.5rem;
   padding: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  /* min-height: 50px; */
 }
 
 .best-match-content {
@@ -534,14 +541,18 @@
 }
 
 .best-match-tag {
-  background: #FFE4B5;
-  color: #333;
-  border: none;
+  background: transparent;
+  border: 1px solid #FF6B35;
+  color: #FF6B35;
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
   font-size: 0.875rem;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
+  display: inline-block;
+  margin: 0.25rem;
+  visibility: visible;
+  opacity: 1;
 }
 
 .best-match-cook-button {

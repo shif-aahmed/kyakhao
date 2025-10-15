@@ -61,7 +61,7 @@ const AIFusionSuggestion = () => {
             </p>
             
             <div className="ai-fusion-form">
-              <div className="form-group" style={{display: 'inline-block', width: '94%', marginRight: '2%'}}>
+              <div className="form-group" style={{display: 'inline-block', width: '92%'}}>
                 <UniversalDropdown
                   label="Cuisine 1"
                   value={selectedCuisine1}
@@ -71,7 +71,7 @@ const AIFusionSuggestion = () => {
                 />
               </div>
               
-              <div className="form-group" style={{display: 'inline-block', width: '94%'}}>
+              <div className="form-group" style={{display: 'inline-block', width: '92%'}}>
                 <UniversalDropdown
                   label="Cuisine 2"
                   value={selectedCuisine2}
@@ -81,7 +81,7 @@ const AIFusionSuggestion = () => {
                 />
               </div>
               
-              <div className="form-group">
+              <div className="form-group"style={{display: 'inline-block', width: '96%'}}>
                 <UniversalDropdown
                   label="Mood"
                   value={selectedMood}

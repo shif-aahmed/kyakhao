@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faSearch,
-  faVideo,          
-  faUtensils,      
-  faStore,        
-  faTags,
+  faSearch, 
+  faUtensils, 
+  faMapMarkerAlt, 
+  faStore, 
+  faTag, 
   faRobot,
   faSearch as faSearchIcon
 } from '@fortawesome/free-solid-svg-icons';
@@ -16,10 +16,10 @@ const HeroBanner = ({ activeTab, setActiveTab }) => {
 
   const categories = [
     { name: 'Search All', icon: faSearch },
-    { name: 'Vlogs', icon: faVideo },
-    { name: 'Fusion', icon: faUtensils },
+    { name: 'Dishes', icon: faUtensils },
+    { name: 'Things to Do', icon: faMapMarkerAlt },
     { name: 'Restaurants', icon: faStore },
-    { name: 'Discounts', icon: faTags },
+    { name: 'Deals', icon: faTag },
     { name: 'AI Picks', icon: faRobot }
   ];
 

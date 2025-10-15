@@ -19,6 +19,10 @@ import TopCreators from '../components/TopCreators/TopCreators'
 import FilterSection from '../components/FilterSection/FilterSection'
 import NewInTown from '../components/NewInTown/NewInTown'
 import ExploreDishes from '../components/ExploreDishes/ExploreDishes'
+import Deals from '../components/Deals/Deals'
+import Benefits from '../components/Benefits/Benefits'
+import LoyaltyTiers from '../components/LoyaltyTiers/LoyaltyTiers'
+import UserProfile from '../components/UserProfile/UserProfile'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -61,10 +65,11 @@ function Home() {
     if (activeTab === 'AI Picks') {
       return (
         <div>
-          <CookingSection />
-          <CommunityCreations />
-          <PopularFusionTags />
-          <TopCreators />
+          <FilterSection />
+          <Deals />
+          <Benefits />
+          <LoyaltyTiers />
+          <UserProfile />
         </div>
       )
     }

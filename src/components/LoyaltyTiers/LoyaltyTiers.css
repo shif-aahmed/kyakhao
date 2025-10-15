@@ -1,0 +1,525 @@
+.loyalty-tiers-container {
+  padding: 4rem 2rem;
+  background: white;
+  display: block;
+  visibility: visible;
+}
+
+.loyalty-tiers-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loyalty-tiers-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.loyalty-tiers-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.loyalty-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.loyalty-tier-card {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.loyalty-tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tier-header {
+  margin-bottom: 2rem;
+}
+
+.tier-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.tier-subtitle {
+  font-size: 1rem;
+  color: #718096;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.tier-benefits {
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-item {
+  font-size: 1rem;
+  color: #2d3748;
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.benefit-item:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ff6b35;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.benefit-item:last-child {
+  margin-bottom: 0;
+}
+
+.tier-progress {
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: #2d3748;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.join-loyalty-btn {
+  width: 100%;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  margin-top: auto;
+}
+
+.join-loyalty-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.join-loyalty-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .loyalty-tiers-grid {
+    gap: 1.5rem;
+  }
+  
+  .loyalty-tier-card {
+    padding: 1.5rem;
+  }
+  
+  .tier-name {
+    font-size: 1.6rem;
+  }
+  
+  .benefit-item {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .loyalty-tiers-container {
+    padding: 3rem 1rem;
+  }
+  
+  .loyalty-tiers-title {
+    font-size: 2rem;
+  }
+  
+  .loyalty-tiers-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .loyalty-tier-card {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .tier-name {
+    font-size: 1.5rem;
+  }
+  
+  .benefit-item {
+    font-size: 1rem;
+  }
+  
+  .join-loyalty-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .loyalty-tiers-container {
+    padding: 2rem 0.5rem;
+  }
+  
+  .loyalty-tiers-header {
+    margin-bottom: 3rem;
+  }
+  
+  .loyalty-tiers-title {
+    font-size: 1.8rem;
+  }
+  
+  .loyalty-tier-card {
+    padding: 1.5rem;
+  }
+  
+  .tier-name {
+    font-size: 1.4rem;
+  }
+  
+  .tier-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .benefit-item {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .progress-text {
+    font-size: 0.85rem;
+  }
+  
+  .join-loyalty-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Loyalty Modal Styles */
+.loyalty-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.loyalty-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.tier-modal-icon {
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #f7fafc;
+  color: #4a5568;
+}
+
+.modal-content {
+  padding: 2rem;
+}
+
+.tier-info-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.tier-badge-icon {
+  font-size: 1rem;
+}
+
+.tier-badge-text {
+  font-size: 1rem;
+}
+
+.tier-description {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+}
+
+.benefits-preview {
+  margin-bottom: 2rem;
+}
+
+.benefits-preview-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.benefits-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: #2d3748;
+  margin-bottom: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.benefit-check {
+  color: #10b981;
+  font-size: 0.9rem;
+}
+
+.progress-preview {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.progress-preview-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-preview-fill {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-preview-text {
+  font-size: 0.9rem;
+  color: #2d3748;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.cancel-btn {
+  background: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.cancel-btn:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.confirm-join-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.confirm-join-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.confirm-icon {
+  font-size: 0.9rem;
+}
+
+/* Modal Responsive Design */
+@media (max-width: 768px) {
+  .loyalty-modal-overlay {
+    padding: 1rem;
+  }
+  
+  .loyalty-modal {
+    max-width: 100%;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .cancel-btn,
+  .confirm-join-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .loyalty-modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  .tier-badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  
+  .benefit-preview-item {
+    font-size: 0.9rem;
+  }
+}

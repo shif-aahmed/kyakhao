@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './CommunityCreations.css';
 
 const CommunityCreations = () => {
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+
+  const handleViewRecipe = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
+  const closeModal = () => {
+    setSelectedRecipe(null);
+  };
+
   const communityRecipes = [
     {
       id: 1,
@@ -26,9 +36,9 @@ const CommunityCreations = () => {
     {
       id: 3,
       title: "Jerk Chicken Chow Mein",
-      creator: "Global Palate",
+      creator: "Global Palace",
       cuisine: "Caribbean-Chinese",
-      rating: 4.5,
+      rating: 4.9,
       image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
     },
@@ -104,11 +114,76 @@ const CommunityCreations = () => {
                 <span className="rating-number">{recipe.rating}</span>
               </div>
               
-              <button className="view-recipe-btn">View Recipe</button>
+              <button 
+                className="view-recipe-btn"
+                onClick={() => handleViewRecipe(recipe)}
+              >
+                View Recipe
+              </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Recipe Modal */}
+      {selectedRecipe && (
+        <div className="recipe-modal-overlay" onClick={closeModal}>
+          <div className="recipe-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2 className="modal-title">{selectedRecipe.title}</h2>
+              <button className="close-btn" onClick={closeModal}>×</button>
+            </div>
+            
+            <div className="modal-content">
+              <div className="modal-image">
+                <img src={selectedRecipe.image} alt={selectedRecipe.title} />
+              </div>
+              
+              <div className="modal-details">
+                <div className="chef-info">
+                  <img src={selectedRecipe.avatar} alt={selectedRecipe.creator} className="chef-avatar" />
+                  <div>
+                    <h3>{selectedRecipe.creator}</h3>
+                    <span className="cuisine-tag">{selectedRecipe.cuisine}</span>
+                  </div>
+                </div>
+                
+                <div className="rating-section">
+                  <div className="stars">
+                    {renderStars(selectedRecipe.rating)}
+                  </div>
+                  <span className="rating-text">{selectedRecipe.rating}/5 stars</span>
+                </div>
+                
+                <div className="recipe-description">
+                  <h4>About This Recipe</h4>
+                  <p>
+                    This innovative fusion dish combines the best of {selectedRecipe.cuisine.split('-')[0]} and {selectedRecipe.cuisine.split('-')[1]} cuisines. 
+                    Created by {selectedRecipe.creator}, this recipe has earned a {selectedRecipe.rating}-star rating from our community.
+                  </p>
+                  
+                  <h4>Key Ingredients</h4>
+                  <ul>
+                    <li>Fresh ingredients from both culinary traditions</li>
+                    <li>Authentic spices and seasonings</li>
+                    <li>Creative fusion techniques</li>
+                    <li>Premium quality proteins and vegetables</li>
+                  </ul>
+                  
+                  <h4>Cooking Time</h4>
+                  <p>Prep: 30 minutes | Cook: 45 minutes | Total: 1 hour 15 minutes</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="modal-actions">
+              <button className="save-recipe-btn">Save Recipe</button>
+              <button className="share-recipe-btn">Share</button>
+              <button className="cook-now-btn">Start Cooking</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

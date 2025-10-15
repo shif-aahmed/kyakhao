@@ -12,8 +12,10 @@ import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
 import UploadModal from '../components/UploadModal/UploadModal'
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
 import TrySomethingNew from '../components/TrySomethingNew/TrySomethingNew'
-import AIFusionSuggestion from '../components/AIFusionSuggestion/AIFusionSuggestion'
 import CommunityCreations from '../components/CommunityCreations/CommunityCreations'
+import CookingSection from '../components/CookingSection/CookingSection'
+import PopularFusionTags from '../components/PopularFusionTags/PopularFusionTags'
+import TopCreators from '../components/TopCreators/TopCreators'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -43,14 +45,23 @@ function Home() {
     }
     
     if (activeTab === 'Things to Do') {
-      return <TrySomethingNew onVideoClick={handleVideoClick} />
+      return (
+        <div>
+          <TrySomethingNew onVideoClick={handleVideoClick} />
+          <CommunityCreations />
+          <PopularFusionTags />
+          <TopCreators />
+        </div>
+      )
     }
     
     if (activeTab === 'AI Picks') {
       return (
         <div>
-          <AIFusionSuggestion />
+          <CookingSection />
           <CommunityCreations />
+          <PopularFusionTags />
+          <TopCreators />
         </div>
       )
     }
@@ -87,6 +98,9 @@ function Home() {
         <AISuggestions />
         <TopRatedRestaurants setActiveTab={setActiveTab} />
         <NewOnKyaKhao />
+        <CommunityCreations />
+        <PopularFusionTags />
+        <TopCreators />
       </div>
     )
   }

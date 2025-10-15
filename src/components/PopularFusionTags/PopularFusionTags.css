@@ -1,0 +1,139 @@
+.popular-fusion-tags-container {
+  padding: 4rem 2rem;
+  background: #f3f4f6;
+  min-height: auto;
+}
+
+.fusion-tags-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fusion-tags-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.fusion-tags-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.fusion-tags-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.fusion-tags-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.fusion-tags-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.fusion-tags-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fusion-tags-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.fusion-tags-list::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.fusion-tag {
+  background: #f9fafb;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fusion-tag:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fusion-tag.active {
+  background: #ff6b35;
+  color: white;
+  border-color: #ff6b35;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.fusion-tag.active:hover {
+  background: #e55a2b;
+  border-color: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .popular-fusion-tags-container {
+    padding: 2rem 1rem;
+  }
+  
+  .fusion-tags-title {
+    font-size: 2rem;
+  }
+  
+  .fusion-tags-subtitle {
+    font-size: 1rem;
+  }
+  
+  .fusion-tags-list {
+    gap: 0.8rem;
+  }
+  
+  .fusion-tag {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular-fusion-tags-container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .fusion-tags-title {
+    font-size: 1.8rem;
+  }
+  
+  .fusion-tags-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .fusion-tags-list {
+    gap: 0.6rem;
+  }
+  
+  .fusion-tag {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}

@@ -11,6 +11,9 @@ import TrendingNow from '../components/TrendingNow/TrendingNow'
 import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
 import UploadModal from '../components/UploadModal/UploadModal'
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
+import TrySomethingNew from '../components/TrySomethingNew/TrySomethingNew'
+import AIFusionSuggestion from '../components/AIFusionSuggestion/AIFusionSuggestion'
+import CommunityCreations from '../components/CommunityCreations/CommunityCreations'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -32,6 +35,19 @@ function Home() {
   const renderContent = () => {
     if (activeTab === 'Restaurants') {
       return <RestaurantsSection />
+    }
+    
+    if (activeTab === 'Things to Do') {
+      return <TrySomethingNew onVideoClick={handleVideoClick} />
+    }
+    
+    if (activeTab === 'AI Picks') {
+      return (
+        <div>
+          <AIFusionSuggestion />
+          <CommunityCreations />
+        </div>
+      )
     }
     
     if (activeTab === 'Dishes') {

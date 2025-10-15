@@ -1,0 +1,263 @@
+.try-something-new-container {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.try-something-new-header {
+  text-align: left;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.try-something-new-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 1rem 0;
+}
+
+.try-something-new-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.fusion-dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fusion-dish-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fusion-dish-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.fusion-dish-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.fusion-dish-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.fusion-dish-card:hover .fusion-dish-image img {
+  transform: scale(1.05);
+}
+
+.fusion-dish-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.fusion-dish-category {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  align-self: flex-start;
+}
+
+.fusion-dish-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.3;
+}
+
+.fusion-dish-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.fusion-dish-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.view-dish-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.view-dish-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.learn-more-btn {
+  background: white;
+  color: #ff6b35;
+  border: 2px solid #ff6b35;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.learn-more-btn:hover {
+  background: #ff6b35;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .fusion-dishes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .try-something-new-container {
+    padding: 2rem 1rem;
+  }
+  
+  .try-something-new-header {
+    margin-bottom: 2rem;
+  }
+  
+  .try-something-new-title {
+    font-size: 2rem;
+  }
+  
+  .try-something-new-subtitle {
+    font-size: 1rem;
+  }
+  
+  .fusion-dishes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .fusion-dish-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .fusion-dish-image {
+    height: 200px;
+  }
+  
+  .fusion-dish-content {
+    padding: 1.2rem;
+  }
+  
+  .fusion-dish-title {
+    font-size: 1.2rem;
+  }
+  
+  .fusion-dish-description {
+    font-size: 0.9rem;
+  }
+  
+  .fusion-dish-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .view-dish-btn,
+  .learn-more-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .try-something-new-container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .try-something-new-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .try-something-new-title {
+    font-size: 1.8rem;
+  }
+  
+  .try-something-new-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .fusion-dish-card {
+    max-width: 100%;
+  }
+  
+  .fusion-dish-image {
+    height: 180px;
+  }
+  
+  .fusion-dish-content {
+    padding: 1rem;
+  }
+  
+  .fusion-dish-title {
+    font-size: 1.1rem;
+  }
+  
+  .fusion-dish-description {
+    font-size: 0.85rem;
+  }
+  
+  .view-dish-btn,
+  .learn-more-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import UniversalDropdown from '../UniversalDropdown/UniversalDropdown';
 import './AIFusionSuggestion.css';
 
 const AIFusionSuggestion = () => {
@@ -60,46 +61,34 @@ const AIFusionSuggestion = () => {
             </p>
             
             <div className="ai-fusion-form">
-              <div className="form-group">
-                <label>Cuisine 1</label>
-                <select 
-                  value={selectedCuisine1} 
-                  onChange={(e) => setSelectedCuisine1(e.target.value)}
-                  className="form-select"
-                >
-                  <option value="">Select Cuisine</option>
-                  {cuisines.map(cuisine => (
-                    <option key={cuisine} value={cuisine}>{cuisine}</option>
-                  ))}
-                </select>
+              <div className="form-group" style={{display: 'inline-block', width: '94%', marginRight: '2%'}}>
+                <UniversalDropdown
+                  label="Cuisine 1"
+                  value={selectedCuisine1}
+                  options={cuisines}
+                  onChange={setSelectedCuisine1}
+                  placeholder="Select Cuisine"
+                />
+              </div>
+              
+              <div className="form-group" style={{display: 'inline-block', width: '94%'}}>
+                <UniversalDropdown
+                  label="Cuisine 2"
+                  value={selectedCuisine2}
+                  options={cuisines}
+                  onChange={setSelectedCuisine2}
+                  placeholder="Select Cuisine"
+                />
               </div>
               
               <div className="form-group">
-                <label>Cuisine 2</label>
-                <select 
-                  value={selectedCuisine2} 
-                  onChange={(e) => setSelectedCuisine2(e.target.value)}
-                  className="form-select"
-                >
-                  <option value="">Select Cuisine</option>
-                  {cuisines.map(cuisine => (
-                    <option key={cuisine} value={cuisine}>{cuisine}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <div className="form-group">
-                <label>Mood</label>
-                <select 
-                  value={selectedMood} 
-                  onChange={(e) => setSelectedMood(e.target.value)}
-                  className="form-select"
-                >
-                  <option value="">Select Mood</option>
-                  {moods.map(mood => (
-                    <option key={mood} value={mood}>{mood}</option>
-                  ))}
-                </select>
+                <UniversalDropdown
+                  label="Mood"
+                  value={selectedMood}
+                  options={moods}
+                  onChange={setSelectedMood}
+                  placeholder="Select Mood"
+                />
               </div>
               
               <button 

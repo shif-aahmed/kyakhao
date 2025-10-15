@@ -10,6 +10,7 @@ import {
   faEllipsis
 } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import UniversalDropdown from '../UniversalDropdown/UniversalDropdown';
 import './Reviews.css';
 
 const Reviews = () => {
@@ -264,22 +265,10 @@ const Reviews = () => {
       <div class="reviews-modal-content-small">
         <h3 class="reviews-modal-title">Filter Reviews</h3>
         <div class="reviews-modal-section">
-          <label class="reviews-modal-label">Rating:</label>
-          <select class="reviews-modal-select">
-            <option>All ratings</option>
-            <option>5 stars only</option>
-            <option>4+ stars</option>
-            <option>3+ stars</option>
-          </select>
+          <div id="rating-dropdown"></div>
         </div>
         <div class="reviews-modal-section">
-          <label class="reviews-modal-label">Language:</label>
-          <select class="reviews-modal-select">
-            <option>All languages</option>
-            <option>English</option>
-            <option>Spanish</option>
-            <option>French</option>
-          </select>
+          <div id="language-dropdown"></div>
         </div>
         <div class="reviews-modal-section">
           <label class="reviews-modal-label-flex">
@@ -306,6 +295,90 @@ const Reviews = () => {
         modal.remove();
       }
     });
+
+    // Create universal dropdowns for the modal
+    const ratingDropdown = modal.querySelector('#rating-dropdown');
+    const languageDropdown = modal.querySelector('#language-dropdown');
+    
+    if (ratingDropdown && languageDropdown) {
+      // Create rating dropdown
+      const ratingContainer = document.createElement('div');
+      ratingContainer.innerHTML = `
+        <div class="universal-dropdown-container">
+          <label class="universal-dropdown-label">Rating:</label>
+          <div class="universal-dropdown-wrapper">
+            <div class="universal-dropdown-header">
+              <span class="universal-dropdown-selected">All ratings</span>
+              <svg class="universal-dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6,9 12,15 18,9"></polyline>
+              </svg>
+            </div>
+            <div class="universal-dropdown-options" style="display: none;">
+              <div class="universal-dropdown-option selected">All ratings</div>
+              <div class="universal-dropdown-option">5 stars only</div>
+              <div class="universal-dropdown-option">4+ stars</div>
+              <div class="universal-dropdown-option">3+ stars</div>
+            </div>
+          </div>
+        </div>
+      `;
+      ratingDropdown.appendChild(ratingContainer);
+
+      // Create language dropdown
+      const languageContainer = document.createElement('div');
+      languageContainer.innerHTML = `
+        <div class="universal-dropdown-container">
+          <label class="universal-dropdown-label">Language:</label>
+          <div class="universal-dropdown-wrapper">
+            <div class="universal-dropdown-header">
+              <span class="universal-dropdown-selected">All languages</span>
+              <svg class="universal-dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6,9 12,15 18,9"></polyline>
+              </svg>
+            </div>
+            <div class="universal-dropdown-options" style="display: none;">
+              <div class="universal-dropdown-option selected">All languages</div>
+              <div class="universal-dropdown-option">English</div>
+              <div class="universal-dropdown-option">Spanish</div>
+              <div class="universal-dropdown-option">French</div>
+            </div>
+          </div>
+        </div>
+      `;
+      languageDropdown.appendChild(languageContainer);
+
+      // Add dropdown functionality
+      const addDropdownFunctionality = (container) => {
+        const header = container.querySelector('.universal-dropdown-header');
+        const options = container.querySelector('.universal-dropdown-options');
+        const arrow = container.querySelector('.universal-dropdown-arrow');
+        const selected = container.querySelector('.universal-dropdown-selected');
+        const optionElements = container.querySelectorAll('.universal-dropdown-option');
+
+        header.addEventListener('click', () => {
+          const isOpen = options.style.display !== 'none';
+          options.style.display = isOpen ? 'none' : 'block';
+          arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+
+        optionElements.forEach(option => {
+          option.addEventListener('click', () => {
+            // Remove selected class from all options
+            optionElements.forEach(opt => opt.classList.remove('selected'));
+            // Add selected class to clicked option
+            option.classList.add('selected');
+            // Update selected text
+            selected.textContent = option.textContent;
+            // Close dropdown
+            options.style.display = 'none';
+            arrow.style.transform = 'rotate(0deg)';
+          });
+        });
+      };
+
+      addDropdownFunctionality(ratingContainer);
+      addDropdownFunctionality(languageContainer);
+    }
   };
 
   const handleSortChange = () => {

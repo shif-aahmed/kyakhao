@@ -905,3 +905,122 @@
 .reviews-review-images .reviews-review-image img:hover {
   transform: scale(1.05);
 }
+
+/* Universal Dropdown Styles for Reviews Modal */
+.universal-dropdown-container {
+  position: relative;
+  width: 100%;
+}
+
+.universal-dropdown-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.universal-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.universal-dropdown-header {
+  width: 100%;
+  padding: 0.25rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+}
+
+.universal-dropdown-header:hover {
+  border-color: #2d5a27;
+  box-shadow: 0 2px 8px rgba(45, 90, 39, 0.1);
+}
+
+.universal-dropdown-selected {
+  flex: 1;
+  text-align: left;
+}
+
+.universal-dropdown-arrow {
+  color: #666;
+  transition: transform 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.universal-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.universal-dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  animation: universalDropdownFadeIn 0.2s ease-out;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.universal-dropdown-options::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes universalDropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.universal-dropdown-option {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.universal-dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.universal-dropdown-option:hover {
+  background-color: #f8f9fa;
+  color: #2d5a27;
+}
+
+.universal-dropdown-option.selected {
+  background-color: #e8f5e8;
+  color: #2d5a27;
+  font-weight: 500;
+}
+
+.universal-dropdown-option.selected:hover {
+  background-color: #d4edda;
+}

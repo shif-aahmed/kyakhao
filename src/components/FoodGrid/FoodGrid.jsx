@@ -5,7 +5,7 @@ import './FoodGrid.css';
 
 const FoodGrid = ({ filters = null }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 9; // Changed to 9 to ensure complete rows of 3 cards
 
   // Sample food data matching the image
   const foodItems = [

@@ -1,0 +1,117 @@
+.dishes-category-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+}
+
+.dishes-category-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dishes-category-button {
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+.dishes-category-button:hover {
+  background-color: #e8e8e8;
+  transform: translateY(-1px);
+}
+
+.dishes-category-button.active {
+  background-color: #ff6b35;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.upload-video-button {
+  background-color: #ff6b35;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.upload-video-button:hover {
+  background-color: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dishes-category-filter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: -30px;
+  }
+
+  .dishes-category-buttons {
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .dishes-category-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .upload-video-button {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishes-category-filter-container {
+    padding: 0.8rem;
+    margin-top: -20px;
+  }
+
+  .dishes-category-buttons {
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .dishes-category-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .upload-video-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}

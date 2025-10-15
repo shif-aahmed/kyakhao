@@ -5,13 +5,59 @@ import AISuggestions from '../components/AISuggestions/AISuggestions'
 import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
 import NewOnKyaKhao from '../components/NewOnKyaKhao/NewOnKyaKhao'
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
+import DishesGrid from '../components/DishesGrid/DishesGrid'
+import DishesCategoryFilter from '../components/DishesCategoryFilter/DishesCategoryFilter'
+import TrendingNow from '../components/TrendingNow/TrendingNow'
+import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
+import UploadModal from '../components/UploadModal/UploadModal'
+import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
+  const [isVideoPlayerOpen, setIsVideoPlayerOpen] = useState(false)
+  const [currentVideo, setCurrentVideo] = useState(null)
+
+  const handleVideoClick = (videoData) => {
+    setCurrentVideo(videoData)
+    setIsVideoPlayerOpen(true)
+  }
+
+  const handleCloseVideo = () => {
+    setIsVideoPlayerOpen(false)
+    setCurrentVideo(null)
+  }
 
   const renderContent = () => {
     if (activeTab === 'Restaurants') {
       return <RestaurantsSection />
+    }
+    
+    if (activeTab === 'Dishes') {
+      return (
+        <div>
+          <DishesCategoryFilter 
+            onCategoryChange={setSelectedCategory}
+            onUploadClick={() => setIsUploadModalOpen(true)}
+          />
+          <DishesGrid 
+            selectedCategory={selectedCategory}
+            onVideoClick={handleVideoClick}
+          />
+          <TrendingNow onVideoClick={handleVideoClick} />
+          <FeaturedCreator />
+          <UploadModal 
+            isOpen={isUploadModalOpen}
+            onClose={() => setIsUploadModalOpen(false)}
+          />
+          <VideoPlayer 
+            isOpen={isVideoPlayerOpen}
+            onClose={handleCloseVideo}
+            videoData={currentVideo}
+          />
+        </div>
+      )
     }
     
     return (
@@ -26,7 +72,10 @@ function Home() {
 
   return (
     <div>
-      <HeroBanner activeTab={activeTab} setActiveTab={setActiveTab} />
+      <HeroBanner 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab}
+      />
       {renderContent()}
     </div>
   )

@@ -1,17 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrain } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom'; 
 import './AISuggestions.css';
 
 const AISuggestions = () => {
-  const handleViewSuggestions = () => {
-    // Scroll to AI suggestions section or navigate to suggestions page
-    const suggestionsSection = document.getElementById('ai-suggestions-detailed');
-    if (suggestionsSection) {
-      suggestionsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const navigate = useNavigate(); // ✅ Hook to handle navigation
 
+  const handleViewSuggestions = () => {
+    navigate('/ai-picks'); // ✅ Redirect to /ai-picks
+  };
   return (
     <section className="ai-suggestions">
       <div className="container">
@@ -21,7 +19,7 @@ const AISuggestions = () => {
           </div>
           
           <div className="ai-content">
-            <h2 className="ai-title">Home AI Suggestions</h2>
+            <h2 className="ai-title">AI Suggestions</h2>
             <p className="ai-description">
               Let our intelligent system recommend dishes you'll love based on your preferences and order history.
             </p>

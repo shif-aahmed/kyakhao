@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
 import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
@@ -31,6 +31,11 @@ function Home() {
     setIsVideoPlayerOpen(false)
     setCurrentVideo(null)
   }
+
+  // Scroll to top whenever activeTab changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [activeTab]);
 
   const renderContent = () => {
     if (activeTab === 'Restaurants') {
@@ -80,7 +85,7 @@ function Home() {
       <div>
         <DishOfTheWeek />
         <AISuggestions />
-        <TopRatedRestaurants />
+        <TopRatedRestaurants setActiveTab={setActiveTab} />
         <NewOnKyaKhao />
       </div>
     )

@@ -38,7 +38,7 @@ const NewOnKyaKhao = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">New on KyaKhao</h2>
-          <a href="#" className="view-all-link">View All New Items</a>
+          <a href="/explore" className="view-all-link">View All New Items</a>
         </div>
         
         <div className="items-grid">

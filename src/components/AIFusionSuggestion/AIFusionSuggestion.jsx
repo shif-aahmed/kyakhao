@@ -81,7 +81,7 @@ const AIFusionSuggestion = () => {
                 />
               </div>
               
-              <div className="form-group"style={{display: 'inline-block', width: '96%'}}>
+              <div className="form-group"style={{display: 'inline-block', width: '9%'}}>
                 <UniversalDropdown
                   label="Mood"
                   value={selectedMood}

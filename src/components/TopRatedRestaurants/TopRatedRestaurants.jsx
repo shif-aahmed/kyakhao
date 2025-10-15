@@ -1,7 +1,7 @@
 import React from 'react';
 import './TopRatedRestaurants.css';
 
-const TopRatedRestaurants = () => {
+const TopRatedRestaurants = ({ setActiveTab }) => {
   const restaurants = [
     {
       id: 1,
@@ -52,7 +52,7 @@ const TopRatedRestaurants = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Top-Rated Restaurants Near You</h2>
-          <a href="#" className="see-all-link">See All Restaurants</a>
+          <a href="#" className="see-all-link" onClick={(e) => { e.preventDefault(); setActiveTab('Restaurants'); }}>See All Restaurants</a>
         </div>
         
         <div className="restaurants-grid">

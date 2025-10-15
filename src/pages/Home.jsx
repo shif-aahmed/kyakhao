@@ -16,6 +16,9 @@ import CommunityCreations from '../components/CommunityCreations/CommunityCreati
 import CookingSection from '../components/CookingSection/CookingSection'
 import PopularFusionTags from '../components/PopularFusionTags/PopularFusionTags'
 import TopCreators from '../components/TopCreators/TopCreators'
+import FilterSection from '../components/FilterSection/FilterSection'
+import NewInTown from '../components/NewInTown/NewInTown'
+import ExploreDishes from '../components/ExploreDishes/ExploreDishes'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -88,6 +91,16 @@ function Home() {
             onClose={handleCloseVideo}
             videoData={currentVideo}
           />
+        </div>
+      )
+    }
+    
+    if (activeTab === 'Deals') {
+      return (
+        <div>
+          <FilterSection />
+          <NewInTown />
+          <ExploreDishes />
         </div>
       )
     }

@@ -1,0 +1,411 @@
+.filter-section-container {
+  padding: 2rem;
+  background: #ffffff;
+  min-height: auto;
+  display: block;
+  visibility: visible;
+}
+
+.filter-section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation and Filter Container */
+.nav-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.nav-tab:hover {
+  color: #6b7280;
+}
+
+.nav-tab.active {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #6366f1;
+  border-radius: 1px;
+}
+
+/* Filter Button */
+.filter-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-button {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-button:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.filter-icon {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Filter Panel */
+.filter-panel {
+  background: #f1f3f4;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.filter-content {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Cuisine Dropdown */
+.cuisine-dropdown {
+  position: relative;
+}
+
+.cuisine-button {
+  background: #f8f9fa;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  color: #2d3748;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  height: 40px;
+}
+
+.cuisine-button:hover {
+  border-color: #9ca3af;
+}
+
+.dropdown-icon {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.cuisine-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+
+.cuisine-dropdown:hover .cuisine-options {
+  display: block;
+}
+
+.cuisine-option {
+  background: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  text-align: left;
+}
+
+.cuisine-option:hover {
+  background: #f3f4f6;
+}
+
+.cuisine-option.selected {
+  background: #6366f1;
+  color: white;
+}
+
+/* Filter Labels */
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2d3748;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e5e7eb;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-webkit-slider-track {
+  background: #bfdbfe;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.slider::-moz-range-track {
+  background: #bfdbfe;
+  height: 6px;
+  border-radius: 3px;
+  border: none;
+}
+
+
+/* Clear Filters Button */
+.clear-filters-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2d3748;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  align-self: flex-end;
+  height: 40px;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.clear-filters-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filter-content {
+    gap: 1.5rem;
+  }
+  
+  .filter-group {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-section-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .nav-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .nav-tabs {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .nav-tab {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .filter-button-container {
+    justify-content: center;
+  }
+  
+  .filter-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .filter-content {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .filter-group {
+    min-width: 100%;
+    flex: none;
+  }
+  
+  .cuisine-button {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .clear-filters-btn {
+    align-self: stretch;
+    flex-shrink: 1;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .filter-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-section-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .nav-filter-container {
+    gap: 0.8rem;
+  }
+  
+  .nav-tabs {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-tab {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .filter-button-container {
+    justify-content: center;
+  }
+  
+  .filter-panel {
+    padding: 1rem;
+  }
+  
+  .filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .cuisine-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .filter-label {
+    font-size: 0.8rem;
+  }
+  
+  .clear-filters-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .slider-container {
+    height: 30px;
+  }
+  
+  .slider {
+    height: 8px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+}

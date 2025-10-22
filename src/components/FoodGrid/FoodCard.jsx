@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './FoodCard.css';
 
-const FoodCard = ({ item }) => {
+const FoodCard = ({ item, onAddToCart }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/kitchen/${item.id}`);
+    console.log('Card clicked, navigating to:', `/dish/${item.id}`);
+    navigate(`/dish/${item.id}`);
   };
 
   const renderStars = (rating) => {
@@ -87,7 +88,7 @@ const FoodCard = ({ item }) => {
           className="add-to-cart-btn"
           onClick={(e) => {
             e.stopPropagation();
-            console.log('Add to cart clicked');
+            onAddToCart(item);
           }}
         >
           Add to Cart

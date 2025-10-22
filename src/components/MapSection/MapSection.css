@@ -1,0 +1,64 @@
+.map-section-container {
+  padding: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.map-content-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.map-container {
+  width: 100%;
+  height: 500px;
+  border: none;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .map-container {
+    height: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .map-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .map-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    height: 280px;
+  }
+}
+
+@media (max-width: 360px) {
+  .map-container {
+    height: 250px;
+  }
+}

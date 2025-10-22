@@ -9,7 +9,7 @@ const DishOfTheWeek = () => {
       id: 1,
       name: "Biryani Delights",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&h=300&fit=crop",
       price: "$18.99",
       rating: "4.8 (89 reviews)",
       badge: "🔥 Trending"
@@ -18,7 +18,7 @@ const DishOfTheWeek = () => {
       id: 2,
       name: "Pizza & Pasta",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop",
       price: "$22.99",
       rating: "4.7 (156 reviews)",
       badge: "⭐ Popular"
@@ -27,7 +27,7 @@ const DishOfTheWeek = () => {
       id: 3,
       name: "Healthy Bowls",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
       price: "$16.99",
       rating: "4.9 (203 reviews)",
       badge: "🌱 Fresh"
@@ -36,7 +36,7 @@ const DishOfTheWeek = () => {
       id: 4,
       name: "Desserts & Sweets",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop",
       price: "$12.99",
       rating: "4.6 (127 reviews)",
       badge: "🍰 Sweet"
@@ -45,7 +45,7 @@ const DishOfTheWeek = () => {
       id: 5,
       name: "Asian Fusion",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop",
       price: "$19.99",
       rating: "4.7 (142 reviews)",
       badge: "🥢 Fusion"
@@ -54,7 +54,7 @@ const DishOfTheWeek = () => {
       id: 6,
       name: "BBQ & Grilled",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
       price: "$24.99",
       rating: "4.8 (98 reviews)",
       badge: "🔥 BBQ"
@@ -63,7 +63,7 @@ const DishOfTheWeek = () => {
       id: 7,
       name: "Seafood Specials",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=300&fit=crop",
       price: "$28.99",
       rating: "4.9 (167 reviews)",
       badge: "🐟 Fresh"
@@ -72,7 +72,7 @@ const DishOfTheWeek = () => {
       id: 8,
       name: "Street Food",
       description: "Discover fresh flavors",
-      image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop",
       price: "$14.99",
       rating: "4.6 (89 reviews)",
       badge: "🌮 Street"
@@ -119,7 +119,14 @@ const DishOfTheWeek = () => {
                       src={dish.image} 
                       alt={dish.name}
                       className="dish-image"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
                     />
+                    <div className="image-fallback" style={{display: 'none'}}>
+                      🍽️
+                    </div>
                   </div>
                   
                   <div className="dish-content">

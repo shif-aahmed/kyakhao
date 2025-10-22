@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faShoppingCart, faCheck, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import AddToCartModal from '../AddToCartModal/AddToCartModal';
 import './ExploreDishes.css';
 
 const ExploreDishes = () => {
+  const navigate = useNavigate();
   const [selectedDish, setSelectedDish] = useState(null);
-  const [quantity, setQuantity] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dishes = [
     {
       id: 1,
@@ -81,23 +84,17 @@ const ExploreDishes = () => {
 
   const handleAddToCart = (dish) => {
     setSelectedDish(dish);
-    setQuantity(1);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
+    setIsModalOpen(false);
     setSelectedDish(null);
-    setQuantity(1);
   };
 
-  const handleQuantityChange = (newQuantity) => {
-    if (newQuantity >= 1) {
-      setQuantity(newQuantity);
-    }
-  };
-
-  const handleConfirmAddToCart = () => {
-    alert(`Added ${quantity} x ${selectedDish.name} to cart!`);
-    closeModal();
+  const handleCardClick = (dish) => {
+    console.log('ExploreDishes card clicked, navigating to:', `/dish/${dish.id}`);
+    navigate(`/dish/${dish.id}`);
   };
 
   return (
@@ -111,7 +108,7 @@ const ExploreDishes = () => {
         {/* Dishes Grid */}
         <div className="dishes-grid">
           {dishes.map((dish) => (
-            <div key={dish.id} className="dish-card">
+            <div key={dish.id} className="dish-card" onClick={() => handleCardClick(dish)}>
               <div className="dish-image">
                 <img src={dish.image} alt={dish.name} />
               </div>
@@ -124,7 +121,10 @@ const ExploreDishes = () => {
                   <span className="dish-price">{dish.price}</span>
                   <button 
                     className="add-to-cart-btn"
-                    onClick={() => handleAddToCart(dish)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddToCart(dish);
+                    }}
                   >
                     Add to Cart
                   </button>
@@ -136,72 +136,11 @@ const ExploreDishes = () => {
       </div>
 
       {/* Add to Cart Modal */}
-      {selectedDish && (
-        <div className="cart-modal-overlay" onClick={closeModal}>
-          <div className="cart-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3 className="modal-title">
-                <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
-                Add to Cart
-              </h3>
-              <button className="close-btn" onClick={closeModal}>
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-            </div>
-            
-            <div className="modal-content">
-              <div className="dish-details">
-                <div className="dish-image-large">
-                  <img src={selectedDish.image} alt={selectedDish.name} />
-                </div>
-                
-                <div className="dish-info-large">
-                  <h4 className="dish-name-large">{selectedDish.name}</h4>
-                  <p className="dish-restaurant-large">{selectedDish.restaurant}</p>
-                  <div className="dish-price-large">{selectedDish.price}</div>
-                </div>
-              </div>
-              
-              <div className="quantity-section">
-                <label className="quantity-label">Quantity:</label>
-                <div className="quantity-controls">
-                  <button 
-                    className="quantity-btn"
-                    onClick={() => handleQuantityChange(quantity - 1)}
-                    disabled={quantity <= 1}
-                  >
-                    <FontAwesomeIcon icon={faMinus} />
-                  </button>
-                  <span className="quantity-value">{quantity}</span>
-                  <button 
-                    className="quantity-btn"
-                    onClick={() => handleQuantityChange(quantity + 1)}
-                  >
-                    <FontAwesomeIcon icon={faPlus} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="total-section">
-                <div className="total-label">Total:</div>
-                <div className="total-price">
-                  ${(parseFloat(selectedDish.price.replace('$', '')) * quantity).toFixed(2)}
-                </div>
-              </div>
-              
-              <div className="modal-actions">
-                <button className="cancel-btn" onClick={closeModal}>
-                  Cancel
-                </button>
-                <button className="confirm-add-btn" onClick={handleConfirmAddToCart}>
-                  <FontAwesomeIcon icon={faCheck} className="check-icon" />
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <AddToCartModal 
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        dish={selectedDish}
+      />
     </div>
   );
 };

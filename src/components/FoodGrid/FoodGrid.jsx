@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import FoodCard from './FoodCard';
 import Pagination from './Pagination';
+import AddToCartModal from '../AddToCartModal/AddToCartModal';
 import './FoodGrid.css';
 
 const FoodGrid = ({ filters = null }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 9; // Changed to 9 to ensure complete rows of 3 cards
 
   // Sample food data matching the image
@@ -347,6 +350,16 @@ const FoodGrid = ({ filters = null }) => {
     setCurrentPage(page);
   };
 
+  const handleAddToCart = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
+
   // Reset to page 1 when filters change
   React.useEffect(() => {
     setCurrentPage(1);
@@ -363,7 +376,11 @@ const FoodGrid = ({ filters = null }) => {
         <>
           <div className="food-grid">
             {currentItems.map((item) => (
-              <FoodCard key={item.id} item={item} />
+              <FoodCard 
+                key={item.id} 
+                item={item} 
+                onAddToCart={handleAddToCart}
+              />
             ))}
           </div>
           <Pagination
@@ -373,6 +390,13 @@ const FoodGrid = ({ filters = null }) => {
           />
         </>
       )}
+      
+      {/* Add to Cart Modal */}
+      <AddToCartModal 
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        dish={selectedItem}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
+import './Home.css'
 import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
 import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
@@ -129,7 +130,9 @@ function Home() {
         activeTab={activeTab} 
         setActiveTab={setActiveTab}
       />
-      {renderContent()}
+      <div className="container">
+        {renderContent()}
+      </div>
     </div>
   )
 }

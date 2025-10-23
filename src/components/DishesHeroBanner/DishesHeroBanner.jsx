@@ -60,6 +60,7 @@ const DishesHeroBanner = ({ activeTab, setActiveTab }) => {
           {/* Search Bar */}
           <div className="dishes-search-container">
             <div className="dishes-search-bar">
+              <FontAwesomeIcon icon={faSearch} className="dishes-search-icon" />
               <input
                 type="text"
                 placeholder="Search dishes, cuisines, restaurants, or moods..."

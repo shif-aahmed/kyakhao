@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AddToCartModal.css';
 
 const AddToCartModal = ({ isOpen, onClose, dish }) => {
+  const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
 
@@ -12,6 +14,13 @@ const AddToCartModal = ({ isOpen, onClose, dish }) => {
   ];
 
   const totalPrice = (parseFloat(dish?.price || '0') * quantity).toFixed(0);
+
+  const handleBuyNow = () => {
+    // Close the modal first
+    onClose();
+    // Navigate to checkout page
+    navigate('/checkout');
+  };
 
   if (!isOpen) return null;
 
@@ -93,7 +102,7 @@ const AddToCartModal = ({ isOpen, onClose, dish }) => {
               </div>
               
               <div className="purchase-actions">
-                <button className="buy-now-btn">Buy Now</button>
+                <button className="buy-now-btn" onClick={handleBuyNow}>Buy Now</button>
                 <div className="total-price">${totalPrice}</div>
               </div>
             </div>

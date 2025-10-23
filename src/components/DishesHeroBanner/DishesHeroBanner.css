@@ -114,18 +114,20 @@
   display: flex;
   align-items: center;
   background: white;
-  border-radius: 50px;
+  border-radius: 8px;
   padding: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
+  border: 1px solid #e5e7eb;
+  position: relative;
 }
 
 .dishes-search-input {
   flex: 1;
   border: none;
   outline: none;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 1rem 3rem;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   color: #333;
@@ -135,12 +137,22 @@
   color: #999;
 }
 
+.dishes-search-icon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1rem;
+  z-index: 1;
+}
+
 .dishes-search-button {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
-  padding: 0.6rem 2rem;
-  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -149,6 +161,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0.5rem;
 }
 
 .dishes-search-text {
@@ -161,7 +174,7 @@
 }
 
 .dishes-search-button:hover {
-  background: #e55a2b;
+  background: #b91c1c;
   transform: translateY(-1px);
 }
 

@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
-          <img src={logo} alt="KuaKhao" className="logo-image" />
+          <img src="/logo.png" alt="KyaKhao" className="logo-image" />
         </div>
 
-        {/* Navigation Links */}
-        <div className="navbar-links">
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-          <Link to="/explore" className={`nav-link ${location.pathname === '/explore' ? 'active' : ''}`}>Explore</Link>
-          <Link to="/ai-picks" className={`nav-link ${location.pathname === '/ai-picks' ? 'active' : ''}`}>AI Picks</Link>
-          <Link to="/kitchen" className={`nav-link ${location.pathname === '/kitchen' ? 'active' : ''}`}>Kitchen</Link>
-          <Link to="/reservation" className={`nav-link ${location.pathname === '/reservation' ? 'active' : ''}`}>Reservation</Link>
-          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
-        </div>
-
+        {/* Mobile Menu Toggle */}
+        <button 
+          className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
         {/* Right Icons */}
         <div className="navbar-icons">
@@ -35,6 +43,16 @@ const Navbar = () => {
             <div className="notification-badge"></div>
           </div>
           <button className="sign-in-btn">Sign In</button>
+        </div>
+
+        {/* Navigation Links */}
+        <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>Home</Link>
+          <Link to="/explore" className={`nav-link ${location.pathname === '/explore' ? 'active' : ''}`} onClick={closeMobileMenu}>Explore</Link>
+          <Link to="/ai-picks" className={`nav-link ${location.pathname === '/ai-picks' ? 'active' : ''}`} onClick={closeMobileMenu}>AI Picks</Link>
+          <Link to="/kitchen" className={`nav-link ${location.pathname === '/kitchen' ? 'active' : ''}`} onClick={closeMobileMenu}>Kitchen</Link>
+          <Link to="/reservation" className={`nav-link ${location.pathname === '/reservation' ? 'active' : ''}`} onClick={closeMobileMenu}>Reservation</Link>
+          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={closeMobileMenu}>Contact</Link>
         </div>
       </div>
     </nav>

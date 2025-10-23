@@ -96,23 +96,10 @@ const DishOfTheWeek = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Explore Our Featured Categories</h2>
-          <div className="carousel-controls">
-            <button className="carousel-btn prev-btn" onClick={prevSlide}>
-              ❮
-            </button>
-            <button className="carousel-btn next-btn" onClick={nextSlide}>
-              ❯
-            </button>
-          </div>
         </div>
         
-        <div className="carousel-container">
-          <div className="carousel-wrapper">
-            <div 
-              className="carousel-track" 
-              style={{ transform: `translateX(-${currentSlide * 25}%)` }}
-            >
-              {dishes.map((dish) => (
+        <div className="dishes-grid">
+          {dishes.slice(0, 4).map((dish) => (
                 <div key={dish.id} className="dish-card">
                   <div className="dish-image-container">
                     <img 
@@ -135,9 +122,6 @@ const DishOfTheWeek = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-          
         </div>
       </div>
     </section>

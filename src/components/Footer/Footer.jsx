@@ -6,7 +6,6 @@ import {
   faInstagram, 
   faLinkedinIn 
 } from '@fortawesome/free-brands-svg-icons';
-import logo from '../../assets/logo.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -18,7 +17,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="brand-section">
             <div className="logo-container">
-              <img src={logo} alt="KyaKhao Logo" className="footer-logo" />
+              <img src="/logo.png" alt="KyaKhao Logo" className="footer-logo" />
             </div>
             <p className="tagline">
               Your ultimate guide to delicious recipes and culinary inspiration.
@@ -46,7 +45,7 @@ const Footer = () => {
               <ul className="column-links">
                 <li><a href="#" className="nav-link">Overview</a></li>
                 <li><a href="#" className="nav-link">Features</a></li>
-                <li><a href="#" className="nav-link">Pricing</a></li>
+                <li><a href="/new-checkout" className="nav-link">Checkout</a></li>
                 <li><a href="/faqs" className="nav-link">FAQs</a></li>
               </ul>
             </div>

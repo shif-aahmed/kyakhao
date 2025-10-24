@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -14,7 +14,38 @@ import DishDetail from './pages/DishDetail'
 import FAQs from './pages/FAQs'
 import Checkout from './pages/Checkout'
 import NewCheckout from './pages/NewCheckout'
+import SignIn from './pages/SignIn'
+import JoinNow from './pages/JoinNow'
 import './App.css'
+
+function AppContent() {
+  const location = useLocation();
+  const isSignInPage = location.pathname === '/signin';
+  const isJoinNowPage = location.pathname === '/join-now';
+  
+  return (
+    <div className="App">
+      {!isSignInPage && !isJoinNowPage && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/ai-picks" element={<AIPicks />} />
+        <Route path="/kitchen" element={<KitchenDetail />} />
+        <Route path="/reservation" element={<Reservation />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+        <Route path="/dish/:id" element={<DishDetail />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/new-checkout" element={<NewCheckout />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/join-now" element={<JoinNow />} />
+        <Route path="*" element={<div style={{padding: '2rem', textAlign: 'center'}}><h1>Page Not Found</h1><p>The page you're looking for doesn't exist.</p></div>} />
+      </Routes>
+      {!isSignInPage && !isJoinNowPage && <Footer />}
+    </div>
+  );
+}
 
 function App() {
   console.log('App component rendered');
@@ -23,24 +54,7 @@ function App() {
     return (
       <Router>
         <ScrollToTop />
-        <div className="App">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/ai-picks" element={<AIPicks />} />
-            <Route path="/kitchen" element={<KitchenDetail />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/restaurant/:id" element={<RestaurantDetail />} />
-            <Route path="/dish/:id" element={<DishDetail />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/new-checkout" element={<NewCheckout />} />
-            <Route path="*" element={<div style={{padding: '2rem', textAlign: 'center'}}><h1>Page Not Found</h1><p>The page you're looking for doesn't exist.</p></div>} />
-          </Routes>
-          <Footer />
-        </div>
+        <AppContent />
       </Router>
     )
   } catch (error) {

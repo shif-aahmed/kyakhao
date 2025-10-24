@@ -1,0 +1,548 @@
+/* Join Now Page Styles */
+.join-now-page {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.join-now-container {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 0;
+}
+
+/* Left Section - Join Now Form */
+.join-now-form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: white;
+}
+
+.join-now-form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.join-now-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.signin-prompt {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.signin-link {
+  color: #dc2626;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.join-now-form {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  background-color: white;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-input {
+  padding-right: 3rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0.25rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  accent-color: #dc2626;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.join-now-btn {
+  width: 100%;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.join-now-btn:hover {
+  background-color: #b91c1c;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.divider-text {
+  background: white;
+  padding: 0 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.social-btn:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.social-btn span {
+  flex: 1;
+  text-align: center;
+}
+
+.google-btn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.facebook-btn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Right Section - Food Image */
+.join-now-image-section {
+  flex: 1;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.food-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.brand-logo {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.brand-logo-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.food-layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+/* Cheese Block */
+.cheese-block {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 120px;
+  height: 80px;
+  z-index: 3;
+}
+
+.cheese-main {
+  width: 100px;
+  height: 60px;
+  background: #fbbf24;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cheese-pieces {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+}
+
+.cheese-piece {
+  width: 20px;
+  height: 15px;
+  background: #f59e0b;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mushroom Bowl */
+.mushroom-bowl {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 80px;
+  height: 60px;
+  z-index: 2;
+}
+
+.mushroom-bowl-container {
+  width: 60px;
+  height: 40px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mushroom {
+  width: 12px;
+  height: 12px;
+  background: #92400e;
+  border-radius: 50%;
+}
+
+/* Peppercorns */
+.peppercorns {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.peppercorn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.peppercorn.red {
+  background: #dc2626;
+  top: 0;
+  left: 0;
+}
+
+.peppercorn.black {
+  background: #1f2937;
+  top: 10px;
+  left: 15px;
+}
+
+.peppercorn.red:nth-child(3) {
+  top: 20px;
+  left: 5px;
+}
+
+.peppercorn.black:nth-child(4) {
+  top: 30px;
+  left: 20px;
+}
+
+.peppercorn.red:nth-child(5) {
+  top: 40px;
+  left: 10px;
+}
+
+/* Chili Pepper */
+.chili-pepper {
+  position: absolute;
+  top: 35%;
+  left: 60%;
+  width: 40px;
+  height: 8px;
+  background: #dc2626;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Pasta Pieces */
+.pasta-pieces {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  z-index: 1;
+}
+
+.pasta-piece {
+  width: 30px;
+  height: 4px;
+  background: #fbbf24;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  transform: rotate(15deg);
+}
+
+/* Fettuccine Nests */
+.fettuccine-nests {
+  position: absolute;
+  bottom: 30%;
+  right: 20%;
+  z-index: 2;
+}
+
+.fettuccine-nest {
+  width: 40px;
+  height: 40px;
+  background: #fbbf24;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tomato Bowl */
+.tomato-bowl {
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  z-index: 3;
+}
+
+.tomato-bowl-container {
+  width: 80px;
+  height: 60px;
+  background: #92400e;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cherry-tomato {
+  width: 12px;
+  height: 12px;
+  background: #dc2626;
+  border-radius: 50%;
+}
+
+.garlic-clove {
+  width: 8px;
+  height: 12px;
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.herbs {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.rosemary {
+  width: 20px;
+  height: 2px;
+  background: #16a34a;
+  border-radius: 1px;
+  margin-bottom: 4px;
+}
+
+.bay-leaf {
+  width: 15px;
+  height: 2px;
+  background: #16a34a;
+  border-radius: 1px;
+  margin-bottom: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .join-now-container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .join-now-form-section {
+    flex: none;
+    padding: 1.5rem;
+  }
+  
+  .join-now-image-section {
+    flex: none;
+    min-height: 40vh;
+  }
+  
+  .join-now-title {
+    font-size: 2rem;
+  }
+  
+  .food-layout {
+    width: 90%;
+    height: 90%;
+  }
+  
+  .cheese-block {
+    width: 100px;
+    height: 60px;
+  }
+  
+  .mushroom-bowl {
+    width: 60px;
+    height: 40px;
+  }
+  
+  .tomato-bowl {
+    width: 60px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .join-now-form-section {
+    padding: 1rem;
+  }
+  
+  .join-now-title {
+    font-size: 1.75rem;
+  }
+  
+  .form-input {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .join-now-btn {
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .social-btn {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+  }
+}
+

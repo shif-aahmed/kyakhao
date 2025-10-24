@@ -1,20 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ExploreHeroBanner from '../components/ExploreHeroBanner/ExploreHeroBanner'
-import ExploreFilters from '../components/ExploreFilters/ExploreFilters'
+import BannerNewFilter from '../components/BannerNewFilter/BannerNewFilter'
 import FoodGrid from '../components/FoodGrid/FoodGrid'
+import './Explore.css'
 
 function Explore() {
-  const [appliedFilters, setAppliedFilters] = useState(null);
-
-  const handleFiltersChange = (filters) => {
-    setAppliedFilters(filters);
-  };
-
   return (
-    <div>
+    <div className="explore-page">
       <ExploreHeroBanner />
-      <ExploreFilters onFiltersChange={handleFiltersChange} />
-      <FoodGrid filters={appliedFilters} />
+      <BannerNewFilter />
+      <FoodGrid />
     </div>
   )
 }

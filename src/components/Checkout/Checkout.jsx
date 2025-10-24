@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logoImage from '../../assets/logo.png';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -67,7 +68,7 @@ const Checkout = () => {
       <header className="checkout-header">
         <div className="header-content">
           <div className="logo">
-            <img src="/logo.png" alt="KyaKhao" className="logo-image" />
+            <img src={logoImage} alt="KyaKhao" className="logo-image" />
           </div>
           
           <nav className="header-nav">

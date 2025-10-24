@@ -1,12 +1,19 @@
 import React from 'react'
 import AIPicksHeroBanner from '../components/AIPicksHeroBanner/AIPicksHeroBanner'
-import AIPicksForm from '../components/AIPicksForm/AIPicksForm'
+import AIPickFilter from '../components/AIPickFilter/AIPickFilter'
+import RecipeSuggestion from '../components/RecipeSuggestion/RecipeSuggestion'
+import RecipeCards from '../components/RecipeCards/RecipeCards'
+import RecipeCardsHorizontal from '../components/RecipeCardsHorizontal/RecipeCardsHorizontal'
+import './AIPicks.css'
 
 function AIPicks() {
   return (
-    <div>
+    <div className="ai-picks-page">
       <AIPicksHeroBanner />
-      <AIPicksForm />
+      <AIPickFilter />
+      <RecipeSuggestion />
+      <RecipeCards />
+      <RecipeCardsHorizontal />
     </div>
   )
 }

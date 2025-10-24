@@ -10,7 +10,7 @@ const AIPicksHeroBanner = () => {
           src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Food background"
         />
-        {/* Light overlay */}
+        {/* Heavy overlay for faded effect */}
         <div className="ai-picks-hero-overlay"></div>
       </div>
 

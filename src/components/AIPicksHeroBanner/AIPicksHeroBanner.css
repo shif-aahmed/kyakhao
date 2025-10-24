@@ -11,7 +11,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .ai-picks-hero-background img {
@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .ai-picks-hero-content {
@@ -48,9 +48,9 @@
 .ai-picks-hero-heading {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #2d5a27;
+  color: #dc2626;
   margin-bottom: 1.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.2;
 }
 
@@ -58,14 +58,38 @@
   font-size: 1.2rem;
   font-weight: 400;
   color: #333;
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 992px) {
+  .ai-picks-hero-banner {
+    height: 45vh;
+  }
+  
+  .ai-picks-hero-heading {
+    font-size: 3rem;
+  }
+  
+  .ai-picks-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .ai-picks-hero-content {
+    padding: 0 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .ai-picks-hero-banner {
+    height: 40vh;
+    margin-top: 60px;
+  }
+  
   .ai-picks-hero-heading {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
   
   .ai-picks-hero-subtitle {
@@ -78,5 +102,65 @@
   
   .ai-picks-hero-text {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .ai-picks-hero-banner {
+    height: 35vh;
+    margin-top: 50px;
+  }
+  
+  .ai-picks-hero-heading {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .ai-picks-hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .ai-picks-hero-content {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-picks-hero-banner {
+    height: 30vh;
+    margin-top: 40px;
+  }
+  
+  .ai-picks-hero-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ai-picks-hero-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .ai-picks-hero-content {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .ai-picks-hero-banner {
+    height: 25vh;
+    margin-top: 35px;
+  }
+  
+  .ai-picks-hero-heading {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .ai-picks-hero-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .ai-picks-hero-content {
+    padding: 0 0.4rem;
   }
 }

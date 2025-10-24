@@ -1,0 +1,52 @@
+/* AIPicks Page - Responsive Styling */
+.ai-picks-page {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+/* Ensure all components are properly contained */
+.ai-picks-page > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for the entire page */
+@media (max-width: 1200px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .ai-picks-page {
+    padding: 0;
+  }
+}
+

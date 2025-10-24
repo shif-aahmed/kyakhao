@@ -1,7 +1,7 @@
 import React from 'react'
 import ReservationHeroBanner from '../components/ReservationHeroBanner/ReservationHeroBanner'
 import FilterBar from '../components/FilterBar/FilterBar'
-import RestaurantGrid from '../components/RestaurantGrid/RestaurantGrid'
+import AllReservation from '../components/AllReservation/AllReservation'
 import ReservationCTA from '../components/ReservationCTA/ReservationCTA'
 
 function Reservation() {
@@ -11,7 +11,7 @@ function Reservation() {
     <div>
       <ReservationHeroBanner />
       <FilterBar />
-      <RestaurantGrid />
+      <AllReservation />
       <ReservationCTA />
     </div>
   )

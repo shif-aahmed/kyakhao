@@ -8,7 +8,7 @@
 
 .pagination-btn {
   background: white;
-  color: #333;
+  color: #000000 !important;
   border: 1px solid #e0e0e0;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -25,8 +25,9 @@
 }
 
 .pagination-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  color: #000000 !important;
 }
 
 .page-numbers {
@@ -55,14 +56,14 @@
 }
 
 .page-number.active {
-  background: #ff6b35;
-  color: white;
-  border-color: #ff6b35;
+  background: #dc2626 !important;
+  color: white !important;
+  border-color: #dc2626 !important;
 }
 
 .page-number.active:hover {
-  background: #e55a2b;
-  border-color: #e55a2b;
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
 }
 
 @media (max-width: 480px) {

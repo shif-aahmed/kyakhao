@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImage from '../../assets/logo.png';
 import './NewCheckout.css';
 
 const NewCheckout = () => {
@@ -8,7 +9,7 @@ const NewCheckout = () => {
       <header className="checkout-header">
         <div className="header-content">
           <div className="logo">
-            <img src="/logo.png" alt="KyaKhao" className="logo-image" />
+            <img src={logoImage} alt="KyaKhao" className="logo-image" />
           </div>
           <nav className="nav-links">
             <a href="#" className="nav-link">Home</a>

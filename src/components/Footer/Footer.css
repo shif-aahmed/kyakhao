@@ -1,14 +1,16 @@
 /* ========= Footer Section ========= */
 .footer {
   background: #ffffff;
-  padding: 3rem 1.5rem 1.5rem 1.5rem;
+  padding: 4rem 1.5rem 2rem 1.5rem;
   font-family: 'Inter', sans-serif;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4rem;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* ===== Main Content Area ===== */
@@ -17,6 +19,7 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 /* ===== Brand Section ===== */
@@ -39,16 +42,19 @@
 
 .brand-name {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #333333;
+  font-weight: 700;
+  color: #1f2937;
+  font-family: 'Inter', sans-serif;
 }
 
 .tagline {
   font-size: 0.95rem;
-  color: #666666;
+  color: #6b7280;
   line-height: 1.5;
   margin-bottom: 1.5rem;
   max-width: 300px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
 
 .social-icons {
@@ -86,8 +92,9 @@
 .column-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #333333;
+  color: #1f2937;
   margin: 0 0 1rem 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .column-links {
@@ -101,14 +108,46 @@
 }
 
 .nav-link {
-  color: #666666;
+  color: #6b7280;
   text-decoration: none;
   font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
   color: #dc2626;
+}
+
+/* ===== Red Icon (Explore Page Only) ===== */
+.red-icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.red-icon {
+  width: 48px;
+  height: 48px;
+  background: #dc2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.red-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+.red-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* ===== Separator Line ===== */
@@ -126,8 +165,10 @@
 
 .copyright-text {
   font-size: 0.9rem;
-  color: #666666;
+  color: #6b7280;
   margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
 
 /* ===== Responsive Design ===== */
@@ -165,6 +206,16 @@
   .tagline {
     max-width: none;
   }
+
+  .red-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .red-icon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -185,5 +236,15 @@
     width: 32px;
     height: 32px;
     font-size: 1rem;
+  }
+
+  .red-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .red-icon svg {
+    width: 18px;
+    height: 18px;
   }
 }

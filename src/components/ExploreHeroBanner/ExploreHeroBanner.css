@@ -48,9 +48,9 @@
 .explore-hero-heading {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #2d5a27;
+  color: #dc2626;
   margin-bottom: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.2;
 }
 
@@ -62,7 +62,26 @@
   line-height: 1.4;
 }
 
+@media (max-width: 992px) {
+  .explore-hero-banner {
+    height: 45vh;
+  }
+  
+  .explore-hero-heading {
+    font-size: 3rem;
+  }
+  
+  .explore-hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .explore-hero-banner {
+    height: 40vh;
+    margin-top: 60px;
+  }
+  
   .explore-hero-heading {
     font-size: 2.5rem;
   }
@@ -77,5 +96,60 @@
   
   .explore-hero-text {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .explore-hero-banner {
+    height: 35vh;
+    margin-top: 55px;
+  }
+  
+  .explore-hero-heading {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .explore-hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .explore-hero-content {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-hero-banner {
+    height: 30vh;
+    margin-top: 50px;
+  }
+  
+  .explore-hero-heading {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .explore-hero-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .explore-hero-content {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .explore-hero-banner {
+    height: 25vh;
+    margin-top: 45px;
+  }
+  
+  .explore-hero-heading {
+    font-size: 1.5rem;
+  }
+  
+  .explore-hero-subtitle {
+    font-size: 0.8rem;
   }
 }

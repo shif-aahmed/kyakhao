@@ -1,63 +1,77 @@
 .kitchen-detail-hero-banner {
-  height: 70vh;
-  min-height: 500px;
-  background-color: #f0f0f0;
-  background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
+  height: 50vh;
+  margin-top: 70px;
 }
 
-.kitchen-detail-hero-banner::before {
-  content: '';
+.kitchen-detail-hero-background {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(2px);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.kitchen-detail-hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kitchen-detail-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .kitchen-detail-hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.kitchen-detail-hero-text {
   text-align: center;
   max-width: 800px;
-  padding: 0 20px;
+  width: 100%;
 }
 
 .kitchen-detail-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #2d5a27;
-  margin-bottom: 20px;
+  color: #dc2626;
+  margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
   line-height: 1.2;
 }
 
 .kitchen-detail-hero-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
   color: #333;
-  line-height: 1.6;
-  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .kitchen-detail-hero-banner {
-    height: 60vh;
-    min-height: 400px;
+    height: 45vh;
   }
   
   .kitchen-detail-hero-title {
-    font-size: 2.2rem;
+    font-size: 3rem;
   }
   
   .kitchen-detail-hero-subtitle {
@@ -65,19 +79,19 @@
   }
   
   .kitchen-detail-hero-content {
-    padding: 0 15px;
+    padding: 0 1.5rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .kitchen-detail-hero-banner {
-    height: 50vh;
-    min-height: 300px;
+    height: 40vh;
+    margin-top: 60px;
   }
   
   .kitchen-detail-hero-title {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
   
   .kitchen-detail-hero-subtitle {
@@ -85,22 +99,70 @@
   }
   
   .kitchen-detail-hero-content {
-    padding: 0 10px;
+    padding: 0 1rem;
+  }
+  
+  .kitchen-detail-hero-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .kitchen-detail-hero-banner {
+    height: 35vh;
+    margin-top: 50px;
+  }
+  
+  .kitchen-detail-hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .kitchen-detail-hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .kitchen-detail-hero-content {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kitchen-detail-hero-banner {
+    height: 30vh;
+    margin-top: 40px;
+  }
+  
+  .kitchen-detail-hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .kitchen-detail-hero-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .kitchen-detail-hero-content {
+    padding: 0 0.5rem;
   }
 }
 
 @media (max-width: 360px) {
   .kitchen-detail-hero-banner {
-    height: 45vh;
-    min-height: 250px;
+    height: 25vh;
+    margin-top: 35px;
   }
   
   .kitchen-detail-hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
   }
   
   .kitchen-detail-hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+  
+  .kitchen-detail-hero-content {
+    padding: 0 0.4rem;
   }
 }

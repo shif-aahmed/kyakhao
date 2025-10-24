@@ -76,7 +76,7 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #f97316;
+  border-color: #dc2626;
 }
 
 .form-textarea {
@@ -86,7 +86,7 @@
 }
 
 .send-message-btn {
-  background-color: #f97316;
+  background-color: #dc2626;
   color: white;
   border: none;
   border-radius: 6px;
@@ -101,15 +101,15 @@
   justify-content: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
-  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
   width: fit-content;
   min-width: 140px;
 }
 
 .send-message-btn:hover {
-  background-color: #ea580c;
+  background-color: #b91c1c;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
 }
 
 .send-icon {
@@ -167,7 +167,7 @@
 
 .detail-icon {
   font-size: 2.5rem;
-  color: #f97316;
+  color: #dc2626;
   line-height: 1;
   flex-shrink: 0;
   margin: 0 0 0.2rem 0;
@@ -180,6 +180,10 @@
   width: 40px;
   height: auto;
   max-height: 40px;
+}
+
+.detail-icon svg path {
+  fill: #dc2626 !important;
 }
 
 .detail-text {
@@ -355,6 +359,10 @@
     height: auto;
     max-height: 32px;
   }
+  
+  .detail-icon svg path {
+    fill: #dc2626 !important;
+  }
 
   .detail-text {
     align-items: center;
@@ -408,6 +416,10 @@
     width: 28px;
     height: auto;
     max-height: 28px;
+  }
+  
+  .detail-icon svg path {
+    fill: #dc2626 !important;
   }
 
   .detail-text p {

@@ -18,7 +18,7 @@
 .cuisine-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: #dc2626;
   margin-bottom: 40px;
 }
 
@@ -51,15 +51,15 @@
 }
 
 .cuisine-btn.active {
-  background-color: #ff6b35;
-  border-color: #ff6b35;
+  background-color: #dc2626;
+  border-color: #dc2626;
   color: white;
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
 .cuisine-btn.active:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
 }
 
 /* Our Culinary Spaces Section */
@@ -124,7 +124,7 @@
 .card-title {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #333;
+  color: #dc2626 !important;
   margin-bottom: 10px;
 }
 
@@ -204,6 +204,7 @@
   
   .card-title {
     font-size: 1.2rem;
+    color: #dc2626 !important;
   }
 }
 
@@ -247,6 +248,7 @@
   
   .card-title {
     font-size: 1.1rem;
+    color: #dc2626 !important;
   }
   
   .card-location {
@@ -270,6 +272,7 @@
   
   .card-title {
     font-size: 1rem;
+    color: #dc2626 !important;
   }
   
   .card-location {

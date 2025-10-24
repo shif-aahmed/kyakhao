@@ -1,24 +1,54 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 35px 17px;
+/* ========= Home Page Styles ========= */
+.home-page {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* Mobile responsive padding */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 17px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding: 50px 15px;
-    }
+  .container {
+    padding: 15px 10px;
+    margin: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
-    .container {
-        padding: 30px 10px;
-    }
+  .container {
+    padding: 10px 8px;
+    margin: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 20px 5px;
-    }
+  .container {
+    padding: 8px 5px;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 5px 3px;
+    margin: 0;
+    width: 100%;
+  }
 }

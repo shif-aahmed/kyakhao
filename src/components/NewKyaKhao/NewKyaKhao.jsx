@@ -1,11 +1,11 @@
 import React from 'react';
-import './NewOnKyaKhao.css';
+import './NewKyaKhao.css';
 
-const NewOnKyaKhao = () => {
+const NewKyaKhao = () => {
   const newItems = [
     {
       id: 1,
-      name: "Spicy Paneer Tikka Masala",
+      name: "Spicy Paneer Tikka",
       description: "Creamy paneer in a rich tomato gravy.",
       price: "₹380",
       image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -19,7 +19,7 @@ const NewOnKyaKhao = () => {
     },
     {
       id: 3,
-      name: "Avocado Toast with Poached Eggs",
+      name: "Avocado Toast",
       description: "Healthy and delicious breakfast.",
       price: "₹290",
       image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -34,7 +34,7 @@ const NewOnKyaKhao = () => {
   ];
 
   return (
-    <section className="new-on-kyakhao">
+    <section className="new-kyakhao">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">New on KyaKhao</h2>
@@ -63,4 +63,4 @@ const NewOnKyaKhao = () => {
   );
 };
 
-export default NewOnKyaKhao;
+export default NewKyaKhao;

@@ -1,0 +1,26 @@
+/* Explore Page Mobile Responsive */
+.explore-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .explore-page {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .explore-page {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-page {
+    padding-top: 0;
+  }
+}
+

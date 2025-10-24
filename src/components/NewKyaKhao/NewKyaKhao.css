@@ -1,0 +1,223 @@
+/* ========= New on KyaKhao Section ========= */
+.new-kyakhao {
+  background: #ffffff;
+  padding: 4rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.new-kyakhao .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Section Header ===== */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+.view-all-link {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+/* ===== Items Grid ===== */
+.new-kyakhao .items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Item Card ===== */
+.new-kyakhao .item-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.new-kyakhao .item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.new-kyakhao .item-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  flex-shrink: 0;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.new-kyakhao .item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.new-kyakhao .item-card:hover .item-image img {
+  transform: scale(1.05);
+}
+
+.new-kyakhao .item-info {
+  padding: 1rem 1.25rem;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.new-kyakhao .item-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+}
+
+.new-kyakhao .item-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 2.5rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  text-align: left;
+}
+
+.new-kyakhao .item-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ef4444;
+  font-family: 'Inter', sans-serif;
+  position: absolute;
+  bottom: 1rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  text-align: left;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+  .new-kyakhao .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .new-kyakhao .item-card {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-kyakhao {
+    padding: 2rem 1rem;
+  }
+  
+  .new-kyakhao .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .new-kyakhao .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .new-kyakhao .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .new-kyakhao .item-card {
+    max-width: 200px;
+  }
+  
+  .new-kyakhao .item-image {
+    height: 150px;
+  }
+  
+  .new-kyakhao .item-info {
+    padding: 1rem;
+    height: 100px;
+  }
+  
+  .new-kyakhao .item-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .new-kyakhao .items-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .new-kyakhao .item-card {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .new-kyakhao .item-image {
+    height: 180px;
+  }
+}

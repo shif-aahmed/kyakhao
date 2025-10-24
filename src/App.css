@@ -6,3 +6,14 @@ html,body{
   height: 100%;
   width: 100%;
 }
+
+/* Full page styles for sign-in */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure sign-in page takes full viewport */
+.App {
+  margin: 0;
+  padding: 0;
+}

@@ -4,7 +4,6 @@ import './Home.css'
 import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
 import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
-import NewOnKyaKhao from '../components/NewOnKyaKhao/NewOnKyaKhao'
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
 import DishesGrid from '../components/DishesGrid/DishesGrid'
 import DishesCategoryFilter from '../components/DishesCategoryFilter/DishesCategoryFilter'
@@ -13,17 +12,14 @@ import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
 import UploadModal from '../components/UploadModal/UploadModal'
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
 import TrySomethingNew from '../components/TrySomethingNew/TrySomethingNew'
-import CommunityCreations from '../components/CommunityCreations/CommunityCreations'
 import CookingSection from '../components/CookingSection/CookingSection'
-import PopularFusionTags from '../components/PopularFusionTags/PopularFusionTags'
-import TopCreators from '../components/TopCreators/TopCreators'
-import FilterSection from '../components/FilterSection/FilterSection'
 import NewInTown from '../components/NewInTown/NewInTown'
 import ExploreDishes from '../components/ExploreDishes/ExploreDishes'
 import Deals from '../components/Deals/Deals'
 import Benefits from '../components/Benefits/Benefits'
 import LoyaltyTiers from '../components/LoyaltyTiers/LoyaltyTiers'
 import UserProfile from '../components/UserProfile/UserProfile'
+import NewKyaKhao from '../components/NewKyaKhao/NewKyaKhao'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -56,9 +52,6 @@ function Home() {
       return (
         <div>
           <TrySomethingNew onVideoClick={handleVideoClick} />
-          <CommunityCreations />
-          <PopularFusionTags />
-          <TopCreators />
         </div>
       )
     }
@@ -66,7 +59,6 @@ function Home() {
     if (activeTab === 'AI Picks') {
       return (
         <div>
-          <FilterSection />
           <Deals />
           <Benefits />
           <LoyaltyTiers />
@@ -104,7 +96,6 @@ function Home() {
     if (activeTab === 'Deals') {
       return (
         <div>
-          <FilterSection />
           <NewInTown />
           <ExploreDishes />
         </div>
@@ -116,16 +107,13 @@ function Home() {
         <DishOfTheWeek />
         <AISuggestions />
         <TopRatedRestaurants setActiveTab={setActiveTab} />
-        <NewOnKyaKhao />
-        <CommunityCreations />
-        <PopularFusionTags />
-        <TopCreators />
+        <NewKyaKhao />
       </div>
     )
   }
 
   return (
-    <div>
+    <div className="home-page">
       <HeroBanner 
         activeTab={activeTab} 
         setActiveTab={setActiveTab}

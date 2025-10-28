@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TasteSurvey from '../TasteSurvey/TasteSurvey';
+import icon from '../../assets/image.png'
 import './TasteSurveyModal.css';
 
 const TasteSurveyModal = ({ isOpen, onClose, onStartSurvey }) => {
@@ -46,9 +47,7 @@ const TasteSurveyModal = ({ isOpen, onClose, onStartSurvey }) => {
 
         {/* Icon */}
         <div className="taste-survey-modal-icon">
-          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 95.9998L96 95.9998L96 -0.00021553L0 -0.00021553L0 95.9998Z" fill="#171A1F"/>
-          </svg>
+<img src={icon} alt="" />
         </div>
 
         {/* Title */}

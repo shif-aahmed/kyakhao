@@ -118,6 +118,7 @@ const OTPVerification = ({ isOpen, onClose, userEmail = "john.jerry@gmail.com" }
     if (otpString === correctOTP) {
       console.log('OTP verified successfully:', otpString);
       alert('OTP Verified Successfully!');
+      try { sessionStorage.setItem('isSignedIn', '1'); } catch {}
       onClose();
       // Navigate to pricing page after successful verification
       navigate('/pricing', { replace: true });

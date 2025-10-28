@@ -59,7 +59,7 @@
 }
 
 .nav-link:hover {
-  color: #dc2626;
+  color: #D42814;
 }
 
 .nav-link.active {
@@ -73,7 +73,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #dc2626;
+  background-color: #D42814;
   border-radius: 1px;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .navbar-links button.nav-link:hover {
-  color: #dc2626;
+  color: #D42814;
 }
 
 .navbar-links button.nav-link.active {
@@ -106,7 +106,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #dc2626;
+  background-color: #D42814;
   border-radius: 1px;
 }
 
@@ -168,7 +168,7 @@
 
 /* Sign In Button */
 .sign-in-btn {
-  background-color: #dc2626;
+  background-color: #D42814;
   color: white;
   border: none;
   border-radius: 25px;
@@ -184,7 +184,7 @@
 }
 
 .sign-in-btn:hover {
-  background-color: #b91c1c;
+  background-color: #D42814;
   transform: translateY(-1px);
   text-decoration: none;
 }
@@ -213,7 +213,7 @@
   right: -1.1px;
   width: 8px;
   height: 8px;
-  background-color: #dc2626;
+  background-color: #D42814;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #e5e7eb;
 }

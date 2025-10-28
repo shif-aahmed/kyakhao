@@ -39,7 +39,7 @@ const RecipeCardsHorizontal = () => {
         <div className="recipe-card-horizontal">
           <div className="recipe-card-horizontal-image">
             <img 
-              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop&crop=center" 
+              src="https://images.unsplash.com/photo-1730878423239-0fd430bbac37?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" 
               alt="Chicken Enchiladas"
               className="recipe-card-horizontal-img"
             />
@@ -69,7 +69,7 @@ const RecipeCardsHorizontal = () => {
         <div className="recipe-card-horizontal">
           <div className="recipe-card-horizontal-image">
             <img 
-              src="https://images.unsplash.com/photo-1563379091339-03246963d4d0?w=300&h=200&fit=crop&crop=center" 
+              src="https://images.unsplash.com/photo-1610053190980-ee7ef0438949?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1081" 
               alt="Beef & Brocco"
               className="recipe-card-horizontal-img"
             />

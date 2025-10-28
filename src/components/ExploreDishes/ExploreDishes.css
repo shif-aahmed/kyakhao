@@ -5,7 +5,6 @@
 }
 
 .explore-dishes-content {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -97,12 +96,12 @@
 .dish-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #ff6b35;
+  color: #dc2626;
   font-family: 'Inter', sans-serif;
 }
 
 .add-to-cart-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -290,7 +289,7 @@
 
 .cart-icon {
   font-size: 1.1rem;
-  color: #ff6b35;
+  color: #dc2626;
 }
 
 .close-btn {
@@ -360,7 +359,7 @@
 .dish-price-large {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ff6b35;
+  color: #dc2626;
   font-family: 'Inter', sans-serif;
 }
 
@@ -438,7 +437,7 @@
 .total-price {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ff6b35;
+  color: #dc2626;
   font-family: 'Inter', sans-serif;
 }
 
@@ -467,7 +466,7 @@
 }
 
 .confirm-add-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -485,7 +484,7 @@
 }
 
 .confirm-add-btn:hover {
-  background: #e55a2b;
+  background: #dc2626;
   transform: translateY(-1px);
 }
 

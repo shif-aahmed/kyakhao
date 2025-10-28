@@ -72,7 +72,7 @@ const AIPickFilter = () => {
                 >
                   <div className="ai-pick-filter-mood-icon happy">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="10" cy="10" r="8" fill="#dc2626"/>
+                      <circle cx="10" cy="10" r="8" fill="rgb(156, 163, 175)"/>
                       <path d="M7 9C7 9.55228 7.44772 10 8 10C8.55228 10 9 9.55228 9 9C9 8.44772 8.55228 8 8 8C7.44772 8 7 8.44772 7 9Z" fill="white"/>
                       <path d="M11 9C11 9.55228 11.4477 10 12 10C12.5523 10 13 9.55228 13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9Z" fill="white"/>
                       <path d="M6 12C6 12.5523 6.44772 13 7 13H13C13.5523 13 14 12.5523 14 12C14 11.4477 13.5523 11 13 11H7C6.44772 11 6 11.4477 6 12Z" fill="white"/>
@@ -117,17 +117,7 @@ const AIPickFilter = () => {
                   <span className="ai-pick-filter-mood-label">Adventurous</span>
                 </div>
               </div>
-              
-              <div className="ai-pick-filter-slider-container">
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={moodSlider}
-                  onChange={(e) => handleSliderChange(e.target.value)}
-                  className="ai-pick-filter-slider"
-                />
-              </div>
+
             </div>
 
             {/* Dietary Needs */}

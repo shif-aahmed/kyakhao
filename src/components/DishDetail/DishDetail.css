@@ -319,7 +319,7 @@
 }
 
 .add-to-cart-btn {
-  background-color: #f97316;
+  background-color: #dc2626;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -328,7 +328,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  flex: 1;
+  width: 12rem;
   height: 48px;
   display: flex;
   align-items: center;
@@ -336,7 +336,7 @@
 }
 
 .add-to-cart-btn:hover {
-  background-color: #ea580c;
+  background-color: #b61a1a;
 }
 
 .wishlist-btn {

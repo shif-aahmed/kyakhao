@@ -167,6 +167,16 @@
   .restaurant-name {
     font-size: 1.1rem;
   }
+  .top-rated-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center; /* Centers the cards horizontally */
+  }
+
+  .restaurant-card {
+    width: 90%; /* optional: makes card a bit narrower for nice spacing */
+    max-width: 400px; /* optional: prevents it from stretching too wide */
+  }
 }
 
 @media (max-width: 480px) {

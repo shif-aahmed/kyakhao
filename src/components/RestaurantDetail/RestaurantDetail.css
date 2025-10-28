@@ -90,7 +90,7 @@
 .restaurant-detail-name {
   font-size: 3rem;
   font-weight: 700;
-  color: #2D5A27;
+  color: #D42814;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
@@ -100,7 +100,7 @@
   align-items: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.9);
-  color: #2D5A27;
+  color: #D42814;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -167,9 +167,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #4CAF50;
+  border: 2px solid #D42814;
   background: transparent;
-  color: #4CAF50;
+  color: #D42814;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: 600;
@@ -178,12 +178,12 @@
 }
 
 .restaurant-detail-action-btn-bottom:hover {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
 .restaurant-detail-action-btn-bottom.save.saved {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
@@ -216,7 +216,7 @@
 .restaurant-detail-header-info .restaurant-detail-name {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2D5A27;
+  color: #D42814;
   margin: 0;
 }
 
@@ -224,7 +224,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #4CAF50;
+  background: #D42814;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -292,9 +292,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #4CAF50;
+  border: 2px solid #D42814;
   background: transparent;
-  color: #4CAF50;
+  color: #D42814;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: 600;
@@ -303,12 +303,12 @@
 }
 
 .restaurant-detail-header-info .restaurant-detail-action-btn-bottom:hover {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
 .restaurant-detail-header-info .restaurant-detail-action-btn-bottom.save.saved {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
@@ -343,12 +343,12 @@
 }
 
 .restaurant-detail-nav-tab.active {
-  color: #2D5A27;
-  border-bottom-color: #4CAF50;
+  color: #D42814;
+  border-bottom-color: #D42814;
 }
 
 .restaurant-detail-nav-tab:hover {
-  color: #2D5A27;
+  color: #D42814;
 }
 
 .restaurant-detail-tab-content {
@@ -362,7 +362,7 @@
 .restaurant-detail-section-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2D5A27;
+  color: #D42814;
   margin-bottom: 1rem;
 }
 
@@ -375,7 +375,7 @@
 
 .restaurant-detail-see-all-link,
 .restaurant-detail-suggest-edit {
-  color: #4CAF50;
+  color: #D42814;
   font-size: 0.9rem;
   cursor: pointer;
   text-decoration: underline;
@@ -383,7 +383,7 @@
 
 .restaurant-detail-see-all-link:hover,
 .restaurant-detail-suggest-edit:hover {
-  color: #2D5A27;
+  color: #D42814;
 }
 
 /* At a glance */
@@ -407,13 +407,13 @@
 }
 
 .restaurant-detail-improve-link {
-  color: #4CAF50;
+  color: #D42814;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .restaurant-detail-improve-link:hover {
-  color: #2D5A27;
+  color: #D42814;
 }
 
 /* About */
@@ -436,14 +436,14 @@
   width: 40px;
   height: 40px;
   background: #FFD700;
-  border: 2px solid #4CAF50;
+  border: 2px solid #D42814;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #2D5A27;
+  color: #D42814;
 }
 
 .award-text {
@@ -453,13 +453,13 @@
 
 .award-title {
   font-weight: 700;
-  color: #2D5A27;
+  color: #D42814;
   font-size: 1rem;
 }
 
 .award-year {
   font-weight: 600;
-  color: #2D5A27;
+  color: #D42814;
   font-size: 0.9rem;
 }
 
@@ -479,7 +479,7 @@
 }
 
 .restaurant-detail-feature-item svg {
-  color: #4CAF50;
+  color: #D42814;
   width: 16px;
 }
 
@@ -538,7 +538,7 @@
 
 .restaurant-detail-arrow-icon {
   margin-left: auto;
-  color: #4CAF50;
+  color: #D42814;
 }
 
 /* Questionnaire */
@@ -571,7 +571,7 @@
 }
 
 .restaurant-detail-radio-options input[type="radio"] {
-  accent-color: #4CAF50;
+  accent-color: #D42814;
 }
 
 /* Right Column */
@@ -592,23 +592,23 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #4CAF50;
+  border: none;
   background: transparent;
-  color: #4CAF50;
+  color: #222222;
   border-radius: 25px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .restaurant-detail-action-btn-right:hover {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
 .restaurant-detail-action-btn-right.save.saved {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
@@ -627,9 +627,9 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem;
-  border: 2px solid #4CAF50;
+  border: 2px solid #D42814;
   background: transparent;
-  color: #4CAF50;
+  color: #D42814;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
@@ -639,7 +639,7 @@
 
 .restaurant-detail-save-button:hover,
 .restaurant-detail-save-button.saved {
-  background: #4CAF50;
+  background: #D42814;
   color: white;
 }
 
@@ -663,7 +663,7 @@
 }
 
 .restaurant-detail-current-status {
-  color: #4CAF50;
+  color: #D42814;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 1rem;

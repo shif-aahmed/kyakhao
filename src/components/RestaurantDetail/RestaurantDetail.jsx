@@ -603,7 +603,7 @@ const RestaurantDetail = () => {
     return <div>Loading...</div>;
   }
 
-  const tabs = ['Overview', 'Hours', 'Location', 'Reviews'];
+  const tabs = ['Overview', 'Hours', 'Location'];
 
   return (
     <div className="restaurant-detail-page">
@@ -812,14 +812,6 @@ const RestaurantDetail = () => {
               </div>
             )}
 
-            {activeTab === 'Reviews' && (
-              <div className="restaurant-detail-tab-content">
-                <div className="restaurant-detail-content-section">
-                  <h2 className="restaurant-detail-section-title">Reviews</h2>
-                  <p>Reviews content would go here...</p>
-                </div>
-              </div>
-            )}
           </div>
 
             {/* Right Column */}

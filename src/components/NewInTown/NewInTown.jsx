@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faStar, faTimes, faPhone, faClock, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import SidebarReserveTable from '../SidebarReserveTable/SidebarReserveTable';
 import './NewInTown.css';
 
 const NewInTown = () => {
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [sidebarRestaurant, setSidebarRestaurant] = useState(null);
+
   const restaurants = [
     {
       id: 1,
@@ -63,6 +67,11 @@ const NewInTown = () => {
     setSelectedRestaurant(restaurant);
   };
 
+  const handleReserveTable = (restaurant) => {
+    setSidebarRestaurant(restaurant);
+    setIsSidebarOpen(true);
+  };
+
   const closeModal = () => {
     setSelectedRestaurant(null);
   };
@@ -113,7 +122,7 @@ const NewInTown = () => {
                 
                 <div className="restaurant-actions">
                   <button className="view-menu-btn" onClick={() => handleViewMenu(restaurant)}>View Menu</button>
-                  <button className="reserve-table-btn">Reserve Table</button>
+                  <button className="reserve-table-btn" onClick={() => handleReserveTable(restaurant)}>Reserve Table</button>
                 </div>
               </div>
             </div>
@@ -181,15 +190,18 @@ const NewInTown = () => {
                   ))}
                 </div>
               </div>
-              
-              <div className="modal-actions">
-                <button className="order-now-btn">Order Now</button>
-                <button className="reserve-table-btn-modal">Reserve Table</button>
-              </div>
+
             </div>
           </div>
         </div>
       )}
+
+      {/* Sidebar Reserve Table */}
+      <SidebarReserveTable
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        restaurant={sidebarRestaurant}
+      />
     </div>
   );
 };

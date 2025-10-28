@@ -146,7 +146,7 @@
 }
 
 .new-in-town-container .view-menu-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
   padding: 0.7rem 1.2rem;
@@ -465,7 +465,7 @@
 
 .menu-icon {
   font-size: 1.1rem;
-  color: #ff6b35;
+  color: #dc2626;
 }
 
 .menu-items {
@@ -481,7 +481,7 @@
   padding: 1rem;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #ff6b35;
+  border-left: 4px solid #dc2626;
 }
 
 .menu-item-info {
@@ -507,7 +507,7 @@
 .menu-item-price {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ff6b35;
+  color: #dc2626;
   font-family: 'Inter', sans-serif;
 }
 
@@ -519,7 +519,7 @@
 }
 
 .order-now-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -539,8 +539,8 @@
 
 .reserve-table-btn-modal {
   background: white;
-  color: #ff6b35;
-  border: 2px solid #ff6b35;
+  color: #dc2626;
+  border: 2px solid #dc2626;
   padding: 0.8rem 2rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -552,7 +552,7 @@
 }
 
 .reserve-table-btn-modal:hover {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   transform: translateY(-1px);
 }

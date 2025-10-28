@@ -140,6 +140,7 @@
   max-width: 600px;
   border: 1px solid #e5e7eb;
   position: relative;
+  height: 3rem;
 }
 
 .search-input {

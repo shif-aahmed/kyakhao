@@ -143,7 +143,7 @@ const AllReservation = () => {
                   >
                     Reserve Now
                   </button>
-                  <button className="details-btn">View Details</button>
+                  <button className="details-btn">Details</button>
                 </div>
               </div>
             </div>

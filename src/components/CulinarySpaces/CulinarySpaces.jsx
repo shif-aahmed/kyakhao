@@ -5,109 +5,37 @@ const CulinarySpaces = () => {
   const [selectedCuisine, setSelectedCuisine] = useState('All')
 
   const cuisines = [
-    'All', 'Italian', 'Japanese', 'Mexican', 'French', 'Indian', 
+    'All', 'Italian', 'Japanese', 'Mexican', 'French', 'Indian',
     'Mediterranean', 'Thai', 'Vegan', 'Chinese', 'Korean'
   ]
 
   const culinarySpaces = [
-    { 
-      id: 1, 
-      title: 'Bistro Lumiere', 
-      location: 'Paris, France', 
-      cuisine: 'French',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 2, 
-      title: 'Spice Route', 
-      location: 'Mumbai, India', 
-      cuisine: 'Indian',
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 3, 
-      title: 'Coastal Haven', 
-      location: 'Santorini, Greece', 
-      cuisine: 'Mediterranean',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 4, 
-      title: 'Terra Cotta', 
-      location: 'Rome, Italy', 
-      cuisine: 'Italian',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 5, 
-      title: 'Zen Plate', 
-      location: 'Tokyo, Japan', 
-      cuisine: 'Japanese',
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 6, 
-      title: 'Azure Coast Kitchen', 
-      location: 'Nice, France', 
-      cuisine: 'French',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 7, 
-      title: 'Sakura Sushi', 
-      location: 'Osaka, Japan', 
-      cuisine: 'Japanese',
-      image: 'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 8, 
-      title: 'Taco Libre', 
-      location: 'Mexico City, Mexico', 
-      cuisine: 'Mexican',
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 9, 
-      title: 'Green Garden', 
-      location: 'Bangkok, Thailand', 
-      cuisine: 'Thai',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 10, 
-      title: 'Plant Based', 
-      location: 'Los Angeles, USA', 
-      cuisine: 'Vegan',
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 11, 
-      title: 'Dragon Palace', 
-      location: 'Beijing, China', 
-      cuisine: 'Chinese',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    { 
-      id: 12, 
-      title: 'Seoul Kitchen', 
-      location: 'Seoul, South Korea', 
-      cuisine: 'Korean',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    }
+    { id: 1, title: 'Bistro Lumiere', location: 'Paris, France', cuisine: 'French', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 2, title: 'Spice Route', location: 'Mumbai, India', cuisine: 'Indian', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 3, title: 'Coastal Haven', location: 'Santorini, Greece', cuisine: 'Mediterranean', image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 4, title: 'Terra Cotta', location: 'Rome, Italy', cuisine: 'Italian', image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 5, title: 'Zen Plate', location: 'Tokyo, Japan', cuisine: 'Japanese', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 6, title: 'Azure Coast Kitchen', location: 'Nice, France', cuisine: 'French', image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 7, title: 'Sakura Sushi', location: 'Osaka, Japan', cuisine: 'Japanese', image: 'https://images.unsplash.com/photo-1696091811927-6b9552931f70?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2069' },
+    { id: 8, title: 'Taco Libre', location: 'Mexico City, Mexico', cuisine: 'Mexican', image: 'https://plus.unsplash.com/premium_photo-1678051141689-1f7a7861b3b4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687' },
+    { id: 9, title: 'Green Garden', location: 'Bangkok, Thailand', cuisine: 'Thai', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 10, title: 'Plant Based', location: 'Los Angeles, USA', cuisine: 'Vegan', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 11, title: 'Dragon Palace', location: 'Beijing, China', cuisine: 'Chinese', image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' },
+    { id: 12, title: 'Seoul Kitchen', location: 'Seoul, South Korea', cuisine: 'Korean', image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' }
   ]
 
-  // Filter spaces based on selected cuisine
-  const filteredSpaces = selectedCuisine === 'All' 
-    ? culinarySpaces 
+  const filteredSpaces = selectedCuisine === 'All'
+    ? culinarySpaces
     : culinarySpaces.filter(space => space.cuisine === selectedCuisine)
 
   return (
     <div className="culinary-spaces-section">
       <div className="container">
+        
         {/* Explore Cuisines Section */}
         <div className="cuisine-filter-section">
           <h2 className="cuisine-title">Explore Cuisines</h2>
-          <div className="cuisine-buttons">
+          <div className="cuisine-scroll">
             {cuisines.map((cuisine) => (
               <button
                 key={cuisine}
@@ -120,7 +48,7 @@ const CulinarySpaces = () => {
           </div>
         </div>
 
-        {/* Our Culinary Spaces Section */}
+        {/* Culinary Spaces */}
         <div className="spaces-section">
           <h2 className="spaces-title">Our Culinary Spaces</h2>
           <div className="spaces-grid">

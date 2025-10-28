@@ -64,7 +64,7 @@ const ExploreDishes = () => {
       name: "Chicken Tikka Masala",
       restaurant: "Spice Route",
       price: "$17.00",
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d4d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
     },
     {
       id: 9,
@@ -120,14 +120,14 @@ const ExploreDishes = () => {
                 <div className="dish-footer">
                   <span className="dish-price">{dish.price}</span>
                   <button 
-                    className="add-to-cart-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleAddToCart(dish);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
+  className="add-to-cart-btn"
+  onClick={(e) => {
+    e.stopPropagation();
+    window.open("https://www.foodpanda.com/", "_blank");
+  }}
+>
+  Order Now
+</button>
                 </div>
               </div>
             </div>
@@ -135,12 +135,7 @@ const ExploreDishes = () => {
         </div>
       </div>
 
-      {/* Add to Cart Modal */}
-      <AddToCartModal 
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        dish={selectedDish}
-      />
+
     </div>
   );
 };

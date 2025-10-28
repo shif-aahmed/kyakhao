@@ -31,7 +31,7 @@
 
 .reviews-tips-link,
 .reviews-all-link {
-  color: #4CAF50;
+  color: #D42814 ;
   font-size: 0.95rem;
   cursor: pointer;
   text-decoration: underline;
@@ -125,7 +125,7 @@
 }
 
 .reviews-star.filled {
-  background: #4CAF50;
+  background: #D42814 ;
 }
 
 .reviews-total-count {
@@ -185,7 +185,7 @@
 .reviews-breakdown-fill.excellent,
 .reviews-breakdown-fill.good,
 .reviews-aspect-fill {
-  background: #4CAF50;
+  background: #D42814 ;
 }
 
 .reviews-breakdown-fill.average,
@@ -217,7 +217,7 @@
 }
 
 .reviews-transparency-link {
-  color: #4CAF50;
+  color: #D42814 ;
   text-decoration: underline;
 }
 
@@ -251,7 +251,7 @@
 }
 
 .reviews-filters-btn:hover {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-sort-dropdown {
@@ -268,7 +268,7 @@
 }
 
 .reviews-sort-dropdown:hover {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-search-container {
@@ -298,7 +298,7 @@
 
 .reviews-search-input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 /* Popular Mentions */
@@ -320,7 +320,7 @@
 }
 
 .reviews-mention-tag:hover {
-  background: #4CAF50;
+  background: #D42814 ;
   color: white;
 }
 
@@ -395,8 +395,8 @@
 }
 
 .reviews-helpful-btn:hover {
-  border-color: #4CAF50;
-  color: #4CAF50;
+  border-color: #D42814 ;
+  color: #D42814 ;
 }
 
 .reviews-more-btn {
@@ -410,8 +410,8 @@
 }
 
 .reviews-more-btn:hover {
-  border-color: #4CAF50;
-  color: #4CAF50;
+  border-color: #D42814 ;
+  color: #D42814 ;
 }
 
 .reviews-review-rating {
@@ -464,7 +464,7 @@
 
 .reviews-show-original {
   font-size: 0.8rem;
-  color: #4CAF50;
+  color: #D42814 ;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -625,7 +625,7 @@
 }
 
 .reviews-modal-textarea:focus {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-modal-input {
@@ -641,7 +641,7 @@
 }
 
 .reviews-modal-input:focus {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-modal-textarea-large {
@@ -660,7 +660,7 @@
 }
 
 .reviews-modal-textarea-large:focus {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-modal-select {
@@ -675,14 +675,14 @@
 }
 
 .reviews-modal-select:focus {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
 }
 
 .reviews-modal-checkbox {
   margin-right: 0.75rem;
   width: 18px;
   height: 18px;
-  accent-color: #4CAF50;
+  accent-color: #D42814 ;
 }
 
 .reviews-modal-label {
@@ -760,7 +760,7 @@
 
 .reviews-modal-button-submit {
   padding: 0.75rem 1.5rem;
-  background: #4CAF50;
+  background: #D42814 ;
   color: white;
   border: none;
   border-radius: 6px;
@@ -778,7 +778,7 @@
 .reviews-modal-button-close {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background: #4CAF50;
+  background: #D42814 ;
   color: white;
   border: none;
   border-radius: 4px;
@@ -823,13 +823,13 @@
 }
 
 .reviews-modal-file-input:hover {
-  border-color: #4CAF50;
+  border-color: #D42814 ;
   background: #f0f8f0;
 }
 
 .reviews-modal-file-input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #D42814 ;
   background: #f0f8f0;
 }
 

@@ -1,13 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import SidebarReserveTable from '../SidebarReserveTable/SidebarReserveTable';
 import './RestaurantsSection.css';
 
 const RestaurantsSection = () => {
   const trendingRef = useRef(null);
   const newRef = useRef(null);
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const trendingRestaurants = [
     {
@@ -30,7 +33,7 @@ const RestaurantsSection = () => {
       rating: 4.5,
       reviews: 850,
       price: "$15-25",
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d4d0?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=300&h=200&fit=crop",
       badges: ["New"],
       tags: ["0.8 km", "halal", "live kitchen"]
     },
@@ -90,7 +93,7 @@ const RestaurantsSection = () => {
       rating: 4.3,
       reviews: 600,
       price: "$8-15",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=300&h=200&fit=crop",
       badges: [],
       tags: ["0.7 km", "family-friendly"]
     },
@@ -153,7 +156,7 @@ const RestaurantsSection = () => {
       rating: 4.3,
       reviews: 600,
       price: "$8-15",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=300&h=200&fit=crop",
       badges: [],
       tags: ["0.7 km", "family-friendly"]
     },
@@ -207,6 +210,17 @@ const RestaurantsSection = () => {
     }
   ];
 
+  const handleReserveClick = (restaurant, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setSelectedRestaurant(restaurant);
+    setSidebarOpen(true);
+  };
+
+  const handleCloseSidebar = () => {
+    setSidebarOpen(false);
+    setSelectedRestaurant(null);
+  };
 
   const RestaurantCard = ({ restaurant }) => (
     <div className="restaurant-card">
@@ -223,7 +237,7 @@ const RestaurantsSection = () => {
         <p className="restaurant-details">{restaurant.cuisine} • {restaurant.location}</p>
         <div className="restaurant-rating">
           <FontAwesomeIcon icon={faStar} className="star-icon" />
-          <span className="rating">{restaurant.rating}</span>
+          <span className="rating-res">{restaurant.rating}</span>
           <span className="reviews">({restaurant.reviews} reviews)</span>
         </div>
         <p className="price-range">{restaurant.price}</p>
@@ -237,9 +251,15 @@ const RestaurantsSection = () => {
             className="view-details-btn"
             onClick={() => navigate(`/restaurant/${restaurant.id}`)}
           >
-            View Details
+            Details
           </button>
-          <button className="reserve-btn">Reserve</button>
+          <button 
+            className="reserve-btn"
+            onClick={(e) => handleReserveClick(restaurant, e)}
+            type="button"
+          >
+            Reserve
+          </button>
         </div>
       </div>
     </div>
@@ -278,6 +298,12 @@ const RestaurantsSection = () => {
           </div>
         </div>
       </div>
+
+      <SidebarReserveTable 
+        isOpen={sidebarOpen}
+        onClose={handleCloseSidebar}
+        restaurant={selectedRestaurant}
+      />
     </div>
   );
 };

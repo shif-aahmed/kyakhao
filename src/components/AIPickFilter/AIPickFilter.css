@@ -1,7 +1,7 @@
 /* AIPickFilter Component - Isolated Styling */
 .ai-pick-filter {
   padding: 2rem;
-  background: #f8f9fa;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,6 @@
 .ai-pick-filter-card {
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   width: 100%;
   max-width: 1000px;
@@ -34,12 +33,12 @@
 .ai-pick-filter-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+
 }
 
 .ai-pick-filter-row {
   display: flex;
-  gap: 2rem;
+  gap: 3rem !important;
   align-items: flex-start;
 }
 
@@ -98,9 +97,6 @@
   position: relative;
 }
 
-.ai-pick-filter-mood-icon.happy {
-  background: #dc2626;
-}
 
 .ai-pick-filter-mood-label {
   font-size: 0.9rem;

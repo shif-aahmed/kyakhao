@@ -22,7 +22,7 @@ const TrendingNow = ({ onVideoClick }) => {
       views: "1.1M views",
       timeAgo: "3 days ago",
       duration: "08:45",
-      thumbnail: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      thumbnail: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169",
       category: "Recipes"
     }
   ];

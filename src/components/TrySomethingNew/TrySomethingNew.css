@@ -7,7 +7,6 @@
 .try-something-new-header {
   text-align: left;
   margin-bottom: 3rem;
-  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,7 +32,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 1200px;
   margin: 0 auto;
 }
 

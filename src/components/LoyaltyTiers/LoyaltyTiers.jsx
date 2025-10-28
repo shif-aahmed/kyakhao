@@ -181,7 +181,7 @@ const LoyaltyTiers = () => {
                 </button>
                 <button className="confirm-join-btn" onClick={handleConfirmJoin}>
                   <FontAwesomeIcon icon={faCheck} className="confirm-icon" />
-                  Join {selectedTier.name} Program
+                  Join 
                 </button>
               </div>
             </div>

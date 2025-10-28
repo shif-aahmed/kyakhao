@@ -60,7 +60,7 @@ const DishesGrid = ({ selectedCategory = 'All', onVideoClick }) => {
       views: "750K views",
       timeAgo: "4 days ago",
       duration: "12:00",
-      thumbnail: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      thumbnail: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       likes: 950,
       category: "Reviews",
       icon: faCoffee

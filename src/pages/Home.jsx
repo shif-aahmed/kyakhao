@@ -4,7 +4,6 @@ import TasteSurveyModal from '../components/TasteSurveyModal/TasteSurveyModal'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
 import './Home.css'
 import ExploreOurFood from '../components/ExploreOurFood/ExploreOurFood'
-import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
 import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
@@ -62,7 +61,7 @@ function Home() {
       return <RestaurantsSection />
     }
     
-    if (activeTab === 'Things to Do') {
+    if (activeTab === 'Taste Fusion') {
       return (
         <div>
           <TrySomethingNew onVideoClick={handleVideoClick} />
@@ -70,7 +69,7 @@ function Home() {
       )
     }
     
-    if (activeTab === 'AI Picks') {
+    if (activeTab === 'Deals') {
       return (
         <div>
           <Deals />
@@ -81,7 +80,7 @@ function Home() {
       )
     }
     
-    if (activeTab === 'Dishes') {
+    if (activeTab === 'Vlogs') {
       return (
         <div>
           <DishesCategoryFilter 
@@ -107,7 +106,7 @@ function Home() {
       )
     }
     
-    if (activeTab === 'Deals') {
+    if (activeTab === 'Trending') {
       return (
         <div>
           <NewInTown />
@@ -119,7 +118,6 @@ function Home() {
     return (
       <div>
         <ExploreOurFood />
-        <DishOfTheWeek />
         <AISuggestions />
         <TopRatedRestaurants />
         <NewKyaKhao />

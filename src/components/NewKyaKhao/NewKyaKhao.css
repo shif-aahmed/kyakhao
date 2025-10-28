@@ -35,7 +35,7 @@
 }
 
 .view-all-link {
-  color: #dc2626;
+  color: #D42814;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -220,4 +220,22 @@
   .new-kyakhao .item-image {
     height: 180px;
   }
+}
+/* ===== Horizontal Scroll Slider (Instead of Grid) ===== */
+.new-kyakhao .items-slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.new-kyakhao .items-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.new-kyakhao .item-card {
+  flex: 0 0 auto;
+  width: 280px;
 }

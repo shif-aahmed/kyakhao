@@ -24,7 +24,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://plus.unsplash.com/premium_photo-1668771085743-1d2d19818140?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974",
       title: "Margherita Pizza",
       description: "Classic Italian pizza with fresh mozzarella, tomato sauce, and basil",
       restaurant: "Pizzeria Roma",
@@ -34,7 +34,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1565299585323-38174c4a4b0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
       title: "Tacos Al Pastor",
       description: "Authentic Mexican tacos with marinated pork and fresh toppings",
       restaurant: "El Fuego",
@@ -94,7 +94,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 9,
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d4d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1998",
       title: "Beef Burger",
       description: "Juicy beef patty with fresh lettuce, tomato, and special sauce",
       restaurant: "Burger Palace",
@@ -164,7 +164,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 16,
-      image: "https://images.unsplash.com/photo-1572441713132-51c75654db73?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
       title: "Falafel Wrap",
       description: "Crispy chickpea balls with hummus and fresh vegetables",
       restaurant: "Mediterranean Delight",
@@ -184,7 +184,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 18,
-      image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
       title: "Pasta Carbonara",
       description: "Creamy pasta with pancetta, eggs, and parmesan cheese",
       restaurant: "Bella Italia",
@@ -194,7 +194,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 19,
-      image: "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1680137248903-7af5d51a3350?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
       title: "Miso Soup",
       description: "Traditional Japanese soup with tofu and seaweed",
       restaurant: "Zen Garden",
@@ -234,7 +234,7 @@ const FoodGrid = ({ filters = null }) => {
     },
     {
       id: 23,
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d4d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://plus.unsplash.com/premium_photo-1664478238082-3df93e48c491?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
       title: "Vegetable Stir Fry",
       description: "Fresh mixed vegetables with soy sauce and ginger",
       restaurant: "Wok Express",

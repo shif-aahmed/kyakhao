@@ -1,44 +1,31 @@
-.dishes-grid-container {
+.reviews-vlogs-container {
   padding: 2rem 2rem;
   background: #ffffff;
-  min-height: 100vh;
+  min-height: auto;
   width: 100%;
   overflow-x: hidden;
 }
 
 /* Mobile First Responsive Design */
 @media (max-width: 768px) {
-  .dishes-grid-container {
+  .reviews-vlogs-container {
     padding: 1.5rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dishes-grid-container {
+  .reviews-vlogs-container {
     padding: 1rem 0.5rem;
   }
 }
 
-.dishes-grid-header {
+.reviews-vlogs-header {
   text-align: left;
   margin-bottom: 2rem;
   padding: 0;
 }
 
-@media (max-width: 768px) {
-  .dishes-grid-header {
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .dishes-grid-header {
-    padding: 0 0.5rem;
-    margin-bottom: 0.8rem;
-  }
-}
-
-.dishes-grid-title {
+.reviews-vlogs-title {
   font-size: 2rem;
   font-weight: 700;
   color: #1F2937;
@@ -47,23 +34,23 @@
 }
 
 @media (max-width: 768px) {
-  .dishes-grid-title {
+  .reviews-vlogs-title {
     font-size: 1.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dishes-grid-title {
+  .reviews-vlogs-title {
     font-size: 1.4rem;
   }
 }
 
-.dishes-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+.reviews-vlogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 20px;
   width: 100%;
   justify-items: stretch;
   align-items: start;
@@ -71,8 +58,8 @@
 
 /* Responsive Grid Layout */
 @media (max-width: 1200px) {
-  .dishes-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+  .reviews-vlogs-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
     max-width: 100%;
     padding: 0 1rem;
@@ -80,30 +67,30 @@
 }
 
 @media (max-width: 1024px) {
-  .dishes-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .reviews-vlogs-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .dishes-grid {
-    grid-template-columns: 1fr !important;
+  .reviews-vlogs-grid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .dishes-grid {
+  .reviews-vlogs-grid {
     gap: 1rem;
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
 
-.dish-card {
+.review-vlog-card {
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -119,14 +106,14 @@
 }
 
 @media (max-width: 768px) {
-  .dish-card {
+  .review-vlog-card {
     margin: 0 auto;
     max-width: 400px;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-card {
+  .review-vlog-card {
     max-width: 100%;
     width: 100%;
     min-height: auto;
@@ -135,12 +122,12 @@
   }
 }
 
-.dish-card:hover {
+.review-vlog-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.dish-thumbnail {
+.review-vlog-thumbnail {
   position: relative;
   width: 100%;
   height: 200px;
@@ -148,30 +135,30 @@
 }
 
 @media (max-width: 768px) {
-  .dish-thumbnail {
+  .review-vlog-thumbnail {
     height: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-thumbnail {
+  .review-vlog-thumbnail {
     height: 180px;
     flex-shrink: 0;
   }
 }
 
-.dish-thumbnail img {
+.review-vlog-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.dish-card:hover .dish-thumbnail img {
+.review-vlog-card:hover .review-vlog-thumbnail img {
   transform: scale(1.05);
 }
 
-.dish-duration {
+.review-vlog-duration {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -184,33 +171,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.dish-play-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.dish-card:hover .dish-play-overlay {
-  opacity: 1;
-}
-
-.play-icon {
-  font-size: 1.2rem;
-  margin-left: 3px;
-}
-
-.dish-content {
+.review-vlog-content {
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -220,13 +181,13 @@
 }
 
 @media (max-width: 768px) {
-  .dish-content {
+  .review-vlog-content {
     padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-content {
+  .review-vlog-content {
     padding: 0.8rem;
     flex: 1;
     display: flex;
@@ -235,7 +196,7 @@
   }
 }
 
-.dish-title {
+.review-vlog-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: #1F2937;
@@ -250,39 +211,41 @@
 }
 
 @media (max-width: 768px) {
-  .dish-title {
+  .review-vlog-title {
     font-size: 1rem;
     line-height: 1.3;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-title {
+  .review-vlog-title {
     font-size: 0.95rem;
     line-height: 1.3;
     margin-bottom: 0.3rem;
   }
 }
 
-.dish-creator-info {
+.review-vlog-creator-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.dish-creator-avatar {
+.review-vlog-creator-avatar {
   width: 24px;
   height: 24px;
-  background: #E5E7EB;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #6B7280;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.dish-author {
+.review-vlog-creator-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-vlog-author {
   font-size: 0.9rem;
   color: #6B7280;
   margin: 0;
@@ -291,19 +254,19 @@
 }
 
 @media (max-width: 768px) {
-  .dish-author {
+  .review-vlog-author {
     font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-author {
+  .review-vlog-author {
     font-size: 0.8rem;
     margin-bottom: 0.2rem;
   }
 }
 
-.dish-meta-row {
+.review-vlog-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -311,7 +274,7 @@
   width: 100%;
 }
 
-.dish-category-tag {
+.review-vlog-category-tag {
   display: inline-block;
   background-color: #E5E7EB;
   color: #1F2937;
@@ -327,14 +290,14 @@
 }
 
 @media (max-width: 768px) {
-  .dish-category-tag {
+  .review-vlog-category-tag {
     font-size: 0.65rem;
     padding: 0.15rem 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-category-tag {
+  .review-vlog-category-tag {
     font-size: 0.6rem;
     padding: 0.1rem 0.4rem;
     margin-bottom: 0.2rem;
@@ -342,7 +305,7 @@
   }
 }
 
-.dish-meta {
+.review-vlog-meta {
   font-size: 0.8rem;
   color: #6B7280;
   margin: 0;
@@ -352,19 +315,19 @@
 }
 
 @media (max-width: 768px) {
-  .dish-meta {
+  .review-vlog-meta {
     font-size: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .dish-meta {
+  .review-vlog-meta {
     font-size: 0.7rem;
     margin-bottom: 0.5rem;
   }
 }
 
-.dish-actions {
+.review-vlog-actions {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -374,7 +337,7 @@
 }
 
 @media (max-width: 768px) {
-  .dish-actions {
+  .review-vlog-actions {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -383,13 +346,13 @@
 }
 
 @media (max-width: 480px) {
-  .dish-actions {
+  .review-vlog-actions {
     margin-top: auto;
     width: 100%;
   }
 }
 
-.dish-action-btn {
+.review-vlog-action-btn {
   background: none;
   border: none;
   color: #565D6D;
@@ -406,7 +369,7 @@
 }
 
 @media (max-width: 768px) {
-  .dish-action-btn {
+  .review-vlog-action-btn {
     width: 35px;
     height: 35px;
     font-size: 0.9rem;
@@ -414,7 +377,7 @@
 }
 
 @media (max-width: 480px) {
-  .dish-action-btn {
+  .review-vlog-action-btn {
     width: 32px;
     height: 32px;
     font-size: 0.8rem;
@@ -422,12 +385,12 @@
   }
 }
 
-.dish-action-btn:hover {
+.review-vlog-action-btn:hover {
   color: #dc2626;
   background: rgba(220, 38, 38, 0.1);
 }
 
-.watch-now-btn {
+.review-vlog-watch-btn {
   background: #dc2626;
   color: white;
   border: none;
@@ -446,7 +409,7 @@
 }
 
 @media (max-width: 768px) {
-  .watch-now-btn {
+  .review-vlog-watch-btn {
     flex: 1;
     max-width: none;
     padding: 0.6rem 1rem;
@@ -455,7 +418,7 @@
 }
 
 @media (max-width: 480px) {
-  .watch-now-btn {
+  .review-vlog-watch-btn {
     padding: 0.5rem 0.8rem;
     font-size: 0.8rem;
     flex: 1;
@@ -463,10 +426,9 @@
   }
 }
 
-.watch-now-btn:hover {
+.review-vlog-watch-btn:hover {
   background: #b91c1c;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
 }
-
 

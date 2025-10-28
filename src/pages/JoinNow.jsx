@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
 import OTPVerification from '../components/OTPVerification/OTPVerification'
+import background from '../assets/signup.png'
+
 import './JoinNow.css'
 
 function JoinNow() {
-  const [fullName, setFullName] = useState('ethanthomsan')
-  const [email, setEmail] = useState('example@gmail.com')
+  const [fullName, setFullName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
@@ -42,7 +44,7 @@ function JoinNow() {
               Already have an account? <Link to="/signin" className="signin-link">Sign In</Link>
             </p>
 
-            <form className="join-now-form" onSubmit={handleSubmit}>
+            <form className="join-now-form" onSubmit={handleSubmit} autoComplete="off" noValidate>
               <div className="form-group">
                 <label htmlFor="fullName" className="form-label">Full Name</label>
                 <input
@@ -51,6 +53,7 @@ function JoinNow() {
                   className="form-input"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
+                  autoComplete="off"
                   required
                 />
               </div>
@@ -63,6 +66,7 @@ function JoinNow() {
                   className="form-input"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="off"
                   required
                 />
               </div>
@@ -76,6 +80,7 @@ function JoinNow() {
                     className="form-input password-input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="new-password"
                     required
                   />
                   <button
@@ -137,74 +142,9 @@ function JoinNow() {
 
         {/* Right Section - Food Image */}
         <div className="join-now-image-section">
-          <div className="food-image-container">
-            <div className="brand-logo">
-              <img src={logoImage} alt="KyaKhao Logo" className="brand-logo-image" />
-            </div>
-            
-            <div className="food-layout">
-              {/* Cheese Block */}
-              <div className="cheese-block">
-                <div className="cheese-main"></div>
-                <div className="cheese-pieces">
-                  <div className="cheese-piece"></div>
-                  <div className="cheese-piece"></div>
-                  <div className="cheese-piece"></div>
-                </div>
-              </div>
-
-              {/* Mushroom Bowl */}
-              <div className="mushroom-bowl">
-                <div className="mushroom-bowl-container">
-                  <div className="mushroom"></div>
-                  <div className="mushroom"></div>
-                  <div className="mushroom"></div>
-                  <div className="mushroom"></div>
-                </div>
-              </div>
-
-              {/* Peppercorns */}
-              <div className="peppercorns">
-                <div className="peppercorn red"></div>
-                <div className="peppercorn black"></div>
-                <div className="peppercorn red"></div>
-                <div className="peppercorn black"></div>
-                <div className="peppercorn red"></div>
-              </div>
-
-              {/* Chili Pepper */}
-              <div className="chili-pepper"></div>
-
-              {/* Pasta */}
-              <div className="pasta-pieces">
-                <div className="pasta-piece"></div>
-                <div className="pasta-piece"></div>
-                <div className="pasta-piece"></div>
-                <div className="pasta-piece"></div>
-              </div>
-
-              {/* Fettuccine Nests */}
-              <div className="fettuccine-nests">
-                <div className="fettuccine-nest"></div>
-                <div className="fettuccine-nest"></div>
-              </div>
-
-              {/* Tomato Bowl */}
-              <div className="tomato-bowl">
-                <div className="tomato-bowl-container">
-                  <div className="cherry-tomato"></div>
-                  <div className="cherry-tomato"></div>
-                  <div className="cherry-tomato"></div>
-                  <div className="garlic-clove"></div>
-                  <div className="garlic-clove"></div>
-                </div>
-                <div className="herbs">
-                  <div className="rosemary"></div>
-                  <div className="bay-leaf"></div>
-                  <div className="bay-leaf"></div>
-                </div>
-              </div>
-            </div>
+          <img src={background} alt="" />
+          <div className="brand-logo">
+            <img src={logoImage} alt="KyaKhao" className="brand-logo-image" />
           </div>
         </div>
       </div>

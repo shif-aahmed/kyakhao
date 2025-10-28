@@ -44,7 +44,7 @@
 .join-now-form-section {
   flex: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 2rem;
   background: white;
@@ -72,7 +72,7 @@
 }
 
 .signin-link {
-  color: #dc2626;
+  color: #D42814;
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
@@ -105,7 +105,7 @@
 
 .join-now-form .form-input:focus {
   outline: none;
-  border-color: #dc2626;
+  border-color: #D42814;
   background-color: white;
 }
 
@@ -142,14 +142,14 @@
   margin-right: 0.5rem;
   width: 16px;
   height: 16px;
-  accent-color: #dc2626;
+  accent-color: #D42814;
   margin-top: 0.1rem;
   flex-shrink: 0;
 }
 
 .join-now-btn {
   width: 100%;
-  background-color: #dc2626;
+  background-color: #D42814;
   color: white;
   border: none;
   padding: 0.875rem 1.5rem;
@@ -161,7 +161,7 @@
 }
 
 .join-now-btn:hover {
-  background-color: #b91c1c;
+  background-color: #D42814;
 }
 
 .divider {

@@ -1,6 +1,6 @@
 .loyalty-tiers-container {
   padding: 4rem 2rem;
-  background: white;
+  background: #ffffff;
   display: block;
   visibility: visible;
 }
@@ -30,19 +30,19 @@
 }
 
 .loyalty-tier-card {
-  background: #f7fafc;
+  background: #ffffff;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
+  transition: none;
+  border: 1px solid #e5e7eb;
 }
 
 .loyalty-tier-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transform: none;
+  box-shadow: none;
 }
 
 .tier-header {
@@ -88,7 +88,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #ff6b35;
+  color: #111827;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -104,7 +104,7 @@
 .progress-bar {
   width: 100%;
   height: 8px;
-  background: #e2e8f0;
+  background: #e5e7eb;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 0.5rem;
@@ -112,7 +112,7 @@
 
 .progress-fill {
   height: 100%;
-  background: #ff6b35;
+  background: #D42814;
   border-radius: 4px;
   transition: width 0.3s ease;
 }
@@ -127,7 +127,7 @@
 
 .join-loyalty-btn {
   width: 100%;
-  background: #ff6b35;
+  background: #D42814;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -135,14 +135,13 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
   font-family: 'Inter', sans-serif;
   margin-top: auto;
 }
 
 .join-loyalty-btn:hover {
-  background: #e55a2b;
-  transform: translateY(-1px);
+  background: #D42814;
 }
 
 .join-loyalty-btn:active {
@@ -404,7 +403,7 @@
 
 .progress-preview-fill {
   height: 100%;
-  background: #ff6b35;
+  background: #D42814;
   border-radius: 4px;
   transition: width 0.3s ease;
 }
@@ -442,7 +441,7 @@
 }
 
 .confirm-join-btn {
-  background: #ff6b35;
+  background: #D42814;
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -460,7 +459,7 @@
 }
 
 .confirm-join-btn:hover {
-  background: #e55a2b;
+  background: #99190a;
   transform: translateY(-1px);
 }
 

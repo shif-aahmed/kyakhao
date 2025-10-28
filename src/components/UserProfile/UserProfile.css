@@ -1,6 +1,6 @@
 .user-profile-container {
   padding: 3rem 2rem;
-  background: #f8f9fa;
+  background: #ffffff;
   display: block;
   visibility: visible;
 }
@@ -72,7 +72,7 @@
 
 .coupon-input:focus {
   outline: none;
-  border-color: #ff6b35;
+  border-color: #D42814;
   background: white;
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
@@ -82,7 +82,7 @@
 }
 
 .unlock-discount-btn {
-  background: #ff6b35;
+  background: #D42814;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -95,7 +95,7 @@
 }
 
 .unlock-discount-btn:hover {
-  background: #e55a2b;
+  background: #750e02;
   transform: translateY(-1px);
 }
 

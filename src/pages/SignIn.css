@@ -74,7 +74,7 @@
 }
 
 .signup-link {
-  color: #dc2626;
+  color: #D42814;
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
@@ -109,7 +109,7 @@
 
 .signin-form .form-input:focus {
   outline: none;
-  border-color: #dc2626;
+  border-color: #D42814;
   background-color: white;
 }
 
@@ -156,7 +156,7 @@
 }
 
 .forgot-password {
-  color: #dc2626;
+  color: #D42814;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -168,7 +168,7 @@
 
 .signin-btn {
   width: 100%;
-  background-color: #dc2626;
+  background-color: #D42814;
   color: white;
   border: none;
   padding: 0.875rem 1.5rem;
@@ -181,7 +181,7 @@
 }
 
 .signin-btn:hover {
-  background-color: #b91c1c;
+  background-color: #D42814;
 }
 
 .divider {

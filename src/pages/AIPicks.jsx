@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import AIPicksHeroBanner from '../components/AIPicksHeroBanner/AIPicksHeroBanner'
 import AIPickFilter from '../components/AIPickFilter/AIPickFilter'
 import RecipeSuggestion from '../components/RecipeSuggestion/RecipeSuggestion'
@@ -10,14 +10,37 @@ import './AIPicks.css'
 
 function AIPicks() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [showTasteSurvey, setShowTasteSurvey] = useState(false);
 
   useEffect(() => {
-    // Check if we should show the taste survey modal
+    // Check if we should show the taste survey modal explicitly (e.g., after payment)
     if (location.state?.showTasteSurvey) {
       setShowTasteSurvey(true);
-      // Clear the state to prevent showing modal on refresh
       window.history.replaceState({}, document.title);
+      return;
+    }
+
+    // Apply gate on every visit: sign-in -> subscription -> (optional) taste survey
+    const isSignedIn = sessionStorage.getItem('isSignedIn') === '1';
+    const hasSubscription = sessionStorage.getItem('hasSubscription') === '1';
+    const skippedTaste = sessionStorage.getItem('didSkipTasteSurvey') === '1';
+
+    if (!isSignedIn) {
+      navigate('/signin', { replace: true, state: { from: '/ai-picks' } });
+      return;
+    }
+
+    if (!hasSubscription) {
+      try {
+        sessionStorage.setItem('tasteOriginPath', '/ai-picks');
+      } catch {}
+      navigate('/payment-setup', { replace: true });
+      return;
+    }
+
+    if (!skippedTaste) {
+      setShowTasteSurvey(true);
     }
   }, [location.state]);
 
@@ -28,6 +51,7 @@ function AIPicks() {
 
   const handleCloseSurvey = () => {
     setShowTasteSurvey(false);
+    try { sessionStorage.setItem('didSkipTasteSurvey', '1'); } catch {}
   };
 
   return (

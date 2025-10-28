@@ -13,6 +13,7 @@ function PaymentSetup() {
     e.preventDefault();
     // Always navigate to the originating page to show the modal
     try {
+      sessionStorage.setItem('hasSubscription', '1');
       const origin = sessionStorage.getItem('tasteOriginPath');
       if (origin) {
         navigate(origin, { state: { showTasteSurvey: true }, replace: true });
@@ -44,7 +45,7 @@ function PaymentSetup() {
           <span className="ps-brand rupay" />
         </div>
 
-        <div className="ps-form">
+        <div className="ps-form" role="form" aria-label="Payment setup form">
           {/* Inputs block to match image (purely visual; no validation) */}
           <div className="ps-input-row">
             <div className="ps-input-with-icon">
@@ -53,6 +54,8 @@ function PaymentSetup() {
                 type="text"
                 inputMode="numeric"
                 placeholder="Card number"
+                autoComplete="cc-number"
+                name="cardnumber"
               />
               <span className="ps-input-icon" />
             </div>
@@ -65,6 +68,8 @@ function PaymentSetup() {
                   className="ps-input"
                   type="text"
                   placeholder="Expiry date"
+                  autoComplete="cc-exp"
+                  name="exp-date"
                 />
                 <span className="ps-input-icon calendar" />
               </div>
@@ -76,6 +81,8 @@ function PaymentSetup() {
                   type="password"
                   inputMode="numeric"
                   placeholder="CVV"
+                  autoComplete="cc-csc"
+                  name="cvc"
                 />
                 <span className="ps-input-icon info" />
               </div>
@@ -87,6 +94,8 @@ function PaymentSetup() {
               className="ps-input"
               type="text"
               placeholder="Name on card"
+              autoComplete="cc-name"
+              name="cardholder"
             />
           </div>
 

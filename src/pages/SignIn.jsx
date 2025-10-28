@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
+import background from '../assets/signup.png'
+
 import './SignIn.css'
 
 function SignIn() {
@@ -9,10 +11,15 @@ function SignIn() {
   const [rememberMe, setRememberMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from || '/'
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle sign in logic here
     console.log('Sign in:', { email, password, rememberMe })
+    try { sessionStorage.setItem('isSignedIn', '1') } catch {}
+    navigate(from, { replace: true })
   }
 
   return (
@@ -27,7 +34,7 @@ function SignIn() {
               Don't have an account? <Link to="/join-now" className="signup-link">Sign Up</Link>
             </p>
 
-            <form className="signin-form" onSubmit={handleSubmit}>
+            <form className="signin-form" onSubmit={handleSubmit} autoComplete="off" noValidate>
               <div className="form-group">
                 <label htmlFor="email" className="form-label">E-mail</label>
                 <input
@@ -37,6 +44,7 @@ function SignIn() {
                   placeholder="example@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="off"
                   required
                 />
               </div>
@@ -50,6 +58,7 @@ function SignIn() {
                     className="form-input password-input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="new-password"
                     required
                   />
                   <button
@@ -111,56 +120,9 @@ function SignIn() {
 
         {/* Right Section - Food Image */}
         <div className="signin-image-section">
-          <div className="food-image-container">
-            <div className="brand-logo">
-              <img src={logoImage} alt="KyaKhao Logo" className="brand-logo-image" />
-            </div>
-            
-            <div className="food-layout">
-              <div className="top-platter">
-                <div className="fruit-platter">
-                  <div className="blueberries"></div>
-                  <div className="orange-slices"></div>
-                  <div className="kiwi-dice"></div>
-                  <div className="dragon-fruit"></div>
-                </div>
-                <div className="serving-utensil">
-                  <div className="utensil-handle">RE FRESH & BROW</div>
-                </div>
-              </div>
-
-              <div className="main-plate">
-                <div className="pancake-plate">
-                  <div className="pancakes">
-                    <div className="pancake"></div>
-                    <div className="pancake"></div>
-                    <div className="pancake"></div>
-                  </div>
-                  <div className="fruit-toppings">
-                    <div className="blueberry-topping"></div>
-                    <div className="orange-slice-topping"></div>
-                  </div>
-                  <div className="fork-cutting"></div>
-                  <div className="decorative-flower"></div>
-                </div>
-              </div>
-
-              <div className="beverage-cup">
-                <div className="coffee-cup"></div>
-              </div>
-
-              <div className="partial-plate">
-                <div className="syrup-drizzles"></div>
-              </div>
-
-              <div className="golden-speckles">
-                <div className="speckle"></div>
-                <div className="speckle"></div>
-                <div className="speckle"></div>
-                <div className="speckle"></div>
-                <div className="speckle"></div>
-              </div>
-            </div>
+          <img src={background} alt="" />
+          <div className="brand-logo">
+            <img src={logoImage} alt="KyaKhao" className="brand-logo-image" />
           </div>
         </div>
       </div>

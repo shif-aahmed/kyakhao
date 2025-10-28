@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './TasteSurvey.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faLeaf, faDollarSign, faStar } from '@fortawesome/free-solid-svg-icons';
+import TasteSurveyCompletion from '../TasteSurveyCompletion/TasteSurveyCompletion';
 
 const TasteSurvey = ({ isOpen, onClose, onComplete }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCuisine, setSelectedCuisine] = useState('');
   const [selectedSpiceLevel, setSelectedSpiceLevel] = useState('');
   const [selectedFoodPreference, setSelectedFoodPreference] = useState('');
+  const [showCompletion, setShowCompletion] = useState(false);
 
   const cuisineOptions = [
     'Pakistani',
@@ -36,12 +38,8 @@ const TasteSurvey = ({ isOpen, onClose, onComplete }) => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Survey completed
-      onComplete({
-        cuisine: selectedCuisine,
-        spiceLevel: selectedSpiceLevel,
-        foodPreference: selectedFoodPreference
-      });
+      // Survey completed - show completion modal
+      setShowCompletion(true);
     }
   };
 
@@ -57,6 +55,25 @@ const TasteSurvey = ({ isOpen, onClose, onComplete }) => {
       spiceLevel: selectedSpiceLevel,
       foodPreference: selectedFoodPreference
     });
+  };
+
+  const handleViewSuggestions = () => {
+    setShowCompletion(false);
+    onComplete({
+      cuisine: selectedCuisine,
+      spiceLevel: selectedSpiceLevel,
+      foodPreference: selectedFoodPreference
+    });
+  };
+
+  const handleEditPreferences = () => {
+    setShowCompletion(false);
+    setCurrentStep(1);
+  };
+
+  const handleCloseCompletion = () => {
+    setShowCompletion(false);
+    onClose();
   };
 
   const handleOptionSelect = (option) => {
@@ -91,6 +108,22 @@ const TasteSurvey = ({ isOpen, onClose, onComplete }) => {
   };
 
   if (!isOpen) return null;
+
+  if (showCompletion) {
+    return (
+      <TasteSurveyCompletion
+        isOpen={true}
+        onClose={handleCloseCompletion}
+        onViewSuggestions={handleViewSuggestions}
+        onEditPreferences={handleEditPreferences}
+        surveyData={{
+          cuisine: selectedCuisine,
+          spiceLevel: selectedSpiceLevel,
+          foodPreference: selectedFoodPreference
+        }}
+      />
+    );
+  }
 
   return (
     <div className="taste-survey-overlay" onClick={onClose}>

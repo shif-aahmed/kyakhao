@@ -12,6 +12,8 @@ const TasteSurveyModal = ({ isOpen, onClose, onStartSurvey }) => {
   const handleSurveyComplete = (surveyData) => {
     console.log('Survey completed with data:', surveyData);
     setShowSurvey(false);
+    // You can add logic here to handle the completed survey data
+    // For now, we'll just close the modal
     onStartSurvey();
   };
 

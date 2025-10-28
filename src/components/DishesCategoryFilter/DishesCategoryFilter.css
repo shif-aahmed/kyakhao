@@ -6,7 +6,6 @@
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin-top: -50px;
   position: relative;
   z-index: 10;
 }
@@ -37,13 +36,13 @@
 }
 
 .dishes-category-button.active {
-  background-color: #ff6b35;
+  background-color: #dc2626;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
 
 .upload-video-button {
-  background-color: #ff6b35;
+  background-color: #dc2626;
   color: #fff;
   border: none;
   padding: 0.7rem 1.5rem;
@@ -54,13 +53,13 @@
   transition: all 0.3s ease;
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
-  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
 
 .upload-video-button:hover {
-  background-color: #e55a2b;
+  background-color: #b91c1c;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
 }
 
 /* Responsive adjustments */
@@ -70,7 +69,6 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    margin-top: -30px;
   }
 
   .dishes-category-buttons {
@@ -94,7 +92,6 @@
 @media (max-width: 480px) {
   .dishes-category-filter-container {
     padding: 0.8rem;
-    margin-top: -20px;
   }
 
   .dishes-category-buttons {

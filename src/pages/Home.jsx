@@ -9,6 +9,7 @@ import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedResta
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
 import DishesGrid from '../components/DishesGrid/DishesGrid'
 import DishesCategoryFilter from '../components/DishesCategoryFilter/DishesCategoryFilter'
+import ReviewsVlogs from '../components/ReviewsVlogs/ReviewsVlogs'
 import TrendingNow from '../components/TrendingNow/TrendingNow'
 import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
 import UploadModal from '../components/UploadModal/UploadModal'
@@ -91,6 +92,7 @@ function Home() {
             selectedCategory={selectedCategory}
             onVideoClick={handleVideoClick}
           />
+          <ReviewsVlogs />
           <TrendingNow onVideoClick={handleVideoClick} />
           <FeaturedCreator />
           <UploadModal 

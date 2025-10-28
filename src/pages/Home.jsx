@@ -6,7 +6,7 @@ import './Home.css'
 import ExploreOurFood from '../components/ExploreOurFood/ExploreOurFood'
 import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
-import AllReservation from '../components/AllReservation/AllReservation'
+import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
 import DishesGrid from '../components/DishesGrid/DishesGrid'
 import DishesCategoryFilter from '../components/DishesCategoryFilter/DishesCategoryFilter'
@@ -121,7 +121,7 @@ function Home() {
         <ExploreOurFood />
         <DishOfTheWeek />
         <AISuggestions />
-        <AllReservation />
+        <TopRatedRestaurants />
         <NewKyaKhao />
       </div>
     )

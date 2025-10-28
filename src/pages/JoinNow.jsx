@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
+import OTPVerification from '../components/OTPVerification/OTPVerification'
 import './JoinNow.css'
 
 function JoinNow() {
@@ -9,11 +10,24 @@ function JoinNow() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
+  const [showOTPVerification, setShowOTPVerification] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     // Handle sign up logic here
     console.log('Sign up:', { fullName, email, password, agreeToTerms })
+    
+    // Show OTP verification modal
+    setShowOTPVerification(true)
+  }
+
+  const handleSignUpClick = () => {
+    // Show OTP verification page immediately without form validation
+    setShowOTPVerification(true)
+  }
+
+  const handleOTPClose = () => {
+    setShowOTPVerification(false)
   }
 
   return (
@@ -93,7 +107,7 @@ function JoinNow() {
                 </label>
               </div>
 
-              <button type="submit" className="join-now-btn">Sign Up</button>
+              <button type="button" className="join-now-btn" onClick={handleSignUpClick}>Sign Up</button>
             </form>
 
             <div className="divider">
@@ -194,6 +208,13 @@ function JoinNow() {
           </div>
         </div>
       </div>
+
+      {/* OTP Verification Page */}
+      <OTPVerification
+        isOpen={showOTPVerification}
+        onClose={handleOTPClose}
+        userEmail={email}
+      />
     </div>
   )
 }

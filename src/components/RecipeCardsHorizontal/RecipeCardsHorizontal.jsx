@@ -86,3 +86,6 @@ const RecipeCardsHorizontal = () => {
 
 export default RecipeCardsHorizontal;
 
+
+
+

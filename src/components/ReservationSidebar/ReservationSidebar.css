@@ -1,24 +1,39 @@
 .sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-end;
-  align-items: stretch;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: stretch !important;
+  isolation: isolate !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .reservation-sidebar {
-  background: white;
-  width: 400px;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.3s ease-out;
+  background: white !important;
+  width: 450px !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15) !important;
+  animation: slideIn 0.3s ease-out !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  z-index: 1000000 !important;
+  transform: translateZ(0) !important;
+  will-change: transform !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 @keyframes slideIn {
@@ -30,213 +45,318 @@
   }
 }
 
+/* Force sidebar above everything */
+.sidebar-overlay,
+.sidebar-overlay * {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
+.reservation-sidebar,
+.reservation-sidebar * {
+  z-index: 1000000 !important;
+  position: relative !important;
+}
+
+/* Force sidebar to always be visible */
+.sidebar-overlay {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Override any hiding rules */
+.sidebar-overlay[style*="display: none"],
+.sidebar-overlay[style*="visibility: hidden"],
+.sidebar-overlay[style*="opacity: 0"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.reservation-sidebar[style*="display: none"],
+.reservation-sidebar[style*="visibility: hidden"],
+.reservation-sidebar[style*="opacity: 0"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 .sidebar-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
-  background: #f8f9fa;
+  align-items: flex-start;
+  padding: 32px 32px 24px 32px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.header-content {
+  flex: 1;
+  margin-right: 16px;
+  text-align: left;
+}
+
+.title-container {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
 }
 
 .sidebar-header h2 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 1.75rem;
+  color: #1f2937;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.dining-text {
+  font-size: 1rem;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+.premium-text-container {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  margin-left: 0;
+}
+
+.premium-text {
+  margin: 0;
+  font-size: 1rem;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  display: block;
+  width: 100%;
 }
 
 .close-btn {
-  background: none;
+  background: #f3f4f6;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
-  color: #666;
-  padding: 5px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  color: #6b7280;
+  padding: 8px;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
 }
 
 .close-btn:hover {
-  background: #f0f0f0;
+  background: #e5e7eb;
+  color: #374151;
 }
 
 .sidebar-content {
-  padding: 20px;
+  padding: 32px;
 }
 
-.restaurant-info {
-}
-
-.restaurant-info h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.3rem;
-  color: #333;
-}
-
-.restaurant-info p {
-  margin: 0 0 10px 0;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.star {
-  color: #ffc107;
-}
 
 .form-section {
-  margin-bottom: 25px;
+  margin-bottom: 32px;
 }
 
 .form-section label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: 600;
-  color: #333;
-  font-size: 0.9rem;
+  color: #1f2937;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .form-input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: border-color 0.3s ease;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #ff6b35;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.restaurant-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-dropdown .form-input {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 16px;
+  color: #6b7280;
+  font-size: 0.8rem;
+  pointer-events: none;
 }
 
 .time-slots {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 .time-btn {
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
   background: white;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #6b7280;
 }
 
 .time-btn:hover {
-  border-color: #ff6b35;
-  color: #ff6b35;
+  border-color: #dc2626;
+  color: #dc2626;
+  background: #fef2f2;
 }
 
 .time-btn.selected {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
-  border-color: #ff6b35;
+  border-color: #dc2626;
 }
 
 .guests-selector {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   justify-content: center;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
 }
 
 .guest-btn {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d1d5db;
   background: white;
-  border-radius: 50%;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
 }
 
 .guest-btn:hover {
-  border-color: #ff6b35;
-  color: #ff6b35;
+  border-color: #dc2626;
+  color: #dc2626;
+  background: #fef2f2;
 }
 
 .guest-count {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
-  min-width: 30px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  min-width: 40px;
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
 .form-textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 1rem;
   resize: vertical;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  min-height: 100px;
 }
 
 .form-textarea:focus {
   outline: none;
-  border-color: #ff6b35;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .sidebar-footer {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .reserve-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 18px 24px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
 }
 
 .reserve-btn:hover {
-  background: #e55a2b;
+  background: #b91c1c;
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
 }
 
 .cancel-btn {
-  background: none;
-  color: #666;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 1rem;
+  background: #ffffff;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  padding: 18px 24px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
 }
 
 .cancel-btn:hover {
-  background: #f5f5f5;
-  border-color: #999;
+  background: #f9fafb;
+  border-color: #9ca3af;
+  color: #374151;
 }
 
 @media (max-width: 768px) {

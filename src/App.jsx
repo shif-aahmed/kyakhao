@@ -16,16 +16,19 @@ import Checkout from './pages/Checkout'
 import NewCheckout from './pages/NewCheckout'
 import SignIn from './pages/SignIn'
 import JoinNow from './pages/JoinNow'
+import Pricing from './pages/Pricing'
+import PaymentSetup from './pages/PaymentSetup'
 import './App.css'
 
 function AppContent() {
   const location = useLocation();
   const isSignInPage = location.pathname === '/signin';
   const isJoinNowPage = location.pathname === '/join-now';
+  const isPaymentSetupPage = location.pathname === '/payment-setup';
   
   return (
     <div className="App">
-      {!isSignInPage && !isJoinNowPage && <Navbar />}
+      {!isSignInPage && !isJoinNowPage && !isPaymentSetupPage && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
@@ -40,9 +43,11 @@ function AppContent() {
         <Route path="/new-checkout" element={<NewCheckout />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/join-now" element={<JoinNow />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/payment-setup" element={<PaymentSetup />} />
         <Route path="*" element={<div style={{padding: '2rem', textAlign: 'center'}}><h1>Page Not Found</h1><p>The page you're looking for doesn't exist.</p></div>} />
       </Routes>
-      {!isSignInPage && !isJoinNowPage && <Footer />}
+      {!isSignInPage && !isJoinNowPage && !isPaymentSetupPage && <Footer />}
     </div>
   );
 }

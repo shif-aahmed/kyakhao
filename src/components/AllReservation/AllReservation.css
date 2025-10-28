@@ -1,6 +1,9 @@
 .all-reservation-section {
   padding: 4rem 0;
   background-color: #f8f9fa;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 
 .all-reservation-section .container {
@@ -73,66 +76,70 @@
   color: #1f2937;
   margin-bottom: 8px;
   line-height: 1.2;
+  font-family: 'Inter', sans-serif;
 }
 
 .restaurant-info {
-  font-size: 0.9rem;
-  color: #6b7280;
-  margin-bottom: 1px !important;
-  font-weight: 400;
-  padding: 0.2rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  font-size: 0.9rem !important;
+  color: #6b7280 !important;
+  margin-bottom: 16px !important;
+  font-weight: 400 !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 .rating {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 2px !important;
+  margin-bottom: 20px;
 }
 
 .star {
   font-size: 1rem;
-}
-
-.star.filled {
-  color: #FCD34D;
-  fill: #FCD34D;
-}
-
-.star.half {
-  color: #FCD34D;
-  fill: #FCD34D;
+  color: #F59E0B;
 }
 
 .rating-value {
   font-weight: 600;
-  color: #ef4444;
+  color: #F59E0B;
   font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .review-count {
   font-size: 0.85rem;
   color: #6b7280;
+  font-family: 'Inter', sans-serif;
 }
 
 .time-slots {
-  display: flex;
-  gap: 10px;
+  display: flex !important;
+  gap: 8px;
   margin-bottom: 24px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  grid-template-columns: none !important;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
 }
 
 .time-slot {
-  background: #f8f9fa;
+  background: #ffffff;
   color: #6b7280;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 6px 12px;
+  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid #e5e7eb;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.time-slot:hover {
+  border-color: #dc2626;
+  color: #dc2626;
 }
 
 .card-actions {
@@ -143,37 +150,47 @@
 }
 
 .reserve-btn {
-  background: #dc2626;
-  color: white;
+  background: #dc2626 !important;
+  color: white !important;
   border: none;
   padding: 14px 28px;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
   flex: 1;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 
 .reserve-btn:hover {
-  background: #b91c1c;
+  background: #b91c1c !important;
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
 }
 
 .details-btn {
-  background: none;
-  color: #dc2626;
-  border: none;
-  padding: 8px 0;
+  background: #ffffff;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  padding: 14px 28px;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  flex: 1;
+  font-family: 'Inter', sans-serif;
 }
 
 .details-btn:hover {
-  color: #b91c1c;
+  background: #f8f9fa;
+  border-color: #d1d5db;
+  color: #374151;
 }
 
 /* Responsive Design */

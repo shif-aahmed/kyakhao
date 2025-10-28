@@ -77,6 +77,39 @@
   border-radius: 1px;
 }
 
+/* AI Pick button styling to match nav links */
+.navbar-links button.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  color: #1f2937;
+  font-size: 1rem !important;
+  font-weight: 500;
+  font-family: 'poppins', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar-links button.nav-link:hover {
+  color: #dc2626;
+}
+
+.navbar-links button.nav-link.active {
+  position: relative;
+}
+
+.navbar-links button.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #dc2626;
+  border-radius: 1px;
+}
+
 /* Search Bar */
 .navbar-search {
   flex: 1;
@@ -146,11 +179,14 @@
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .sign-in-btn:hover {
   background-color: #b91c1c;
   transform: translateY(-1px);
+  text-decoration: none;
 }
 
 /* Bell Icon with Notification Badge */

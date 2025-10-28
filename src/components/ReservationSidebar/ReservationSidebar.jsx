@@ -31,31 +31,44 @@ const ReservationSidebar = ({ isOpen, onClose, restaurant }) => {
     onClose()
   }
 
-  if (!isOpen) return null
+  console.log('ReservationSidebar rendered, isOpen:', isOpen);
+  
+  // Temporarily comment out for testing
+  // if (!isOpen) return null
 
   return (
     <div className="sidebar-overlay" onClick={onClose}>
       <div className="reservation-sidebar" onClick={(e) => e.stopPropagation()}>
         <div className="sidebar-header">
-          <h2>Reserve a Table</h2>
+          <div className="header-content">
+            <div className="title-container">
+              <h2>Reserve Your Table</h2>
+              <span className="dining-text">dining</span>
+            </div>
+            <div className="premium-text-container">
+              <p className="premium-text">experience with ease.</p>
+            </div>
+          </div>
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
         
         <div className="sidebar-content">
-          {restaurant && (
-            <div className="restaurant-info">
-              <h3>{restaurant.name}</h3>
-              <p>{restaurant.cuisine} • {restaurant.location}</p>
-              <div className="rating">
-                <span className="star">⭐</span>
-                <span>{restaurant.rating}</span>
-                <span>({restaurant.reviews} reviews)</span>
-              </div>
+          <div className="form-section">
+            <label>Restaurant</label>
+            <div className="restaurant-dropdown">
+              <input 
+                type="text" 
+                value={restaurant ? restaurant.name : ''}
+                readOnly
+                className="form-input"
+                placeholder="Select restaurant"
+              />
+              <span className="dropdown-arrow">▼</span>
             </div>
-          )}
+          </div>
 
           <div className="form-section">
-            <label>Select Date</label>
+            <label>Date</label>
             <input 
               type="date" 
               value={selectedDate}

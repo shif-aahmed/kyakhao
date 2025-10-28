@@ -1,0 +1,444 @@
+/* SidebarReserveTable - Premium Isolated Styling */
+/* This component has complete CSS isolation - no styles leak in or out */
+
+/* Overlay - Maximum z-index and isolation */
+.sidebar-reserve-table-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: stretch !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  isolation: isolate !important;
+}
+
+/* Main Container - Premium styling with isolation */
+.sidebar-reserve-table-container {
+  background: #ffffff !important;
+  width: 450px !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  z-index: 1000000 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateZ(0) !important;
+  will-change: transform !important;
+  animation: sidebarReserveTableSlideIn 0.3s ease-out !important;
+}
+
+/* Slide in animation */
+@keyframes sidebarReserveTableSlideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Header Section */
+.sidebar-reserve-table-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding: 32px 32px 24px 32px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  position: relative !important;
+}
+
+.sidebar-reserve-table-title-section {
+  flex: 1 !important;
+  margin-right: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+.sidebar-reserve-table-title {
+  margin: 0 0 8px 0 !important;
+  font-size: 1.75rem !important;
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+}
+
+.sidebar-reserve-table-subtitle-section {
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.sidebar-reserve-table-subtitle {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: #6b7280 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.sidebar-reserve-table-close-btn {
+  background: #f3f4f6 !important;
+  border: none !important;
+  font-size: 1.25rem !important;
+  cursor: pointer !important;
+  color: #6b7280 !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  position: absolute !important;
+  top: 24px !important;
+  right: 24px !important;
+}
+
+.sidebar-reserve-table-close-btn:hover {
+  background: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+/* Content Section */
+.sidebar-reserve-table-content {
+  padding: 32px !important;
+  flex: 1 !important;
+}
+
+.sidebar-reserve-table-field {
+  margin-bottom: 32px !important;
+}
+
+.sidebar-reserve-table-label {
+  display: block !important;
+  margin-bottom: 12px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  font-size: 1rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Input Fields */
+.sidebar-reserve-table-input {
+  width: 100% !important;
+  padding: 16px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+.sidebar-reserve-table-input:focus {
+  outline: none !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Dropdown Styling */
+.sidebar-reserve-table-dropdown {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sidebar-reserve-table-dropdown .sidebar-reserve-table-input {
+  padding-right: 40px !important;
+  cursor: pointer !important;
+}
+
+.sidebar-reserve-table-arrow {
+  position: absolute !important;
+  right: 16px !important;
+  color: #6b7280 !important;
+  font-size: 0.8rem !important;
+  pointer-events: none !important;
+}
+
+/* Date Input with Calendar Icon */
+.sidebar-reserve-table-date-input {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sidebar-reserve-table-calendar-icon {
+  position: absolute !important;
+  left: 16px !important;
+  color: #6b7280 !important;
+  font-size: 1rem !important;
+  z-index: 1 !important;
+}
+
+.sidebar-reserve-table-date-input .sidebar-reserve-table-input {
+  padding-left: 48px !important;
+}
+
+/* Time Slots */
+.sidebar-reserve-table-time-slots {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 16px !important;
+}
+
+.sidebar-reserve-table-time-btn {
+  padding: 14px 16px !important;
+  border: 1px solid #d1d5db !important;
+  background: white !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-size: 1rem !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #6b7280 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.sidebar-reserve-table-time-btn:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+  background: #fef2f2 !important;
+}
+
+.sidebar-reserve-table-time-btn.selected {
+  background: #dc2626 !important;
+  color: white !important;
+  border-color: #dc2626 !important;
+}
+
+.sidebar-reserve-table-divider {
+  height: 1px !important;
+  background: #e5e7eb !important;
+  margin: 16px 0 !important;
+}
+
+/* Guests Selector */
+.sidebar-reserve-table-guests-selector {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  background: #f9fafb !important;
+  border-radius: 12px !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.sidebar-reserve-table-guest-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border: 1px solid #d1d5db !important;
+  background: white !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  color: #6b7280 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.sidebar-reserve-table-guest-btn:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+  background: #fef2f2 !important;
+}
+
+.sidebar-reserve-table-guest-count {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  min-width: 40px !important;
+  text-align: center !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Toggle Switch */
+.sidebar-reserve-table-toggle-section {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.sidebar-reserve-table-toggle {
+  width: 50px !important;
+  height: 24px !important;
+  background: #d1d5db !important;
+  border-radius: 12px !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-reserve-table-toggle.active {
+  background: #dc2626 !important;
+}
+
+.sidebar-reserve-table-toggle-slider {
+  width: 20px !important;
+  height: 20px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sidebar-reserve-table-toggle.active .sidebar-reserve-table-toggle-slider {
+  transform: translateX(26px) !important;
+}
+
+/* Coupon Section */
+.sidebar-reserve-table-coupon-section {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+.sidebar-reserve-table-apply-btn {
+  background: #ffffff !important;
+  color: #6b7280 !important;
+  border: 1px solid #d1d5db !important;
+  padding: 16px 20px !important;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  white-space: nowrap !important;
+}
+
+.sidebar-reserve-table-apply-btn:hover {
+  background: #f9fafb !important;
+  border-color: #9ca3af !important;
+  color: #374151 !important;
+}
+
+.sidebar-reserve-table-loyalty-text {
+  margin: 8px 0 0 0 !important;
+  font-size: 0.9rem !important;
+  color: #6b7280 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Footer Buttons */
+.sidebar-reserve-table-footer {
+  margin-top: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  padding: 0 32px 32px 32px !important;
+}
+
+.sidebar-reserve-table-reserve-btn {
+  background: #dc2626 !important;
+  color: white !important;
+  border: none !important;
+  padding: 18px 24px !important;
+  border-radius: 12px !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2) !important;
+}
+
+.sidebar-reserve-table-reserve-btn:hover {
+  background: #b91c1c !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3) !important;
+}
+
+.sidebar-reserve-table-cancel-btn {
+  background: #ffffff !important;
+  color: #6b7280 !important;
+  border: 1px solid #d1d5db !important;
+  padding: 18px 24px !important;
+  border-radius: 12px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.sidebar-reserve-table-cancel-btn:hover {
+  background: #f9fafb !important;
+  border-color: #9ca3af !important;
+  color: #374151 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar-reserve-table-container {
+    width: 100vw !important;
+    max-width: 400px !important;
+  }
+  
+  .sidebar-reserve-table-header {
+    padding: 24px 20px 20px 20px !important;
+  }
+  
+  .sidebar-reserve-table-content {
+    padding: 24px 20px !important;
+  }
+  
+  .sidebar-reserve-table-footer {
+    padding: 0 20px 24px 20px !important;
+  }
+}
+
+/* Force isolation - Override any external styles */
+.sidebar-reserve-table-overlay *,
+.sidebar-reserve-table-overlay *::before,
+.sidebar-reserve-table-overlay *::after {
+  box-sizing: border-box !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Prevent style inheritance */
+.sidebar-reserve-table-container * {
+  all: unset !important;
+  display: revert !important;
+  box-sizing: border-box !important;
+}
+
+/* Re-apply our specific styles after reset */
+.sidebar-reserve-table-container > * {
+  all: revert !important;
+}

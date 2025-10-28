@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NavDropdown from '../NavDropdown/NavDropdown';
+import PersonalizeModal from '../PersonalizeModal/PersonalizeModal';
 import logoImage from '../../assets/logo.png';
 import './Navbar.css';
 
@@ -8,6 +9,7 @@ const Navbar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showPersonalizeModal, setShowPersonalizeModal] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -24,6 +26,23 @@ const Navbar = () => {
   const closeDropdown = () => {
     setIsDropdownOpen(false);
   };
+
+  const handleAIPickClick = (e) => {
+    e.preventDefault();
+    try {
+      // Remember the page where user initiated AI Picks
+      sessionStorage.setItem('tasteOriginPath', location.pathname);
+    } catch {
+      // ignore storage errors
+    }
+    setShowPersonalizeModal(true);
+    closeMobileMenu();
+  };
+
+  const handleCloseModal = () => {
+    setShowPersonalizeModal(false);
+  };
+
 
   return (
     <nav className="navbar">
@@ -66,7 +85,7 @@ const Navbar = () => {
         <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>Home</Link>
           <Link to="/explore" className={`nav-link ${location.pathname === '/explore' ? 'active' : ''}`} onClick={closeMobileMenu}>Explore</Link>
-          <Link to="/ai-picks" className={`nav-link ${location.pathname === '/ai-picks' ? 'active' : ''}`} onClick={closeMobileMenu}>AI Picks</Link>
+          <button className={`nav-link ${location.pathname === '/ai-picks' ? 'active' : ''}`} onClick={handleAIPickClick}>AI Picks</button>
           <Link to="/kitchen" className={`nav-link ${location.pathname === '/kitchen' ? 'active' : ''}`} onClick={closeMobileMenu}>Kitchen</Link>
           <Link to="/reservation" className={`nav-link ${location.pathname === '/reservation' ? 'active' : ''}`} onClick={closeMobileMenu}>Reservation</Link>
           <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={closeMobileMenu}>Contact</Link>
@@ -75,6 +94,12 @@ const Navbar = () => {
       
       {/* NavDropdown */}
       <NavDropdown isOpen={isDropdownOpen} onClose={closeDropdown} />
+      
+      {/* Personalize Modal */}
+      <PersonalizeModal
+        isOpen={showPersonalizeModal}
+        onClose={handleCloseModal}
+      />
     </nav>
   );
 };

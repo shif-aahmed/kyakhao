@@ -1,0 +1,139 @@
+/* Payment Setup - Premium isolated styling */
+.payment-setup-page {
+  min-height: 100vh;
+  width: 100vw;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"></svg>') no-repeat center/cover;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.payment-card {
+  background: #fff;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  padding: 28px 24px 24px;
+  position: relative;
+}
+
+.ps-back-btn {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  border: none;
+  background: transparent;
+  color: #374151;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.ps-title {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight: 700;
+  font-size: 22px;
+  color: #111827;
+  margin: 8px 0 16px 8px;
+}
+
+.ps-brands {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 12px 8px;
+}
+
+.ps-brand {
+  width: 28px;
+  height: 18px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.ps-brand.visa { background: linear-gradient(135deg, #1a1f71, #1a73e8); }
+.ps-brand.mc { background: radial-gradient(circle at 35% 50%, #ea001b 0 60%, transparent 61%), radial-gradient(circle at 65% 50%, #ff9900 0 60%, transparent 61%), #fff; border: 1px solid #e5e7eb; }
+.ps-brand.amex { background: #2e77bc; }
+.ps-brand.rupay { background: #1732a5; }
+
+.ps-form { padding: 8px; }
+
+.ps-input-row { margin-bottom: 14px; }
+.ps-label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+.ps-input-with-icon { position: relative; }
+.ps-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px 40px 12px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.ps-input:focus { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, .12); }
+
+.ps-input-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; background: #9ca3af; border-radius: 3px; opacity: .6; }
+.ps-input-icon.calendar { background: linear-gradient(180deg,#9ca3af,#6b7280); }
+.ps-input-icon.info { background: linear-gradient(180deg,#9ca3af,#6b7280); }
+
+.ps-two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.ps-plan-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 6px;
+}
+.ps-plan-amount { font-weight: 600; color: #111827; }
+.ps-plan-name { font-size: 12px; color: #6b7280; }
+.ps-plan-change { border: none; background: none; color: #ef4444; cursor: pointer; font-weight: 600; }
+
+.ps-note { color: #6b7280; font-size: 12px; margin: 8px 0 12px; }
+
+.ps-terms { margin: 8px 0 14px; }
+.ps-checkbox { display: flex; gap: 8px; align-items: center; color: #374151; font-size: 14px; }
+.ps-legal { color: #6b7280; font-size: 12px; margin-top: 8px; line-height: 1.5; }
+.ps-legal a { color: #ef4444; text-decoration: none; }
+
+.ps-submit {
+  width: 100%;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, .35);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.ps-submit:hover { background: #b91c1c; transform: translateY(-1px); box-shadow: 0 10px 18px rgba(185, 28, 28, .4); }
+.ps-submit:disabled { background: #9ca3af; box-shadow: none; cursor: not-allowed; transform: none; }
+
+.ps-submit-disabled {
+  background: #dc2626 !important;
+  cursor: not-allowed !important;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, .2) !important;
+}
+
+.ps-recaptcha { color: #6b7280; font-size: 11px; margin-top: 10px; }
+.ps-recaptcha a { color: #2563eb; text-decoration: underline; }
+
+@media (max-width: 540px) {
+  .payment-card { padding: 22px 16px; }
+  .ps-two-cols { grid-template-columns: 1fr; }
+  .ps-title { font-size: 20px; margin-left: 0; }
+  .ps-brands { margin-left: 0; }
+}

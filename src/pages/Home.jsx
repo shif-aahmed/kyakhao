@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import TasteSurveyModal from '../components/TasteSurveyModal/TasteSurveyModal'
 import HeroBanner from '../components/HeroBanner/HeroBanner'
 import './Home.css'
+import ExploreOurFood from '../components/ExploreOurFood/ExploreOurFood'
 import DishOfTheWeek from '../components/DishOfTheWeek/DishOfTheWeek'
 import AISuggestions from '../components/AISuggestions/AISuggestions'
-import TopRatedRestaurants from '../components/TopRatedRestaurants/TopRatedRestaurants'
+import AllReservation from '../components/AllReservation/AllReservation'
 import RestaurantsSection from '../components/RestaurantsSection/RestaurantsSection'
 import DishesGrid from '../components/DishesGrid/DishesGrid'
 import DishesCategoryFilter from '../components/DishesCategoryFilter/DishesCategoryFilter'
@@ -27,6 +30,8 @@ function Home() {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false)
   const [isVideoPlayerOpen, setIsVideoPlayerOpen] = useState(false)
   const [currentVideo, setCurrentVideo] = useState(null)
+  const [showTasteSurvey, setShowTasteSurvey] = useState(false)
+  const location = useLocation()
 
   const handleVideoClick = (videoData) => {
     setCurrentVideo(videoData)
@@ -42,6 +47,15 @@ function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, [activeTab]);
+
+  // Show taste survey modal if requested via navigation state
+  useEffect(() => {
+    if (location.state && location.state.showTasteSurvey) {
+      setShowTasteSurvey(true)
+      // clear state so it doesn't persist on refresh
+      window.history.replaceState({}, document.title)
+    }
+  }, [location.state])
 
   const renderContent = () => {
     if (activeTab === 'Restaurants') {
@@ -104,9 +118,10 @@ function Home() {
     
     return (
       <div>
+        <ExploreOurFood />
         <DishOfTheWeek />
         <AISuggestions />
-        <TopRatedRestaurants setActiveTab={setActiveTab} />
+        <AllReservation />
         <NewKyaKhao />
       </div>
     )
@@ -121,6 +136,11 @@ function Home() {
       <div className="container">
         {renderContent()}
       </div>
+      <TasteSurveyModal
+        isOpen={showTasteSurvey}
+        onClose={() => setShowTasteSurvey(false)}
+        onStartSurvey={() => setShowTasteSurvey(false)}
+      />
     </div>
   )
 }

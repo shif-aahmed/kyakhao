@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AllReservation.css';
+import SidebarReserveTable from '../SidebarReserveTable/SidebarReserveTable';
 
 const restaurants = [
   {
@@ -71,6 +72,40 @@ const restaurants = [
 ];
 
 const AllReservation = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
+  // Handle body scroll when sidebar opens/closes
+  useEffect(() => {
+    console.log('Sidebar state changed:', sidebarOpen);
+    if (sidebarOpen) {
+      // Disable body scroll when sidebar is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable body scroll when sidebar is closed
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [sidebarOpen]);
+
+  const handleReserveClick = (restaurant, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('Reserve button clicked!', restaurant);
+    setSelectedRestaurant(restaurant);
+    setSidebarOpen(true);
+    console.log('Sidebar should open now');
+  };
+
+  const handleCloseSidebar = () => {
+    setSidebarOpen(false);
+    setSelectedRestaurant(null);
+  };
+
   return (
     <section className="all-reservation-section">
       <div className="container">
@@ -106,7 +141,13 @@ const AllReservation = () => {
                   ))}
                 </div>
                 <div className="card-actions">
-                  <button className="reserve-btn">Reserve Now</button>
+                  <button 
+                    className="reserve-btn" 
+                    onClick={(e) => handleReserveClick(restaurant, e)}
+                    type="button"
+                  >
+                    Reserve Now
+                  </button>
                   <button className="details-btn">View Details</button>
                 </div>
               </div>
@@ -114,6 +155,12 @@ const AllReservation = () => {
           ))}
         </div>
       </div>
+      
+      <SidebarReserveTable 
+        isOpen={sidebarOpen}
+        onClose={handleCloseSidebar}
+        restaurant={selectedRestaurant}
+      />
     </section>
   );
 };

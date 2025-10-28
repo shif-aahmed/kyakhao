@@ -25,7 +25,10 @@
   font-family: 'Inter', sans-serif;
   margin: 0;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fusion-dishes-grid {
@@ -115,7 +118,7 @@
 }
 
 .view-dish-btn {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -129,14 +132,14 @@
 }
 
 .view-dish-btn:hover {
-  background: #e55a2b;
+  background: #b91c1c;
   transform: translateY(-1px);
 }
 
 .learn-more-btn {
   background: white;
-  color: #ff6b35;
-  border: 2px solid #ff6b35;
+  color: #dc2626;
+  border: 2px solid #dc2626;
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -148,7 +151,7 @@
 }
 
 .learn-more-btn:hover {
-  background: #ff6b35;
+  background: #dc2626;
   color: white;
   transform: translateY(-1px);
 }
@@ -507,6 +510,9 @@
     font-size: 1rem;
     text-align: center;
     max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .fusion-dishes-grid {
@@ -572,6 +578,9 @@
     text-align: center;
     max-width: 100%;
     line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .fusion-dishes-grid {

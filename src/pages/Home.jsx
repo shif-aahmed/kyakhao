@@ -15,7 +15,7 @@ import FeaturedCreator from '../components/FeaturedCreator/FeaturedCreator'
 import UploadModal from '../components/UploadModal/UploadModal'
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
 import TrySomethingNew from '../components/TrySomethingNew/TrySomethingNew'
-import CookingSection from '../components/CookingSection/CookingSection'
+import CommunityCreations from '../components/CommunityCreations/CommunityCreations'
 import NewInTown from '../components/NewInTown/NewInTown'
 import ExploreDishes from '../components/ExploreDishes/ExploreDishes'
 import Deals from '../components/Deals/Deals'
@@ -66,6 +66,7 @@ function Home() {
       return (
         <div>
           <TrySomethingNew onVideoClick={handleVideoClick} />
+          <CommunityCreations />
         </div>
       )
     }

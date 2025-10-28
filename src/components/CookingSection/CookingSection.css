@@ -1,10 +1,11 @@
 .cooking-section-container {
   padding: 4rem 2rem;
   background: #fdf2f8;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 150px;
 }
 
 .cooking-section-content {
@@ -13,17 +14,36 @@
   justify-content: center;
   max-width: 1200px;
   width: 100%;
+  gap: 3rem;
 }
 
 .cooking-section-left {
-  display: none;
-}
-
-.cooking-section-right {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cooking-section-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100% !important;
+}
+
+.cooking-section-image {
   width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cooking-section-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .cooking-section-card {
@@ -31,9 +51,10 @@
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  flex: 1 !important;
 }
 
 .cooking-section-title {
@@ -106,9 +127,9 @@
 }
 
 .generate-btn {
-  background: #d1d5db;
-  color: white;
-  border: none;
+  background: #dc2626 !important;
+  color: white !important;
+  border: none !important;
   padding: 0.8rem 1rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -121,7 +142,7 @@
 }
 
 .generate-btn:hover:not(:disabled) {
-  background: #9ca3af;
+  background: #b91c1c !important;
   transform: translateY(-1px);
 }
 
@@ -133,21 +154,111 @@
 
 .generate-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.3);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+}
+
+/* Suggestion Card Styles */
+.suggestion-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.suggestion-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 0.8rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.suggestion-brief {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.suggestion-detail {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.suggestion-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.try-recipe-btn {
+  background: #dc2626 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.try-recipe-btn:hover {
+  background: #b91c1c !important;
+  transform: translateY(-1px);
+}
+
+.save-later-btn {
+  background: white !important;
+  color: #666 !important;
+  border: 1px solid #d1d5db !important;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.save-later-btn:hover {
+  background: #f9fafb !important;
+  border-color: #9ca3af !important;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .cooking-section-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .cooking-section-left {
+    order: 2;
+  }
+  
+  .cooking-section-right {
+    order: 1;
   }
 }
 
 @media (max-width: 768px) {
   .cooking-section-container {
     padding: 2rem 1rem;
+  }
+  
+  .cooking-section-content {
+    gap: 1.5rem;
   }
   
   .cooking-section-card {
@@ -165,6 +276,10 @@
   .form-row {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  .suggestion-actions {
+    flex-direction: column;
   }
 }
 
@@ -193,5 +308,18 @@
   .generate-btn {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
+  }
+  
+  .suggestion-card {
+    padding: 1rem;
+  }
+  
+  .suggestion-title {
+    font-size: 1.1rem;
+  }
+  
+  .suggestion-brief,
+  .suggestion-detail {
+    font-size: 0.85rem;
   }
 }

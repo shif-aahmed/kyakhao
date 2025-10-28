@@ -6,6 +6,9 @@ const CookingSection = () => {
   const [selectedCuisine1, setSelectedCuisine1] = useState('');
   const [selectedCuisine2, setSelectedCuisine2] = useState('');
   const [selectedMood, setSelectedMood] = useState('');
+  const [showSuggestion, setShowSuggestion] = useState(false);
+
+  console.log('CookingSection rendered, showSuggestion:', showSuggestion);
 
   const cuisines = [
     'Italian', 'Mexican', 'Indian', 'Chinese', 'Japanese', 'Korean', 
@@ -19,19 +22,19 @@ const CookingSection = () => {
 
   const handleGenerateSuggestion = () => {
     if (selectedCuisine1 && selectedCuisine2 && selectedMood) {
-      // Generate suggestion logic here
+      setShowSuggestion(true);
       console.log('Generating suggestion...');
     }
   };
 
   return (
-    <div className="cooking-section-container">
+    <div className="cooking-section-container" data-component="cooking-section">
       <div className="cooking-section-content">
         <div className="cooking-section-left">
           <div className="cooking-section-image">
             <img 
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-              alt="Cooking Section" 
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+              alt="Delicious Fusion Dish" 
             />
           </div>
         </div>
@@ -84,6 +87,22 @@ const CookingSection = () => {
                 Generate Suggestion
               </button>
             </div>
+
+            {showSuggestion && (
+              <div className="suggestion-card">
+                <h3 className="suggestion-title">Suggested Dish: Kimchi Paella</h3>
+                <p className="suggestion-brief">
+                  A daring blend of Spanish paella tradition with the bold, fermented flavors of Korean kimchi.
+                </p>
+                <p className="suggestion-detail">
+                  Imagine succulent shrimp and chorizo mingling with vibrant red kimchi, saffron-infused rice, and a hint of gochujang. Topped with a crispy rice crust (socarrat) and fresh scallions. Perfect for a adventurous dinner party.
+                </p>
+                <div className="suggestion-actions">
+                  <button className="try-recipe-btn">Try Recipe</button>
+                  <button className="save-later-btn">Save for Later</button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

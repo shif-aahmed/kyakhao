@@ -1,6 +1,6 @@
 .all-reservation-section {
   padding: 4rem 0;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -138,8 +138,8 @@
 }
 
 .time-slot:hover {
-  border-color: #dc2626;
-  color: #dc2626;
+  border-color: #D42814;
+  color: #D42814;
 }
 
 .card-actions {
@@ -150,7 +150,7 @@
 }
 
 .reserve-btn {
-  background: #dc2626 !important;
+  background: #D42814 !important;
   color: white !important;
   border: none;
   padding: 14px 28px;
@@ -191,6 +191,13 @@
   background: #f8f9fa;
   border-color: #d1d5db;
   color: #374151;
+}
+.all-reservation-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1f2937;
+  text-align: left;
 }
 
 /* Responsive Design */

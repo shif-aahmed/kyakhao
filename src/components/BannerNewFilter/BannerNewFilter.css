@@ -524,3 +524,29 @@
     box-sizing: border-box;
   }
 }
+/* Allow dropdowns to appear above everything */
+.banner-new-filter,
+.banner-new-filter-container,
+.banner-new-filter-card,
+.banner-new-filter-row,
+.banner-new-filter-group,
+.banner-new-filter-dropdown-container {
+  overflow: visible !important;
+}
+
+/* Ensure dropdowns show above all content */
+.banner-new-filter-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999 !important; /* ✅ High z-index fix */
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  margin-top: 2px;
+}

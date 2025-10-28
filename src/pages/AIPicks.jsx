@@ -12,16 +12,15 @@ function AIPicks() {
   const location = useLocation();
   const navigate = useNavigate();
   const [showTasteSurvey, setShowTasteSurvey] = useState(false);
+  const [recipeSuggestion, setRecipeSuggestion] = useState(null);
 
   useEffect(() => {
-    // Check if we should show the taste survey modal explicitly (e.g., after payment)
     if (location.state?.showTasteSurvey) {
       setShowTasteSurvey(true);
       window.history.replaceState({}, document.title);
       return;
     }
 
-    // Apply gate on every visit: sign-in -> subscription -> (optional) taste survey
     const isSignedIn = sessionStorage.getItem('isSignedIn') === '1';
     const hasSubscription = sessionStorage.getItem('hasSubscription') === '1';
     const skippedTaste = sessionStorage.getItem('didSkipTasteSurvey') === '1';
@@ -57,12 +56,11 @@ function AIPicks() {
   return (
     <div className="ai-picks-page">
       <AIPicksHeroBanner />
-      <AIPickFilter />
-      <RecipeSuggestion />
-      <RecipeCards />
+      <AIPickFilter setRecipeSuggestion={setRecipeSuggestion} />
+      <RecipeSuggestion recipeSuggestion={recipeSuggestion} />
+      <RecipeCards recipeSuggestion={recipeSuggestion} />
       <RecipeCardsHorizontal />
 
-      {/* Taste Survey Modal */}
       <TasteSurveyModal
         isOpen={showTasteSurvey}
         onClose={handleCloseSurvey}

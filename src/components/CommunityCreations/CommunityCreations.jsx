@@ -10,7 +10,7 @@ const CommunityCreations = () => {
       avatar: "https://via.placeholder.com/32/cccccc/000000?text=CF",
       cuisine: "Japanese-Mexican",
       rating: 4.8,
-      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd1871?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "https://images.unsplash.com/photo-1697580511707-476438ba9614?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=796"
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const CommunityCreations = () => {
       avatar: "https://via.placeholder.com/32/cccccc/000000?text=GP",
       cuisine: "Caribbean-Chinese",
       rating: 4.9,
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "https://images.unsplash.com/photo-1634864572865-1cf8ff8bd23d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1634"
     },
     {
       id: 4,

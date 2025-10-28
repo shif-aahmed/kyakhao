@@ -19,7 +19,7 @@ const TrySomethingNew = ({ onVideoClick }) => {
       title: "Kimchi Carnitas Tacos",
       category: "Korean-Mexican",
       description: "A vibrant blend of spicy kimchi, tender carnitas, and fresh cilantro lime crema. Bold flavors in every bite!",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "https://images.unsplash.com/photo-1708388064278-707e85eaddc0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688",
       author: "Fusion Kitchen",
       views: "850K views",
       timeAgo: "2 days ago",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AIPickFilter.css';
 
-const AIPickFilter = () => {
+const AIPickFilter = ({ setRecipeSuggestion }) => {
   const [selectedMood, setSelectedMood] = useState('Happy');
   const [moodSlider, setMoodSlider] = useState(25);
   const [dietaryNeeds, setDietaryNeeds] = useState({
@@ -17,195 +17,151 @@ const AIPickFilter = () => {
     savory: true,
     tangy: false
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleMoodChange = (mood) => {
-    setSelectedMood(mood);
-  };
+  // ✅ Local static fallback suggestions (same as in RecipeSuggestion)
+  const fallbackSuggestions = [
+    {
+      title: "Creamy Garlic Pasta",
+      summary: "A comforting bowl of pasta tossed in a rich, creamy garlic sauce topped with parmesan. The smooth, velvety texture pairs perfectly with al dente noodles, making it a satisfying meal for any pasta lover. Garnish with parsley and serve with warm garlic bread for a restaurant-style experience at home.",
+      image: "https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&q=80&w=687",
+    },
+    {
+      title: "Thai Green Curry",
+      summary: "Spicy and fragrant curry with tender chicken pieces simmered in creamy coconut milk. Packed with fresh herbs, lime, and Thai green chili, it brings an authentic taste of Thailand right to your table. Serve with jasmine rice or noodles for a perfectly balanced and aromatic meal.",
+      image: "https://plus.unsplash.com/premium_photo-1723708848554-cc5bdb4e42c3?auto=format&fit=crop&q=80&w=720",
+    },
+    {
+      title: "Avocado Toast Deluxe",
+      summary: "Crispy toasted bread layered with smashed avocado, chili flakes, and a poached egg. The creamy avocado perfectly complements the crunch of the toast, while the egg adds a rich, runny texture. Add a drizzle of olive oil and lemon for freshness and an extra burst of flavor.",
+      image: "https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?auto=format&fit=crop&q=80&w=687",
+    },
+    {
+      title: "Grilled Lemon Salmon",
+      summary: "Perfectly grilled salmon with a squeeze of lemon and fresh herbs for a zesty flavor. The smoky, charred edges balance the bright citrus notes beautifully, creating a dish that’s both light and satisfying. Ideal for summer dinners or healthy meal prep throughout the week.",
+      image: "https://images.unsplash.com/photo-1614627293113-e7e68163d958?auto=format&fit=crop&q=80&w=880",
+    },
+    {
+      title: "Mango Smoothie Bowl",
+      summary: "A refreshing tropical smoothie topped with granola, coconut flakes, and fresh fruit. The creamy mango base gives it a naturally sweet and silky taste, while the crunchy toppings add texture and nutrition. It’s a vibrant and energizing breakfast option that feels like sunshine in a bowl.",
+      image: "https://plus.unsplash.com/premium_photo-1695411846305-f09ef98e1237?auto=format&fit=crop&q=80&w=687",
+    },
+    {
+      title: "Caprese Salad",
+      summary: "Fresh mozzarella, juicy tomatoes, and basil drizzled with balsamic glaze. This classic Italian salad bursts with freshness and color, offering a perfect balance of creamy, tangy, and sweet flavors. Serve it as a light appetizer or pair it with crusty bread for a quick, healthy lunch.",
+      image: "https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?auto=format&fit=crop&q=80&w=687",
+    }
+  ];
 
+  const handleMoodChange = (mood) => setSelectedMood(mood);
   const handleDietaryChange = (diet) => {
-    setDietaryNeeds(prev => ({
-      ...prev,
-      [diet]: !prev[diet]
-    }));
+    setDietaryNeeds(prev => ({ ...prev, [diet]: !prev[diet] }));
   };
-
-  const handleCuisineChange = (cuisine) => {
-    setSelectedCuisine(cuisine);
-  };
-
+  const handleCuisineChange = (cuisine) => setSelectedCuisine(cuisine);
   const handleFlavorChange = (flavor) => {
-    setFlavorProfiles(prev => ({
-      ...prev,
-      [flavor]: !prev[flavor]
-    }));
+    setFlavorProfiles(prev => ({ ...prev, [flavor]: !prev[flavor] }));
   };
+  const handleSliderChange = (value) => setMoodSlider(value);
 
-  const handleSliderChange = (value) => {
-    setMoodSlider(value);
-  };
+  const applyFilters = async () => {
+    setLoading(true);
+    const apiKey = '35b1e2a92ccf414f9cea47f95f4b4879'; // your Spoonacular key
 
-  const applyFilters = () => {
-    console.log('Filters applied:', {
-      mood: selectedMood,
-      moodSlider,
-      dietaryNeeds,
-      cuisine: selectedCuisine,
-      flavorProfiles
-    });
+    // Build query dynamically
+    let query = selectedCuisine;
+    if (flavorProfiles.spicy) query += ',spicy';
+    if (flavorProfiles.sweet) query += ',sweet';
+    if (flavorProfiles.savory) query += ',savory';
+    if (flavorProfiles.tangy) query += ',tangy';
+
+    let diet = '';
+    if (dietaryNeeds.vegan) diet = 'vegan';
+    else if (dietaryNeeds.vegetarian) diet = 'vegetarian';
+    else if (dietaryNeeds.keto) diet = 'ketogenic';
+    else if (dietaryNeeds.glutenFree) diet = 'gluten free';
+
+    try {
+      const res = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&diet=${diet}&number=1&addRecipeInformation=true&apiKey=${apiKey}`
+      );
+      const data = await res.json();
+
+      if (data.results && data.results.length > 0) {
+        const recipe = data.results[0];
+        setRecipeSuggestion({
+          title: recipe.title,
+          image: recipe.image,
+          summary: recipe.summary?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description available.',
+        });
+      } else {
+        // No API results — pick a random fallback recipe
+        const randomRecipe = fallbackSuggestions[Math.floor(Math.random() * fallbackSuggestions.length)];
+        setRecipeSuggestion(randomRecipe);
+      }
+    } catch (err) {
+      console.error('Error fetching recipe:', err);
+      // API failed — pick a random fallback recipe
+      const randomRecipe = fallbackSuggestions[Math.floor(Math.random() * fallbackSuggestions.length)];
+      setRecipeSuggestion(randomRecipe);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="ai-pick-filter">
       <div className="ai-pick-filter-card">
         <h2 className="ai-pick-filter-title">Tell Us What You Crave</h2>
-        
+
         <div className="ai-pick-filter-content">
-          {/* Top Row */}
           <div className="ai-pick-filter-row">
-            {/* Your Current Mood */}
+            {/* Mood */}
             <div className="ai-pick-filter-section">
               <h3 className="ai-pick-filter-section-title">Your Current Mood</h3>
               <div className="ai-pick-filter-mood-options">
-                <div 
-                  className={`ai-pick-filter-mood-option ${selectedMood === 'Happy' ? 'selected' : ''}`}
-                  onClick={() => handleMoodChange('Happy')}
-                >
-                  <div className="ai-pick-filter-mood-icon happy">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="10" cy="10" r="8" fill="rgb(156, 163, 175)"/>
-                      <path d="M7 9C7 9.55228 7.44772 10 8 10C8.55228 10 9 9.55228 9 9C9 8.44772 8.55228 8 8 8C7.44772 8 7 8.44772 7 9Z" fill="white"/>
-                      <path d="M11 9C11 9.55228 11.4477 10 12 10C12.5523 10 13 9.55228 13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9Z" fill="white"/>
-                      <path d="M6 12C6 12.5523 6.44772 13 7 13H13C13.5523 13 14 12.5523 14 12C14 11.4477 13.5523 11 13 11H7C6.44772 11 6 11.4477 6 12Z" fill="white"/>
-                    </svg>
+                {['Happy', 'Energetic', 'Relaxed', 'Adventurous'].map(mood => (
+                  <div
+                    key={mood}
+                    className={`ai-pick-filter-mood-option ${selectedMood === mood ? 'selected' : ''}`}
+                    onClick={() => handleMoodChange(mood)}
+                  >
+                    <span className="ai-pick-filter-mood-label">{mood}</span>
                   </div>
-                  <span className="ai-pick-filter-mood-label">Happy</span>
-                </div>
-                
-                <div 
-                  className={`ai-pick-filter-mood-option ${selectedMood === 'Energetic' ? 'selected' : ''}`}
-                  onClick={() => handleMoodChange('Energetic')}
-                >
-                  <div className="ai-pick-filter-mood-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10 2L12.5 7.5L18 8L14 12L15 18L10 15L5 18L6 12L2 8L7.5 7.5L10 2Z" fill="#9ca3af"/>
-                    </svg>
-                  </div>
-                  <span className="ai-pick-filter-mood-label">Energetic</span>
-                </div>
-                
-                <div 
-                  className={`ai-pick-filter-mood-option ${selectedMood === 'Relaxed' ? 'selected' : ''}`}
-                  onClick={() => handleMoodChange('Relaxed')}
-                >
-                  <div className="ai-pick-filter-mood-icon">
-                    <svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M26.5968 13.9648C26.5968 12.7302 26.1061 11.5466 25.233 10.6736C24.4147 9.85526 23.3236 9.37207 22.1731 9.31501L21.9418 9.30982H19.5611C18.9733 9.30969 18.4552 8.92359 18.287 8.36034C17.8642 6.9422 17.0549 5.66835 15.9504 4.68339C14.846 3.69867 13.4887 3.04019 12.0319 2.78191C10.5749 2.52375 9.07449 2.67572 7.69894 3.22091C6.32323 3.76619 5.12597 4.68414 4.24146 5.87052C3.35713 7.05684 2.82047 8.46581 2.69065 9.93971C2.56082 11.4139 2.84279 12.8954 3.50631 14.2181C4.16985 15.5409 5.18892 16.6528 6.44817 17.4301C7.7072 18.2073 9.15732 18.6193 10.6369 18.6198L21.9418 18.6198C23.1765 18.6198 24.3602 18.1289 25.233 17.256C26.1061 16.383 26.5968 15.1995 26.5968 13.9648ZM29.2568 13.9648C29.2568 15.9046 28.4866 17.765 27.1151 19.1368C25.7432 20.5086 23.8819 21.2798 21.9418 21.2798L10.6369 21.2798C8.66383 21.2793 6.72957 20.7303 5.05062 19.6939C3.37165 18.6575 2.01417 17.1741 1.12946 15.4104C0.244742 13.6467 -0.132082 11.6715 0.0410389 9.7059C0.214205 7.74081 0.929758 5.86242 2.10878 4.28076C3.28817 2.69886 4.88527 1.47497 6.71962 0.747949C8.5538 0.0211176 10.5541 -0.180909 12.4968 0.163468C14.4396 0.507898 16.2481 1.38564 17.7207 2.69878C18.9419 3.78785 19.8911 5.14125 20.5014 6.64982H21.9418L22.3043 6.65891C24.1125 6.74848 25.8289 7.50666 27.1151 8.79285C28.4866 10.1646 29.2568 12.025 29.2568 13.9648Z" fill="#9ca3af"/>
-                    </svg>
-                  </div>
-                  <span className="ai-pick-filter-mood-label">Relaxed</span>
-                </div>
-                
-                <div 
-                  className={`ai-pick-filter-mood-option ${selectedMood === 'Adventurous' ? 'selected' : ''}`}
-                  onClick={() => handleMoodChange('Adventurous')}
-                >
-                  <div className="ai-pick-filter-mood-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10 2L12.5 7.5L18 8L14 12L15 18L10 15L5 18L6 12L2 8L7.5 7.5L10 2Z" fill="#9ca3af"/>
-                    </svg>
-                  </div>
-                  <span className="ai-pick-filter-mood-label">Adventurous</span>
-                </div>
+                ))}
               </div>
-
             </div>
 
             {/* Dietary Needs */}
             <div className="ai-pick-filter-section">
               <h3 className="ai-pick-filter-section-title">Dietary Needs</h3>
               <div className="ai-pick-filter-checkboxes">
-                <label className="ai-pick-filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={dietaryNeeds.vegetarian}
-                    onChange={() => handleDietaryChange('vegetarian')}
-                  />
-                  <span className="ai-pick-filter-checkmark"></span>
-                  Vegetarian
-                </label>
-                
-                <label className="ai-pick-filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={dietaryNeeds.vegan}
-                    onChange={() => handleDietaryChange('vegan')}
-                  />
-                  <span className="ai-pick-filter-checkmark"></span>
-                  Vegan
-                </label>
-                
-                <label className="ai-pick-filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={dietaryNeeds.glutenFree}
-                    onChange={() => handleDietaryChange('glutenFree')}
-                  />
-                  <span className="ai-pick-filter-checkmark"></span>
-                  Gluten-Free
-                </label>
-                
-                <label className="ai-pick-filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={dietaryNeeds.keto}
-                    onChange={() => handleDietaryChange('keto')}
-                  />
-                  <span className="ai-pick-filter-checkmark"></span>
-                  Keto
-                </label>
+                {Object.keys(dietaryNeeds).map(diet => (
+                  <label key={diet} className="ai-pick-filter-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={dietaryNeeds[diet]}
+                      onChange={() => handleDietaryChange(diet)}
+                    />
+                    <span className="ai-pick-filter-checkmark"></span>
+                    {diet.charAt(0).toUpperCase() + diet.slice(1)}
+                  </label>
+                ))}
               </div>
             </div>
 
-            {/* Cuisine Type */}
+            {/* Cuisine */}
             <div className="ai-pick-filter-section">
               <h3 className="ai-pick-filter-section-title">Cuisine Type</h3>
               <div className="ai-pick-filter-cuisine-buttons">
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'Italian' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('Italian')}
-                >
-                  Italian
-                </button>
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'Asian' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('Asian')}
-                >
-                  Asian
-                </button>
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'Mexican' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('Mexican')}
-                >
-                  Mexican
-                </button>
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'Indian' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('Indian')}
-                >
-                  Indian
-                </button>
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'American' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('American')}
-                >
-                  American
-                </button>
-                <button 
-                  className={`ai-pick-filter-cuisine-btn ${selectedCuisine === 'Mediterranean' ? 'selected' : ''}`}
-                  onClick={() => handleCuisineChange('Mediterranean')}
-                >
-                  Mediterranean
-                </button>
+                {['Italian', 'Asian', 'Mexican', 'Indian', 'American', 'Mediterranean'].map(cuisine => (
+                  <button
+                    key={cuisine}
+                    className={`ai-pick-filter-cuisine-btn ${selectedCuisine === cuisine ? 'selected' : ''}`}
+                    onClick={() => handleCuisineChange(cuisine)}
+                  >
+                    {cuisine}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -214,52 +170,23 @@ const AIPickFilter = () => {
           <div className="ai-pick-filter-section">
             <h3 className="ai-pick-filter-section-title">Flavor Profiles</h3>
             <div className="ai-pick-filter-flavor-checkboxes">
-              <label className="ai-pick-filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={flavorProfiles.spicy}
-                  onChange={() => handleFlavorChange('spicy')}
-                />
-                <span className="ai-pick-filter-checkmark"></span>
-                Spicy
-              </label>
-              
-              <label className="ai-pick-filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={flavorProfiles.sweet}
-                  onChange={() => handleFlavorChange('sweet')}
-                />
-                <span className="ai-pick-filter-checkmark"></span>
-                Sweet
-              </label>
-              
-              <label className="ai-pick-filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={flavorProfiles.savory}
-                  onChange={() => handleFlavorChange('savory')}
-                />
-                <span className="ai-pick-filter-checkmark"></span>
-                Savory
-              </label>
-              
-              <label className="ai-pick-filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={flavorProfiles.tangy}
-                  onChange={() => handleFlavorChange('tangy')}
-                />
-                <span className="ai-pick-filter-checkmark"></span>
-                Tangy
-              </label>
+              {Object.keys(flavorProfiles).map(flavor => (
+                <label key={flavor} className="ai-pick-filter-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={flavorProfiles[flavor]}
+                    onChange={() => handleFlavorChange(flavor)}
+                  />
+                  <span className="ai-pick-filter-checkmark"></span>
+                  {flavor.charAt(0).toUpperCase() + flavor.slice(1)}
+                </label>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Apply Button */}
-        <button className="ai-pick-filter-apply-btn" onClick={applyFilters}>
-          Apply Filters & Get Suggestions
+        <button className="ai-pick-filter-apply-btn" onClick={applyFilters} disabled={loading}>
+          {loading ? 'Loading...' : 'Get Suggestions'}
         </button>
       </div>
     </div>

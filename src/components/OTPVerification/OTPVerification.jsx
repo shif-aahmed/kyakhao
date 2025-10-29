@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './OTPVerification.css';
 import logoImage from '../../assets/logo.png';
 
-const OTPVerification = ({ isOpen, onClose, userEmail = "john.jerry@gmail.com" }) => {
+const OTPVerification = ({ isOpen, onClose, userEmail = "john.jerry@gmail.com", redirectTo = '/' }) => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(['', '', '', '', '']);
   const [isResending, setIsResending] = useState(false);
@@ -120,8 +120,7 @@ const OTPVerification = ({ isOpen, onClose, userEmail = "john.jerry@gmail.com" }
       alert('OTP Verified Successfully!');
       try { sessionStorage.setItem('isSignedIn', '1'); } catch {}
       onClose();
-      // Navigate to pricing page after successful verification
-      navigate('/pricing', { replace: true });
+      navigate(redirectTo || '/', { replace: true });
     } else {
       const newAttempts = attempts + 1;
       setAttempts(newAttempts);

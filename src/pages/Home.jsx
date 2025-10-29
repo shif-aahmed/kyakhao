@@ -59,6 +59,14 @@ function Home() {
     }
   }, [location.state])
 
+  // Switch to a requested tab (e.g., Restaurants) via navigation state
+  useEffect(() => {
+    if (location.state && location.state.goToTab) {
+      setActiveTab(location.state.goToTab)
+      window.history.replaceState({}, document.title)
+    }
+  }, [location.state, setActiveTab])
+
   const renderContent = () => {
     if (activeTab === 'Restaurants') {
       return <RestaurantsSection />

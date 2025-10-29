@@ -18,6 +18,7 @@ import SignIn from './pages/SignIn'
 import JoinNow from './pages/JoinNow'
 import Pricing from './pages/Pricing'
 import PaymentSetup from './pages/PaymentSetup'
+import RecipeDetails from './pages/RecipeDetails'
 import './App.css'
 
 function AppContent() {
@@ -38,6 +39,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/restaurant/:id" element={<RestaurantDetail />} />
         <Route path="/dish/:id" element={<DishDetail />} />
+        <Route path="/recipe" element={<RecipeDetails />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/new-checkout" element={<NewCheckout />} />

@@ -1,12 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useLocation } from 'react-router-dom'; 
 import './AISuggestions.css';
 
 const AISuggestions = () => {
   const navigate = useNavigate(); // ✅ Hook to handle navigation
+  const location = useLocation();
 
   const handleViewSuggestions = () => {
-    navigate('/ai-picks'); // ✅ Redirect to /ai-picks
+    try { sessionStorage.setItem('tasteOriginPath', location.pathname || '/'); } catch {}
+    const authed = sessionStorage.getItem('isSignedIn') === '1';
+    if (authed) {
+      const hasSub = sessionStorage.getItem('hasSubscription') === '1' || localStorage.getItem('hasSubscription') === '1';
+      if (hasSub) {
+        navigate('/ai-picks', { replace: true });
+      } else {
+        navigate('/pricing', { replace: true });
+      }
+    } else {
+      navigate('/signin', { state: { from: location.pathname || '/' } });
+    }
   };
   return (
     <section className="ai-suggestions">

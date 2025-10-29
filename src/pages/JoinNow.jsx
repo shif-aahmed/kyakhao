@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
 import OTPVerification from '../components/OTPVerification/OTPVerification'
 import background from '../assets/signup.png'
@@ -13,6 +13,8 @@ function JoinNow() {
   const [showPassword, setShowPassword] = useState(false)
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [showOTPVerification, setShowOTPVerification] = useState(false)
+  const location = useLocation()
+  const from = location.state?.from || '/'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -41,7 +43,7 @@ function JoinNow() {
             <h1 className="join-now-title">Join Now</h1>
             
             <p className="signin-prompt">
-              Already have an account? <Link to="/signin" className="signin-link">Sign In</Link>
+              Already have an account? <Link to="/signin" state={{ from }} className="signin-link">Sign In</Link>
             </p>
 
             <form className="join-now-form" onSubmit={handleSubmit} autoComplete="off" noValidate>
@@ -154,6 +156,7 @@ function JoinNow() {
         isOpen={showOTPVerification}
         onClose={handleOTPClose}
         userEmail={email}
+        redirectTo={from}
       />
     </div>
   )

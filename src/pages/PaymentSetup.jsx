@@ -14,16 +14,23 @@ function PaymentSetup() {
     // Always navigate to the originating page to show the modal
     try {
       sessionStorage.setItem('hasSubscription', '1');
+      localStorage.setItem('hasSubscription', '1'); // Also store in localStorage for persistence
       const origin = sessionStorage.getItem('tasteOriginPath');
       if (origin) {
+        // If origin isn't a content page (e.g., came from pricing), go to AI Picks for survey
+        const nonContentOrigins = ['/pricing', '/payment-setup', '/'];
+        if (nonContentOrigins.includes(origin)) {
+          navigate('/ai-picks', { state: { showTasteSurvey: true }, replace: true });
+          return;
+        }
         navigate(origin, { state: { showTasteSurvey: true }, replace: true });
         return;
       }
     } catch {
       // If no origin, go to home page
     }
-    // Fallback to home page
-    navigate('/', { state: { showTasteSurvey: true }, replace: true });
+    // Fallback to AI Picks with survey prompt
+    navigate('/ai-picks', { state: { showTasteSurvey: true }, replace: true });
   };
 
   return (

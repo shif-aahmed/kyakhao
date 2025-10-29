@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AllReservation.css';
 import SidebarReserveTable from '../SidebarReserveTable/SidebarReserveTable';
 
@@ -71,9 +72,10 @@ const restaurants = [
   },
 ];
 
-const AllReservation = () => {
+const AllReservation = ({ filters = {}, sortBy = 'Top Rated' }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (sidebarOpen) {
@@ -98,6 +100,33 @@ const AllReservation = () => {
     setSelectedRestaurant(null);
   };
 
+  // Apply filters
+  const filtered = React.useMemo(() => {
+    return restaurants.filter(r => {
+      if (filters.premiumOnly && !r.premium) return false;
+      if (typeof filters.minRating === 'number' && r.rating < filters.minRating) return false;
+      return true;
+    });
+  }, [filters]);
+
+  // Apply sorting
+  const sorted = React.useMemo(() => {
+    const list = [...filtered];
+    switch (sortBy) {
+      case 'Top Rated':
+        return list.sort((a,b) => b.rating - a.rating);
+      case 'Price: Low to High':
+        // No price in dataset; approximate by reviews ascending
+        return list.sort((a,b) => a.reviews - b.reviews);
+      case 'Price: High to Low':
+        return list.sort((a,b) => b.reviews - a.reviews);
+      case 'Newest':
+        return list.sort((a,b) => b.id - a.id);
+      default:
+        return list;
+    }
+  }, [filtered, sortBy]);
+
   return (
     <section className="all-reservation-section">
       <div className="container">
@@ -105,7 +134,7 @@ const AllReservation = () => {
         <h2 className="all-reservation-heading">Top Rated Restaurants Near You</h2>
 
         <div className="all-reservation-grid">
-          {restaurants.map((restaurant) => (
+          {sorted.map((restaurant) => (
             <div key={restaurant.id} className="all-reservation-card">
               <div className="all-reservation-image-container">
                 <img src={restaurant.image} alt={restaurant.name} className="all-reservation-image" />
@@ -115,7 +144,7 @@ const AllReservation = () => {
               </div>
               <div className="all-reservation-content">
                 <h3 className="restaurant-name">{restaurant.name}</h3>
-                <p className="restaurant-info">{restaurant.cuisine} • {restaurant.location}</p>
+                <p className="restaurant-info-reservation">{restaurant.cuisine} • {restaurant.location}</p>
                 <div className="rating">
                   <svg
                     className="star"
@@ -143,7 +172,17 @@ const AllReservation = () => {
                   >
                     Reserve Now
                   </button>
-                  <button className="details-btn">Details</button>
+                <button 
+                  className="details-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navigate(`/restaurant/${restaurant.id}` , { state: { restaurant } });
+                  }}
+                  type="button"
+                >
+                  Details
+                </button>
                 </div>
               </div>
             </div>

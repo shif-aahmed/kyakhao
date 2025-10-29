@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RecipeSuggestion.css';
 
 const RecipeSuggestion = ({ recipeSuggestion }) => {
+  const navigate = useNavigate();
   // ✅ Static fallback suggestions (used if API fails or not yet called)
   const fallbackSuggestions = [
     {
@@ -57,7 +59,23 @@ const RecipeSuggestion = ({ recipeSuggestion }) => {
           </div>
           <h2 className="recipe-suggestion-title">{displaySuggestion.title}</h2>
           <p className="recipe-suggestion-description">{displaySuggestion.summary}</p>
-          <div className="recipe-suggestion-cta">Cook This Now</div>
+          <div
+            className="recipe-suggestion-cta"
+            onClick={() =>
+              navigate('/recipe', {
+                state: {
+                  recipe: {
+                    title: displaySuggestion.title,
+                    image: displaySuggestion.image,
+                    summary: displaySuggestion.summary,
+                  },
+                  related: fallbackSuggestions.filter(r => r.title !== displaySuggestion.title),
+                },
+              })
+            }
+          >
+            Cook This Now
+          </div>
         </div>
       </div>
     </div>

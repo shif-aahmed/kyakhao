@@ -123,8 +123,8 @@
 /* ===== Red Icon (Explore Page Only) ===== */
 .red-icon-container {
   position: absolute;
-  top: -60px;
-  right: 0;
+  top: -80px;
+  right: -20px;
   z-index: 10;
   border-radius: 50%;
 }

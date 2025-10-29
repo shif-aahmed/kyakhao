@@ -15,26 +15,13 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 #f1f5f9;
+  /* Hide scrollbar but keep horizontal scroll functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .recipe-cards-horizontal-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.recipe-cards-horizontal-container::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 3px;
-}
-
-.recipe-cards-horizontal-container::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-.recipe-cards-horizontal-container::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  display: none; /* Chrome, Safari */
 }
 
 .recipe-card-horizontal {

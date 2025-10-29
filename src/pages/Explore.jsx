@@ -8,6 +8,7 @@ import './Explore.css'
 
 function Explore() {
   const [showTasteSurvey, setShowTasteSurvey] = useState(false)
+  const [filters, setFilters] = useState(null)
   const location = useLocation()
 
   // Show taste survey modal if requested via navigation state
@@ -22,8 +23,8 @@ function Explore() {
   return (
     <div className="explore-page">
       <ExploreHeroBanner />
-      <BannerNewFilter />
-      <FoodGrid />
+      <BannerNewFilter onFiltersChange={setFilters} />
+      <FoodGrid filters={filters} />
       <TasteSurveyModal
         isOpen={showTasteSurvey}
         onClose={() => setShowTasteSurvey(false)}

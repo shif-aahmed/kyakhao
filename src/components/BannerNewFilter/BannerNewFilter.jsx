@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './BannerNewFilter.css';
 
-const BannerNewFilter = () => {
+const BannerNewFilter = ({ onFiltersChange }) => {
   const [selectedCuisine, setSelectedCuisine] = useState('All Cuisines');
   const [selectedMealType, setSelectedMealType] = useState('All Meal Types');
   const [selectedDietary, setSelectedDietary] = useState('All Dietary');
@@ -66,7 +66,13 @@ const BannerNewFilter = () => {
     setOpenDropdown(null);
   };
 
-  const handlePriceRangeChange = (value) => setPriceRange([parseInt(value), 100]);
+  const handlePriceRangeChange = (value, type) => {
+    if (type === 'min') {
+      setPriceRange([parseInt(value), priceRange[1]]);
+    } else {
+      setPriceRange([priceRange[0], parseInt(value)]);
+    }
+  };
   const handleCaloriesRangeChange = (value) => setCaloriesRange([parseInt(value), 1000]);
   const handleSpiceLevelChange = (value) => setSpiceLevel(parseInt(value));
 
@@ -79,19 +85,23 @@ const BannerNewFilter = () => {
     setPriceRange([5, 100]);
     setCaloriesRange([50, 1000]);
     setSpiceLevel(0);
+    onFiltersChange(null);
   };
 
   const applyFilters = () => {
-    console.log('Filters applied:', {
+    const filterData = {
       cuisine: selectedCuisine,
       mealType: selectedMealType,
       dietary: selectedDietary,
       portionSize: selectedPortion,
       flavorProfile: selectedFlavor,
-      priceRange,
-      caloriesRange,
+      price: priceRange,
+      calories: caloriesRange,
       spiceLevel,
-    });
+    };
+    
+    console.log('Filters applied:', filterData);
+    onFiltersChange(filterData);
   };
 
   return (
@@ -257,18 +267,34 @@ const BannerNewFilter = () => {
             </div>
           </div>
 
-          {/* Sliders */}
+          {/* Price Range Sliders */}
           <div className="banner-new-filter-row">
             <div className="banner-new-filter-group banner-new-filter-price-range-group">
               <label className="banner-new-filter-label">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
-              <input
-                type="range"
-                min="5"
-                max="100"
-                value={priceRange[0]}
-                onChange={(e) => handlePriceRangeChange(e.target.value)}
-                className="banner-new-filter-range-slider"
-              />
+              <div className="banner-new-filter-dual-slider">
+                <div className="banner-new-filter-slider-group">
+                  <label className="banner-new-filter-slider-label">Min: ${priceRange[0]}</label>
+                  <input
+                    type="range"
+                    min="5"
+                    max="100"
+                    value={priceRange[0]}
+                    onChange={(e) => handlePriceRangeChange(e.target.value, 'min')}
+                    className="banner-new-filter-range-slider"
+                  />
+                </div>
+                <div className="banner-new-filter-slider-group">
+                  <label className="banner-new-filter-slider-label">Max: ${priceRange[1]}</label>
+                  <input
+                    type="range"
+                    min="5"
+                    max="100"
+                    value={priceRange[1]}
+                    onChange={(e) => handlePriceRangeChange(e.target.value, 'max')}
+                    className="banner-new-filter-range-slider"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 

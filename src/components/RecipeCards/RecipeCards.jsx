@@ -1,11 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RecipeCards.css';
 
-const RecipeCards = ({ recipeSuggestion }) => {
-  // If API gives recipeSuggestion with results (array)
-  const apiRecipes = recipeSuggestion?.results || [];
-
-  // Static fallback recipes (used when API data not available)
+const RecipeCards = ({ filteredRecipes }) => {
+  const navigate = useNavigate();
+  // Static fallback recipes (used when no filtered data available)
   const staticRecipes = [
     {
       id: 1,
@@ -28,7 +27,7 @@ const RecipeCards = ({ recipeSuggestion }) => {
   ];
 
   // Decide which recipes to show
-  const recipesToShow = apiRecipes.length > 0 ? apiRecipes : staticRecipes;
+  const recipesToShow = filteredRecipes && filteredRecipes.length > 0 ? filteredRecipes : staticRecipes;
 
   return (
     <div className="recipe-cards">
@@ -47,7 +46,23 @@ const RecipeCards = ({ recipeSuggestion }) => {
               <p className="recipe-card-description">
                 {recipe.description || "A delicious dish you’ll love to try!"}
               </p>
-              <button className="recipe-card-button">View Details</button>
+              <button
+                className="recipe-card-button"
+                onClick={() =>
+                  navigate('/recipe', {
+                    state: {
+                      recipe: {
+                        title: recipe.title,
+                        image: recipe.image,
+                        summary: recipe.description,
+                      },
+                      related: recipesToShow.filter(r => (r.id || r.title) !== (recipe.id || recipe.title)),
+                    },
+                  })
+                }
+              >
+                View Details
+              </button>
             </div>
           </div>
         ))}

@@ -13,6 +13,27 @@
   overflow: hidden;
 }
 
+.restaurant-detail-back-btn {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: 12px;
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #000000;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.restaurant-detail-back-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .restaurant-detail-hero-image {
   position: absolute;
   top: 0;
@@ -693,30 +714,33 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .content-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .restaurant-detail-content-container {
     padding: 0 1rem;
   }
   
-  .restaurant-name {
+  .restaurant-detail-content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .restaurant-detail-header-info .restaurant-detail-name {
     font-size: 2rem;
   }
   
-  .hero-content {
+  .restaurant-detail-hero-content {
     padding: 1rem;
   }
   
-  .action-buttons-bottom {
+  .restaurant-detail-header-info .restaurant-detail-action-buttons-bottom {
     flex-direction: column;
     gap: 0.5rem;
   }
   
-  .nav-tabs {
+  .restaurant-detail-nav-tabs {
     overflow-x: auto;
   }
   
-  .nav-tab {
+  .restaurant-detail-nav-tab {
     padding: 0.75rem 1rem;
     white-space: nowrap;
   }
@@ -725,26 +749,44 @@
     flex-direction: column;
     gap: 0.75rem;
   }
+  
+  .restaurant-detail-action-buttons-right {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .restaurant-name {
+  .restaurant-detail-header-info .restaurant-detail-name {
     font-size: 1.5rem;
   }
   
-  .hero-section {
+  .restaurant-detail-hero {
     height: 50vh;
     min-height: 300px;
   }
   
-  .action-btn {
+  .restaurant-detail-action-btn {
     width: 40px;
     height: 40px;
     font-size: 1rem;
   }
   
-  .action-btn-bottom {
+  .restaurant-detail-header-info .restaurant-detail-action-btn-bottom {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+  }
+  
+  .restaurant-detail-content-container {
+    padding: 0 0.5rem;
+  }
+  
+  .restaurant-detail-nav-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .restaurant-detail-section-title {
+    font-size: 1.2rem;
   }
 }

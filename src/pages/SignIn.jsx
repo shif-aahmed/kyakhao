@@ -31,7 +31,7 @@ function SignIn() {
             <h1 className="signin-title">Sign in</h1>
             
             <p className="signup-prompt">
-              Don't have an account? <Link to="/join-now" className="signup-link">Sign Up</Link>
+              Don't have an account? <Link to="/join-now" state={{ from }} className="signup-link">Sign Up</Link>
             </p>
 
             <form className="signin-form" onSubmit={handleSubmit} autoComplete="off" noValidate>

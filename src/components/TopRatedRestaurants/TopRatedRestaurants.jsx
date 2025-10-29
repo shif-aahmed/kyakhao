@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './TopRatedRestaurants.css';
 
 const TopRatedRestaurants = () => {
+  const navigate = useNavigate();
   const restaurants = [
     {
       id: 1,
@@ -58,7 +60,16 @@ const TopRatedRestaurants = () => {
       <div className="container">
         <div className="top-rated-header">
           <h2 className="top-rated-title">Top-Rated Restaurants Near You</h2>
-          <a href="/restaurants" className="see-all-link">See All Restaurants</a>
+          <a
+            href="/"
+            className="see-all-link"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/', { state: { goToTab: 'Restaurants' } });
+            }}
+          >
+            See All Restaurants
+          </a>
         </div>
         
         <div className="top-rated-grid">

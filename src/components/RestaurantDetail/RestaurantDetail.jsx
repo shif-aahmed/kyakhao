@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faStar, 
@@ -22,6 +22,7 @@ import './RestaurantDetail.css';
 
 const RestaurantDetail = () => {
   const { id } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const [restaurant, setRestaurant] = useState(null);
   const [activeTab, setActiveTab] = useState('Overview');
@@ -590,14 +591,49 @@ const RestaurantDetail = () => {
   };
 
   useEffect(() => {
+    // Prefer data passed via navigation state
+    const fromState = location.state && location.state.restaurant;
+    if (fromState) {
+      // Map reservation card data to restaurant detail format
+      const mappedRestaurant = {
+        id: fromState.id,
+        name: fromState.name,
+        cuisine: fromState.cuisine,
+        location: fromState.location,
+        rating: fromState.rating,
+        reviews: fromState.reviews,
+        price: "$15-25", // Default price range
+        image: fromState.image,
+        heroImage: fromState.image,
+        badges: fromState.premium ? ["Premium"] : [],
+        tags: [`${Math.random().toFixed(1)} km`, "family-friendly"],
+        address: `${fromState.location}, City`,
+        phone: "+1 (555) 123-4567",
+        website: `www.${fromState.name.toLowerCase().replace(/\s+/g, '')}.com`,
+        hours: {
+          "Sunday": "11:00 AM - 10:00 PM",
+          "Monday": "11:00 AM - 10:00 PM",
+          "Tuesday": "11:00 AM - 10:00 PM",
+          "Wednesday": "11:00 AM - 10:00 PM",
+          "Thursday": "11:00 AM - 10:00 PM",
+          "Friday": "11:00 AM - 11:00 PM",
+          "Saturday": "11:00 AM - 11:00 PM"
+        },
+        features: ["Vegetarian friendly", "Accepts Credit Cards", "Lunch, Dinner"],
+        about: `Experience authentic ${fromState.cuisine} cuisine at ${fromState.name}.`,
+        ranking: `#${Math.floor(Math.random() * 10) + 1} of 83 Restaurants in ${fromState.location}`
+      };
+      setRestaurant(mappedRestaurant);
+      return;
+    }
+
     const restaurantInfo = restaurantData[id];
     if (restaurantInfo) {
       setRestaurant(restaurantInfo);
     } else {
-      // Handle restaurant not found
       navigate('/');
     }
-  }, [id, navigate]);
+  }, [id, navigate, location.state]);
 
   if (!restaurant) {
     return <div>Loading...</div>;
@@ -609,6 +645,15 @@ const RestaurantDetail = () => {
     <div className="restaurant-detail-page">
       {/* Hero Section */}
       <div className="restaurant-detail-hero">
+        <button
+          className="restaurant-detail-back-btn"
+          onClick={() => navigate(-1)}
+          aria-label="Go back"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
         <div className="restaurant-detail-hero-image">
           <img src={restaurant.heroImage} alt={restaurant.name} />
           <div className="restaurant-detail-hero-overlay"></div>
@@ -722,7 +767,7 @@ const RestaurantDetail = () => {
                           <span className="restaurant-detail-see-all-link" onClick={handleSeeAllFeatures}>See all features</span>
                         </div>
                   <div className="restaurant-detail-features-list">
-                    {restaurant.features.map((feature, index) => (
+                    {(restaurant.features || []).map((feature, index) => (
                       <div key={index} className="restaurant-detail-feature-item">
                         <FontAwesomeIcon 
                           icon={feature.includes('Vegetarian') ? faLeaf : 

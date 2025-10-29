@@ -13,17 +13,12 @@ function AIPicks() {
   const navigate = useNavigate();
   const [showTasteSurvey, setShowTasteSurvey] = useState(false);
   const [recipeSuggestion, setRecipeSuggestion] = useState(null);
+  const [filteredRecipes, setFilteredRecipes] = useState(null);
 
   useEffect(() => {
-    if (location.state?.showTasteSurvey) {
-      setShowTasteSurvey(true);
-      window.history.replaceState({}, document.title);
-      return;
-    }
-
     const isSignedIn = sessionStorage.getItem('isSignedIn') === '1';
-    const hasSubscription = sessionStorage.getItem('hasSubscription') === '1';
-    const skippedTaste = sessionStorage.getItem('didSkipTasteSurvey') === '1';
+    // Check both sessionStorage and localStorage for subscription
+    const hasSubscription = sessionStorage.getItem('hasSubscription') === '1' || localStorage.getItem('hasSubscription') === '1';
 
     if (!isSignedIn) {
       navigate('/signin', { replace: true, state: { from: '/ai-picks' } });
@@ -38,9 +33,21 @@ function AIPicks() {
       return;
     }
 
-    if (!skippedTaste) {
+    // If user has an active subscription, check if they should see the survey
+    if (location.state?.showTasteSurvey) {
       setShowTasteSurvey(true);
+      window.history.replaceState({}, document.title);
+      return;
     }
+
+    // If user has subscription and no survey needed, open AI Picks directly
+    setShowTasteSurvey(false);
+    try { 
+      sessionStorage.setItem('didSkipTasteSurvey', '1');
+      // Ensure subscription flag is maintained in both storages
+      sessionStorage.setItem('hasSubscription', '1');
+      localStorage.setItem('hasSubscription', '1');
+    } catch {}
   }, [location.state]);
 
   const handleStartSurvey = () => {
@@ -56,10 +63,13 @@ function AIPicks() {
   return (
     <div className="ai-picks-page">
       <AIPicksHeroBanner />
-      <AIPickFilter setRecipeSuggestion={setRecipeSuggestion} />
+      <AIPickFilter 
+        setRecipeSuggestion={setRecipeSuggestion} 
+        setFilteredRecipes={setFilteredRecipes} 
+      />
       <RecipeSuggestion recipeSuggestion={recipeSuggestion} />
-      <RecipeCards recipeSuggestion={recipeSuggestion} />
-      <RecipeCardsHorizontal />
+      <RecipeCards filteredRecipes={filteredRecipes} />
+      <RecipeCardsHorizontal filteredRecipes={filteredRecipes} />
 
       <TasteSurveyModal
         isOpen={showTasteSurvey}

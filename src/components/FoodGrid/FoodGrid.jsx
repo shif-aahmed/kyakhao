@@ -324,14 +324,31 @@ const FoodGrid = ({ filters = null }) => {
       }
 
       // Portion size filter
-      if (filters.portionSize !== 'All Sizes') {
+      if (filters.portionSize !== 'All Portions') {
         const portionMap = {
           'Small': ['Chocolate Lava Cake', 'Miso Soup', 'Chocolate Mousse'],
           'Medium': ['Margherita Pizza', 'Tacos Al Pastor', 'Vegan Buddha Bowl', 'Pad Thai', 'Caesar Salad', 'Chicken Wings', 'Ramen Bowl', 'Greek Gyro', 'Falafel Wrap', 'Pasta Carbonara', 'Chicken Tikka', 'Quinoa Salad', 'Vegetable Stir Fry'],
           'Large': ['Butter Chicken', 'Sushi Platter', 'Biryani', 'Beef Burger', 'Fish & Chips', 'BBQ Ribs', 'Chicken Curry', 'Beef Steak'],
-          'Extra Large': ['Sushi Platter', 'BBQ Ribs', 'Beef Steak']
+          'Family Size': ['Sushi Platter', 'BBQ Ribs', 'Beef Steak']
         };
         if (portionMap[filters.portionSize] && !portionMap[filters.portionSize].includes(item.title)) {
+          return false;
+        }
+      }
+
+      // Flavor profile filter
+      if (filters.flavorProfile !== 'All Flavors') {
+        const flavorMap = {
+          'Sweet': ['Chocolate Lava Cake', 'Chocolate Mousse'],
+          'Savory': ['Butter Chicken', 'Margherita Pizza', 'Tacos Al Pastor', 'Sushi Platter', 'Biryani', 'Pad Thai', 'Beef Burger', 'Caesar Salad', 'Chicken Wings', 'Fish & Chips', 'Ramen Bowl', 'Greek Gyro', 'BBQ Ribs', 'Falafel Wrap', 'Chicken Curry', 'Pasta Carbonara', 'Miso Soup', 'Chicken Tikka', 'Quinoa Salad', 'Beef Steak', 'Vegetable Stir Fry'],
+          'Spicy': ['Butter Chicken', 'Tacos Al Pastor', 'Biryani', 'Chicken Wings', 'Ramen Bowl', 'BBQ Ribs', 'Chicken Curry', 'Chicken Tikka'],
+          'Umami': ['Sushi Platter', 'Ramen Bowl', 'Miso Soup'],
+          'Sour': ['Caesar Salad'],
+          'Bitter': ['Quinoa Salad'],
+          'Tangy': ['BBQ Ribs'],
+          'Mild': ['Margherita Pizza', 'Sushi Platter', 'Vegan Buddha Bowl', 'Caesar Salad', 'Fish & Chips', 'Falafel Wrap', 'Miso Soup', 'Quinoa Salad', 'Vegetable Stir Fry']
+        };
+        if (flavorMap[filters.flavorProfile] && !flavorMap[filters.flavorProfile].includes(item.title)) {
           return false;
         }
       }

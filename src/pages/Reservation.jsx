@@ -9,6 +9,8 @@ import TasteSurveyModal from '../components/TasteSurveyModal/TasteSurveyModal'
 function Reservation() {
   const location = useLocation()
   const [showTasteSurvey, setShowTasteSurvey] = useState(false)
+  const [activeFilters, setActiveFilters] = useState({})
+  const [sortBy, setSortBy] = useState('Top Rated')
   
   console.log('Reservation page loaded')
 
@@ -24,8 +26,12 @@ function Reservation() {
   return (
     <div>
       <ReservationHeroBanner />
-      <FilterBar />
-      <AllReservation />
+      <FilterBar 
+        onFiltersChange={setActiveFilters}
+        sortBy={sortBy}
+        onSortChange={setSortBy}
+      />
+      <AllReservation filters={activeFilters} sortBy={sortBy} />
       <ReservationCTA />
       <TasteSurveyModal
         isOpen={showTasteSurvey}

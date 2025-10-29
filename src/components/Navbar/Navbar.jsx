@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PersonalizeModal from '../PersonalizeModal/PersonalizeModal';
 import logoImage from '../../assets/logo.png';
 import './Navbar.css';
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showPersonalizeModal, setShowPersonalizeModal] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -24,8 +25,25 @@ const Navbar = () => {
     } catch {
       // ignore storage errors
     }
+    try {
+      const authed = sessionStorage.getItem('isSignedIn') === '1';
+      if (authed) {
+        const hasSub = sessionStorage.getItem('hasSubscription') === '1' || localStorage.getItem('hasSubscription') === '1';
+        if (hasSub) {
+          navigate('/ai-picks', { replace: true });
+        } else {
+          navigate('/pricing', { replace: true });
+        }
+        return;
+      }
+    } catch {}
     setShowPersonalizeModal(true);
     closeMobileMenu();
+  };
+
+  const handleSignInClick = (e) => {
+    e.preventDefault();
+    navigate('/signin', { state: { from: location.pathname } });
   };
 
   const handleCloseModal = () => {
@@ -64,7 +82,7 @@ const Navbar = () => {
 </svg>
 
           </div>
-          <Link to="/signin" className="sign-in-btn">Sign In</Link>
+          <a href="/signin" className="sign-in-btn" onClick={handleSignInClick}>Sign In</a>
         </div>
 
         {/* Navigation Links */}

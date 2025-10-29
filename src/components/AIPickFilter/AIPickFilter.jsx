@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AIPickFilter.css';
 
-const AIPickFilter = ({ setRecipeSuggestion }) => {
+const AIPickFilter = ({ setRecipeSuggestion, setFilteredRecipes }) => {
   const [selectedMood, setSelectedMood] = useState('Happy');
   const [moodSlider, setMoodSlider] = useState(25);
   const [dietaryNeeds, setDietaryNeeds] = useState({
@@ -82,27 +82,55 @@ const AIPickFilter = ({ setRecipeSuggestion }) => {
 
     try {
       const res = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&diet=${diet}&number=1&addRecipeInformation=true&apiKey=${apiKey}`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&diet=${diet}&number=5&addRecipeInformation=true&apiKey=${apiKey}`
       );
       const data = await res.json();
 
       if (data.results && data.results.length > 0) {
-        const recipe = data.results[0];
+        // Set main suggestion (first recipe)
+        const mainRecipe = data.results[0];
         setRecipeSuggestion({
-          title: recipe.title,
-          image: recipe.image,
-          summary: recipe.summary?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description available.',
+          title: mainRecipe.title,
+          image: mainRecipe.image,
+          summary: mainRecipe.summary?.replace(/<\/?[^>]+(>|$)/g, '') || 'No description available.',
         });
+
+        // Set filtered recipes for cards (all recipes)
+        const recipesForCards = data.results.map(recipe => ({
+          id: recipe.id,
+          title: recipe.title,
+          description: recipe.summary?.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 100) + '...' || 'A delicious dish you\'ll love to try!',
+          image: recipe.image,
+        }));
+        setFilteredRecipes(recipesForCards);
       } else {
-        // No API results — pick a random fallback recipe
+        // No API results — use fallback recipes
         const randomRecipe = fallbackSuggestions[Math.floor(Math.random() * fallbackSuggestions.length)];
         setRecipeSuggestion(randomRecipe);
+        
+        // Use fallback suggestions for cards
+        const fallbackCards = fallbackSuggestions.slice(0, 3).map((recipe, index) => ({
+          id: index + 1,
+          title: recipe.title,
+          description: recipe.summary.substring(0, 100) + '...',
+          image: recipe.image,
+        }));
+        setFilteredRecipes(fallbackCards);
       }
     } catch (err) {
       console.error('Error fetching recipe:', err);
-      // API failed — pick a random fallback recipe
+      // API failed — use fallback recipes
       const randomRecipe = fallbackSuggestions[Math.floor(Math.random() * fallbackSuggestions.length)];
       setRecipeSuggestion(randomRecipe);
+      
+      // Use fallback suggestions for cards
+      const fallbackCards = fallbackSuggestions.slice(0, 3).map((recipe, index) => ({
+        id: index + 1,
+        title: recipe.title,
+        description: recipe.summary.substring(0, 100) + '...',
+        image: recipe.image,
+      }));
+      setFilteredRecipes(fallbackCards);
     } finally {
       setLoading(false);
     }

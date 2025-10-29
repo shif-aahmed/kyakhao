@@ -21,8 +21,14 @@ const TasteSurveyCompletion = ({ isOpen, onClose, onViewSuggestions, onEditPrefe
   }, [isOpen]);
 
   const handleShowSuggestions = () => {
-    onClose(); // Close the modal first
-    navigate('/ai-picks'); // Navigate to AI Picks page
+    onClose();
+    try { 
+      sessionStorage.setItem('didSkipTasteSurvey', '1');
+      // Ensure subscription flag is maintained in both storages
+      sessionStorage.setItem('hasSubscription', '1');
+      localStorage.setItem('hasSubscription', '1');
+    } catch {}
+    navigate('/ai-picks', { replace: true });
   };
 
   if (!isOpen) return null;

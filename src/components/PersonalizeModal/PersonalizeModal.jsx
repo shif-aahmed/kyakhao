@@ -1,13 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './PersonalizeModal.css';
 
 const PersonalizeModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLoginSignUpClick = () => {
     onClose();
-    navigate('/join-now', { replace: true });
+    navigate('/join-now', { replace: true, state: { from: location.pathname } });
   };
 
   if (!isOpen) return null;

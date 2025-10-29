@@ -809,10 +809,11 @@
     font-size: 2.5rem;
   }
   
+  /* Keep breakdown rows horizontal on small screens */
   .reviews-breakdown-item,
   .reviews-aspect-item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
   }
   

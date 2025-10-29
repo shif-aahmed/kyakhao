@@ -206,6 +206,27 @@
   border: none;
 }
 
+/* Dual Slider Layout */
+.banner-new-filter-dual-slider {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.banner-new-filter-slider-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.banner-new-filter-slider-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-align: center;
+}
+
 /* Action Buttons */
 .banner-new-filter-actions {
   display: flex;

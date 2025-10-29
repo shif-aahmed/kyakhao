@@ -6,6 +6,66 @@
   margin: 0 auto;
 }
 
+/* Header */
+.community-creations-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 0 1rem 0;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.community-creations-title {
+  font-size: 2.5rem; /* match Try Something New */
+  font-weight: 700;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 1rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.community-creations-subtitle {
+  font-size: 1.1rem; /* match Try Something New */
+  color: #666;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .community-creations-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+  .community-creations-subtitle {
+    font-size: 1rem;
+    text-align: left;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 480px) {
+  .community-creations-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  .community-creations-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
 .community-creations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

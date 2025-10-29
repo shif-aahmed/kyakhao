@@ -33,17 +33,20 @@ const PopularFusionTags = () => {
             Find dishes by trending flavor combinations.
           </p>
         </div>
-        
-        <div className="fusion-tags-list">
-          {fusionTags.map((tag, index) => (
-            <button
-              key={index}
-              className={`fusion-tag ${selectedTag === tag ? 'active' : ''}`}
-              onClick={() => handleTagClick(tag)}
-            >
-              {tag}
-            </button>
-          ))}
+
+        {/* Auto-scrolling ticker */}
+        <div className="fusion-tags-viewport">
+          <div className="fusion-tags-track">
+            {[...fusionTags, ...fusionTags].map((tag, index) => (
+              <button
+                key={`${tag}-${index}`}
+                className={`fusion-tag ${selectedTag === tag ? 'active' : ''}`}
+                onClick={() => handleTagClick(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@
   padding: 80px 20px 40px 20px;
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Header Section */
@@ -17,19 +18,21 @@
 }
 
 .pricing-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
   font-weight: 700;
   color: #D42814;
   margin: 0 0 16px 0;
   line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 
 .pricing-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
   color: #1f2937;
   margin: 0 0 32px 0;
   line-height: 1.5;
   font-weight: 400;
+  overflow-wrap: anywhere;
 }
 
 .pricing-cta-btn {
@@ -70,7 +73,7 @@
   text-align: center;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   border: 2px solid #e5e7eb;
   box-sizing: border-box;
   display: flex;
@@ -107,8 +110,8 @@
 }
 
 .pricing-card-icon svg {
-  width: 32px;
-  height: 24px;
+  width: clamp(24px, 2.2vw + 16px, 32px);
+  height: auto;
   filter: drop-shadow(0 2px 4px rgba(234, 179, 8, 0.3));
 }
 
@@ -116,7 +119,7 @@
 
 /* Card Title */
 .pricing-card-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 0.8vw + 0.9rem, 1.5rem);
   font-weight: 700;
   color: #1f2937;
   margin: 0 0 16px 0;
@@ -129,14 +132,14 @@
 }
 
 .price-amount {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 2.2vw + 1rem, 2.5rem);
   font-weight: 700;
   color: #1f2937;
   line-height: 1;
 }
 
 .price-period {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 1rem);
   color: #6b7280;
   font-weight: 400;
   margin-left: 4px;
@@ -144,7 +147,7 @@
 
 /* Card Description */
 .pricing-card-description {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1rem);
   color: #6b7280;
   line-height: 1.5;
   margin: 0 0 32px 0;
@@ -164,7 +167,7 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 16px;
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 0.95rem);
   color: #374151;
   line-height: 1.4;
 }
@@ -184,13 +187,13 @@
   width: 100%;
   padding: 16px 24px;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1rem);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   font-family: 'Inter', sans-serif;
   border: 2px solid;
-  min-height: 56px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,10 +239,33 @@
   font-weight: 400;
 }
 
+/* Large screens */
+@media (min-width: 1280px) {
+  .pricing-cards-container {
+    gap: 36px;
+  }
+}
+
+/* Tablets / small laptops */
+@media (max-width: 1024px) {
+  .pricing-header {
+    margin-bottom: 52px;
+  }
+
+  .pricing-cards-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .pricing-card {
+    padding: 36px 28px;
+  }
+}
+
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
   .pricing-page {
-    padding: 60px 16px 32px 16px;
+    padding: 100px 16px 32px 16px;
   }
 
   .pricing-header {
@@ -293,12 +319,14 @@
   .pricing-card-btn {
     padding: 14px 20px;
     font-size: 0.95rem;
+    min-height: 48px;
   }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
   .pricing-page {
-    padding: 40px 12px 24px 12px;
+    padding: 80px 12px 24px 12px;
   }
 
   .pricing-header {
@@ -350,10 +378,16 @@
   .pricing-card-btn {
     padding: 12px 18px;
     font-size: 0.9rem;
+    min-height: 46px;
   }
 }
 
+/* Very small devices */
 @media (max-width: 360px) {
+  .pricing-page {
+    padding: 70px 12px 20px 12px;
+  }
+
   .pricing-title {
     font-size: 1.625rem;
   }

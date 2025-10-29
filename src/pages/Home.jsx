@@ -23,6 +23,8 @@ import Benefits from '../components/Benefits/Benefits'
 import LoyaltyTiers from '../components/LoyaltyTiers/LoyaltyTiers'
 import UserProfile from '../components/UserProfile/UserProfile'
 import NewKyaKhao from '../components/NewKyaKhao/NewKyaKhao'
+import PopularFusionTags from '../components/PopularFusionTags/PopularFusionTags'
+import MeetCreators from '../components/MeetCreators/MeetCreators'
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Search All')
@@ -67,6 +69,8 @@ function Home() {
         <div>
           <TrySomethingNew onVideoClick={handleVideoClick} />
           <CommunityCreations />
+          <PopularFusionTags />
+          <MeetCreators />
         </div>
       )
     }

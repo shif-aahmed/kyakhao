@@ -134,6 +134,6 @@
 @media (max-width: 540px) {
   .payment-card { padding: 22px 16px; }
   .ps-two-cols { grid-template-columns: 1fr; }
-  .ps-title { font-size: 20px; margin-left: 0; }
+  .ps-title { font-size: 20px; margin-left: 0; margin-top: 24px; padding-left: 36px; }
   .ps-brands { margin-left: 0; }
 }

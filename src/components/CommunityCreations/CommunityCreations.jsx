@@ -78,6 +78,10 @@ const CommunityCreations = () => {
 
   return (
     <div className="community-creations-container">
+      <div className="community-creations-header">
+        <h2 className="community-creations-title">Community Creations</h2>
+        <p className="community-creations-subtitle">Explore unique fusion recipes shared by our vibrant community.</p>
+      </div>
       <div className="community-creations-grid">
         {recipes.map((recipe) => (
           <div key={recipe.id} className="recipe-card">

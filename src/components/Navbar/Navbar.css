@@ -207,16 +207,6 @@
   color: #1f2937;
 }
 
-.notification-badge {
-  position: absolute;
-  top: -2px;
-  right: -1.1px;
-  width: 8px;
-  height: 8px;
-  background-color: #D42814;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px #e5e7eb;
-}
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
@@ -384,12 +374,7 @@
     height: 18px;
   }
   
-  .notification-badge {
-    width: 6px;
-    height: 6px;
-    top: -1px;
-    right: -1px;
-  }
+ 
 }
 
 @media (max-width: 480px) {

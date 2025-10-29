@@ -123,33 +123,11 @@
 /* ===== Red Icon (Explore Page Only) ===== */
 .red-icon-container {
   position: absolute;
-  top: 0;
+  top: -60px;
   right: 0;
   z-index: 10;
-}
-
-.red-icon {
-  width: 48px;
-  height: 48px;
-  background: #dc2626;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.red-icon:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
-}
-
-.red-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
 /* ===== Separator Line ===== */
 .footer-separator {
   width: 100%;

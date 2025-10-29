@@ -112,6 +112,181 @@ const Reviews = () => {
     const modal = document.createElement('div');
     modal.className = 'reviews-modal-overlay';
     modal.innerHTML = `
+      <div class="reviews-modal-content-new">
+        <h3 class="reviews-modal-title-new">Write a Review</h3>
+        
+        <!-- Rating Section -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-label-new">How would you rate your experience?</label>
+          <div class="reviews-modal-stars-new" id="rating-stars-new">
+            ${[...Array(5)].map((_, i) => `<span class="reviews-modal-star-new" data-rating="${i + 1}" onclick="updateRating(${i + 1})">★</span>`).join('')}
+            <span class="reviews-modal-rating-text" id="rating-text">Average</span>
+          </div>
+        </div>
+
+        <!-- When did you go Section -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-label-new">When did you go?</label>
+          <div class="reviews-modal-dropdown-new">
+            <select class="reviews-modal-select-new" id="visit-date">
+              <option value="October 2023">October 2023</option>
+              <option value="September 2023">September 2023</option>
+              <option value="August 2023">August 2023</option>
+              <option value="July 2023">July 2023</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Who did you go with Section -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-label-new">Who did you go with?</label>
+          <div class="reviews-modal-tags-new">
+            <button class="reviews-modal-tag-new active" data-type="business">Business</button>
+            <button class="reviews-modal-tag-new" data-type="couples">Couples</button>
+            <button class="reviews-modal-tag-new" data-type="family">Family</button>
+            <button class="reviews-modal-tag-new" data-type="friends">Friends</button>
+            <button class="reviews-modal-tag-new" data-type="solo">Solo</button>
+          </div>
+        </div>
+
+        <!-- Write your review Section -->
+        <div class="reviews-modal-section-new">
+          <div class="reviews-modal-header-new">
+            <label class="reviews-modal-label-new">Write your review</label>
+            <span class="reviews-modal-tips-link">💡 Review tips</span>
+          </div>
+          <textarea 
+            placeholder="bbbbbb" 
+            class="reviews-modal-textarea-new"
+            id="review-text-new"
+            maxlength="500"
+          ></textarea>
+          <div class="reviews-modal-char-count">0/500 characters</div>
+        </div>
+
+        <!-- Title your review Section -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-label-new">Title your review</label>
+          <input 
+            type="text" 
+            placeholder="Give us the title of your experience" 
+            class="reviews-modal-input-new"
+            id="review-title-new"
+            maxlength="25"
+          />
+          <div class="reviews-modal-char-count">0/25 characters</div>
+        </div>
+
+        <!-- Add photos Section -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-label-new">Add some photos</label>
+          <div class="reviews-modal-subtitle">Optional</div>
+          <div class="reviews-modal-photo-upload" onclick="document.getElementById('review-images-new').click()">
+            <div class="reviews-modal-camera-icon">📷</div>
+            <div class="reviews-modal-upload-text">Click to add photos</div>
+            <div class="reviews-modal-upload-subtext">or drag and drop</div>
+          </div>
+          <input 
+            type="file" 
+            id="review-images-new"
+            accept="image/*"
+            multiple
+            style="display: none;"
+          />
+        </div>
+
+        <!-- Certification Checkbox -->
+        <div class="reviews-modal-section-new">
+          <label class="reviews-modal-checkbox-label">
+            <input type="checkbox" class="reviews-modal-checkbox-new" id="certification-checkbox" />
+            <span class="reviews-modal-checkbox-text">
+              I certify that this review is based on my own experience and is my genuine opinion of this restaurant, and that I have no personal or business relationship with this establishment, and have not been offered any incentive or payment originating from the establishment to write this review. I understand that Tripadvisor has a zero-tolerance policy on fake reviews, consequences of review fraud.
+            </span>
+          </label>
+        </div>
+
+        <!-- Continue Button -->
+        <div class="reviews-modal-buttons-new">
+          <button 
+            onclick="window.submitReviewNew()" 
+            class="reviews-modal-continue-btn"
+          >Continue</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.remove();
+      }
+    });
+
+    // Add event listeners for new functionality
+    setupNewModalEvents(modal);
+  };
+
+  // Setup event listeners for the new modal
+  const setupNewModalEvents = (modal) => {
+    // Rating stars
+    const stars = modal.querySelectorAll('.reviews-modal-star-new');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => updateRating(index + 1));
+    });
+
+    // Tag selection
+    const tags = modal.querySelectorAll('.reviews-modal-tag-new');
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        tags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+      });
+    });
+
+    // Character count for textarea
+    const textarea = modal.querySelector('#review-text-new');
+    const textareaCount = modal.querySelector('.reviews-modal-char-count');
+    if (textarea && textareaCount) {
+      textarea.addEventListener('input', () => {
+        textareaCount.textContent = `${textarea.value.length}/500 characters`;
+      });
+    }
+
+    // Character count for title input
+    const titleInput = modal.querySelector('#review-title-new');
+    const titleCount = modal.querySelectorAll('.reviews-modal-char-count')[1];
+    if (titleInput && titleCount) {
+      titleInput.addEventListener('input', () => {
+        titleCount.textContent = `${titleInput.value.length}/25 characters`;
+      });
+    }
+  };
+
+  // Update rating function
+  window.updateRating = (rating) => {
+    const stars = document.querySelectorAll('.reviews-modal-star-new');
+    const ratingText = document.getElementById('rating-text');
+    const ratingTexts = ['Poor', 'Fair', 'Average', 'Good', 'Excellent'];
+    
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.style.color = '#F59E0B';
+      } else {
+        star.style.color = '#D1D5DB';
+      }
+    });
+    
+    if (ratingText) {
+      ratingText.textContent = ratingTexts[rating - 1];
+    }
+  };
+
+  const handleWriteReviewOld = () => {
+    // Create review form
+    const modal = document.createElement('div');
+    modal.className = 'reviews-modal-overlay';
+    modal.innerHTML = `
       <div class="reviews-modal-content-large">
         <h3 class="reviews-modal-title">Write a Review</h3>
         <div class="reviews-modal-section">
@@ -256,6 +431,78 @@ const Reviews = () => {
 
   // Make submitReview available globally for the onclick handler
   window.submitReview = submitReview;
+
+  // New submit function for the updated modal
+  const submitReviewNew = () => {
+    const titleInput = document.getElementById('review-title-new');
+    const textInput = document.getElementById('review-text-new');
+    const starsContainer = document.getElementById('rating-stars-new');
+    const imageInput = document.getElementById('review-images-new');
+    const certificationCheckbox = document.getElementById('certification-checkbox');
+    
+    if (!titleInput || !textInput || !starsContainer) return;
+    
+    const title = titleInput.value.trim();
+    const text = textInput.value.trim();
+    
+    // Get selected rating
+    const selectedStars = starsContainer.querySelectorAll('.reviews-modal-star-new[style*="color: rgb(245, 158, 11)"]');
+    const rating = selectedStars.length;
+    
+    if (!title || !text || rating === 0) {
+      alert('Please fill in all fields and select a rating');
+      return;
+    }
+
+    if (!certificationCheckbox.checked) {
+      alert('Please certify that this review is based on your own experience');
+      return;
+    }
+    
+    // Get uploaded images
+    const images = [];
+    if (imageInput && imageInput.files) {
+      for (let i = 0; i < imageInput.files.length; i++) {
+        const file = imageInput.files[i];
+        const imageUrl = URL.createObjectURL(file);
+        images.push(imageUrl);
+      }
+    }
+    
+    // Create new review object
+    const newReview = {
+      id: Date.now(),
+      reviewer: {
+        name: 'You',
+        location: 'Local',
+        contributions: 1,
+        avatar: null
+      },
+      rating: rating,
+      title: title,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+      context: 'SOLO',
+      text: text,
+      images: images,
+      writtenDate: `Written ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
+      helpful: 0
+    };
+    
+    // Add review to state
+    setReviews(prevReviews => [newReview, ...prevReviews]);
+    
+    // Close modal
+    const modal = document.querySelector('.reviews-modal-overlay');
+    if (modal) {
+      modal.remove();
+    }
+    
+    // Show success message
+    alert('Review submitted successfully!');
+  };
+
+  // Make submitReviewNew available globally
+  window.submitReviewNew = submitReviewNew;
 
   const handleFilters = () => {
     // Create filters panel
